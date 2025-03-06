@@ -135,7 +135,7 @@ sphinxcontrib-serializinghtml==2.0.0
 sphinxcontrib-svg2pdfconverter[CairoSVG]
 sphinxemoji
     # via sphinx
-stevedore==5.4.0
+stevedore==5.4.1
     # via doc8
 urllib3==2.2.3
     # via
