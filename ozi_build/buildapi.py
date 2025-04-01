@@ -2,6 +2,7 @@
 
 import logging
 import os
+import re
 import shutil
 import subprocess
 import sysconfig
@@ -24,6 +25,10 @@ from .metadata import get_python_bin
 from .pep425tags import get_platform_tag
 
 log = logging.getLogger(__name__)
+
+
+def normalize(name: str) -> str:
+    return re.sub(r"[-_.]+", "-", name).lower()
 
 
 def get_requires_for_build_wheel(config_settings=None):
@@ -62,7 +67,9 @@ def prepare_metadata_for_build_wheel(
 
     dist_info = Path(
         metadata_directory,
-        '{}-{}.dist-info'.format(config['module'].replace('-', '_'), config['version']),
+        '{}-{}.dist-info'.format(
+            normalize(config['module']).replace('-', '_'), config['version']
+        ),
     )
     dist_info.mkdir(exist_ok=True)
 
@@ -118,7 +125,7 @@ class WheelBuilder:
         else:
             abi = config.get('pure-python-abi', get_abi(python))
         target_fp = wheel_directory / '{}-{}-{}-{}.whl'.format(
-            config['module'].replace('-', '_'),
+            normalize(config['module']).replace('-', '_'),
             config['version'],
             abi,
             platform_tag,
@@ -188,7 +195,7 @@ def build_sdist(sdist_directory, config_settings=None):
             # OZI uses setuptools_scm to create PKG-INFO
             pkg_info = config.get_metadata()
             distfilename = '{}-{}.tar.gz'.format(
-                config['module'].replace('-', '_'), config['version']
+                normalize(config['module']).replace('-', '_'), config['version']
             )
             target = distdir / distfilename
             source_date_epoch = os.environ.get('SOURCE_DATE_EPOCH', '')
