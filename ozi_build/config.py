@@ -26,10 +26,6 @@ elif sys.version_info < (3, 11):
 log = logging.getLogger(__name__)
 
 
-def normalize(name: str) -> str:
-    return re.sub(r"[-_.]+", "-", name).lower()
-
-
 class Config:
     def __init__(self, builddir=None):
         config = self.__get_config()
@@ -128,7 +124,7 @@ class Config:
 
         self['version'] = project['version']
         if 'module' not in self:
-            self['module'] = normalize(project['descriptive_name'])
+            self['module'] = project['descriptive_name']
         if 'license-expression' not in self:
             self['license-expression'] = project.get('license', '')[0]
             if 'license-expression' == '':
