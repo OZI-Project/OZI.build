@@ -18,6 +18,9 @@
 ### Build system
 
 
+* build: remove OZI.build from deps — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`0d63bc2`](https://github.com/OZI-Project/OZI.build/commit/0d63bc289dd84f0263541ee63fac880e777b3923))
+
 * build(deps): bump actions/download-artifact from 4.1.8 to 4.2.1
 
 Bumps [actions/download-artifact](https://github.com/actions/download-artifact) from 4.1.8 to 4.2.1.
