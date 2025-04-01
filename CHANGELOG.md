@@ -5,6 +5,12 @@
 ### Bug fixes
 
 
+* fix: correct name normalization — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`2ba634b`](https://github.com/OZI-Project/OZI.build/commit/2ba634bf518023161006d2dd9ed70d61143cc0ca))
+
+* fix: correct name normalization — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`d17df08`](https://github.com/OZI-Project/OZI.build/commit/d17df0876cef25f5952d43df3bb318e2367a8fed))
+
 * fix: normalize package name in dist files — Eden Ross Duff MSc <rjdbcm@outlook.com>
 ([`aa7f356`](https://github.com/OZI-Project/OZI.build/commit/aa7f3569bc2f1e64cd833754a5b5274cffb500ba))
 
