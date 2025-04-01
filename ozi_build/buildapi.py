@@ -187,7 +187,9 @@ def build_sdist(sdist_directory, config_settings=None):
                 mesondisttar.extract(entry, installdir)
             # OZI uses setuptools_scm to create PKG-INFO
             pkg_info = config.get_metadata()
-            distfilename = '{}-{}.tar.gz'.format(config['module'].replace('-', '_'), config['version'])
+            distfilename = '{}-{}.tar.gz'.format(
+                config['module'].replace('-', '_'), config['version']
+            )
             target = distdir / distfilename
             source_date_epoch = os.environ.get('SOURCE_DATE_EPOCH', '')
             mtime = int(source_date_epoch) if source_date_epoch else None
