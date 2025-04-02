@@ -104,7 +104,6 @@ class WheelBuilder:
 
     def build(self, wheel_directory, config_settings, metadata_dir):
         config = Config()
-
         args = [
             self.builddir.name,
             '--prefix',
@@ -112,7 +111,8 @@ class WheelBuilder:
         ] + config.get('meson-options', [])
         meson_configure(*args, config_settings=config_settings)
         config.builddir = self.builddir.name
-
+        if config['version'] == '%OZIBUILDVERSION%':
+            config['version'] = Path(os.getcwd()).name.split('-')[1]
         metadata_dir = prepare_metadata_for_build_wheel(
             wheel_directory, builddir=self.builddir.name, config=config
         )
@@ -168,6 +168,11 @@ def build_wheel(wheel_directory, config_settings=None, metadata_directory=None):
     return WheelBuilder().build(Path(wheel_directory), config_settings, metadata_directory)
 
 
+def adjust_name(info: tarfile.TarInfo) -> tarfile.TarInfo:
+    info.name = normalize(info.name).replace('-', '_')
+    return info
+
+
 def build_sdist(sdist_directory, config_settings=None):
     """Builds an sdist, places it in sdist_directory"""
     distdir = Path(sdist_directory)
@@ -183,7 +188,6 @@ def build_sdist(sdist_directory, config_settings=None):
 
             config = Config(builddir)
             meson('dist', '--no-tests', '-C', builddir)
-
             tf_dir = '{}-{}'.format(config['module'], config['version'])
             mesondistfilename = '%s.tar.xz' % tf_dir
             mesondisttar = tarfile.open(Path(builddir) / 'meson-dist' / mesondistfilename)
@@ -208,7 +212,14 @@ def build_sdist(sdist_directory, config_settings=None):
                         fileobj=gz,
                         format=tarfile.PAX_FORMAT,
                     ) as tf:
-                        tf.add(tf_dir, recursive=True)
+                        tf.add(
+                            tf_dir,
+                            arcname='{}-{}'.format(
+                                normalize(config['module']).replace('-', '_'),
+                                config['version'],
+                            ),
+                            recursive=True,
+                        )
                         pkginfo_path = Path(installdir) / tf_dir / 'PKG-INFO'
                         if not pkginfo_path.exists():
                             with open(pkginfo_path, mode='w') as fpkginfo:
