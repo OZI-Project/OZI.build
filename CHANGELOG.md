@@ -5,6 +5,12 @@
 ### Bug fixes
 
 
+* fix: normalize PKG-INFO dir
+([`667d7c7`](https://github.com/OZI-Project/OZI.build/commit/667d7c7f00f17a7e5d493d28e363d6c99bddb6a3))
+
+* fix: normalize PKG-INFO dir
+([`0f34d40`](https://github.com/OZI-Project/OZI.build/commit/0f34d4067138823eed0bae3e6c02d13c1a7818f5))
+
 * fix: correct name normalization — Eden Ross Duff MSc <rjdbcm@outlook.com>
 ([`2ba634b`](https://github.com/OZI-Project/OZI.build/commit/2ba634bf518023161006d2dd9ed70d61143cc0ca))
 
