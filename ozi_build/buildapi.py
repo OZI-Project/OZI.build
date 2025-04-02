@@ -225,5 +225,11 @@ def build_sdist(sdist_directory, config_settings=None):
                             with open(pkginfo_path, mode='w') as fpkginfo:
                                 fpkginfo.write(pkg_info)
                                 fpkginfo.flush()
-                                tf.add(Path(tf_dir) / 'PKG-INFO')
+                                tf.add(
+                                    Path(tf_dir) / 'PKG-INFO',
+                                    arcname='{}-{}'.format(
+                                        normalize(config['module']).replace('-', '_'),
+                                        config['version'],
+                                    ),
+                                )
     return target.name
