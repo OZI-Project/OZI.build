@@ -227,9 +227,12 @@ def build_sdist(sdist_directory, config_settings=None):
                                 fpkginfo.flush()
                                 tf.add(
                                     Path(tf_dir) / 'PKG-INFO',
-                                    arcname='{}-{}'.format(
-                                        normalize(config['module']).replace('-', '_'),
-                                        config['version'],
-                                    ),
+                                    arcname=Path(
+                                        '{}-{}'.format(
+                                            normalize(config['module']).replace('-', '_'),
+                                            config['version'],
+                                        )
+                                    )
+                                    / 'PKG-INFO',
                                 )
     return target.name
