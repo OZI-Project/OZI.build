@@ -1,4 +1,96 @@
 # OZI.build CHANGELOG
+## 1.13.1 (2025-04-08)
+
+
+### Build system
+
+
+* build(deps): bump OZI-Project/publish from 1.13.0 to 1.13.1
+
+Bumps [OZI-Project/publish](https://github.com/ozi-project/publish) from 1.13.0 to 1.13.1.
+- [Release notes](https://github.com/ozi-project/publish/releases)
+- [Commits](https://github.com/ozi-project/publish/compare/dedb3175dc5d4bb29bcee5a7b659ad7f42c5c68c...26f38aa55610d51537ae92c1e89464a18959ba90)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/publish
+  dependency-version: 1.13.1
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`a438a5a`](https://github.com/OZI-Project/OZI.build/commit/a438a5ac8e7d2f5dad2c2b7c6c655a642d22fdbd))
+
+* build(deps): bump OZI-Project/draft from 1.13.0 to 1.13.1
+
+Bumps [OZI-Project/draft](https://github.com/ozi-project/draft) from 1.13.0 to 1.13.1.
+- [Release notes](https://github.com/ozi-project/draft/releases)
+- [Commits](https://github.com/ozi-project/draft/compare/917b6a5d9a39df52cbdc3a15565c58dfb9b38a10...ed08d630ad83cfd14061b78cf695c20eb51984a5)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/draft
+  dependency-version: 1.13.1
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`1c20169`](https://github.com/OZI-Project/OZI.build/commit/1c20169531c31e15aa6a124991ec37acbe46cf06))
+
+* build(deps): bump OZI-Project/checkpoint from 1.6.0 to 1.7.0
+
+Bumps [OZI-Project/checkpoint](https://github.com/ozi-project/checkpoint) from 1.6.0 to 1.7.0.
+- [Release notes](https://github.com/ozi-project/checkpoint/releases)
+- [Commits](https://github.com/ozi-project/checkpoint/compare/175eae79f299d6dbad474024b5f791368bd5de85...bec3d96cd1cb3bbce358fbeabc70eb25482bd3bf)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/checkpoint
+  dependency-version: 1.7.0
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`ceb9ee2`](https://github.com/OZI-Project/OZI.build/commit/ceb9ee2cae10f39c0c066e12d0120cff30d53002))
+
+* build(deps): bump meson[ninja] from 1.7.1 to 1.7.2 in /doc
+
+Bumps [meson[ninja]](https://github.com/mesonbuild/meson) from 1.7.1 to 1.7.2.
+- [Release notes](https://github.com/mesonbuild/meson/releases)
+- [Commits](https://github.com/mesonbuild/meson/compare/1.7.1...1.7.2)
+
+
+updated-dependencies:
+- dependency-name: meson[ninja]
+  dependency-version: 1.7.2
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`d69bd61`](https://github.com/OZI-Project/OZI.build/commit/d69bd6108260e0e0bfa9f6cbcce0327b3f1907b8))
+
+* build(deps): update ozi-build requirement from ~=1.12 to ~=1.13 in /doc
+
+
+updated-dependencies:
+- dependency-name: ozi-build
+  dependency-version: 1.13.0
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`f1d4511`](https://github.com/OZI-Project/OZI.build/commit/f1d45116dae8206b0b012d8ad0a8cde9f350d7ca))
+
+* build(deps): bump github/codeql-action from 3.28.13 to 3.28.15
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.28.13 to 3.28.15.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/1b549b9259bda1cb5ddde3b41741a82a2d15a841...45775bd8235c68ba998cffa5171334d58593da47)
+
+
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-version: 3.28.15
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`d9cda30`](https://github.com/OZI-Project/OZI.build/commit/d9cda30481d71927b1ea51329cd494b77383e1a1))
+
 ## 1.13.0 (2025-04-02)
 
 
