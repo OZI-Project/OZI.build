@@ -1,9 +1,58 @@
 # OZI.build CHANGELOG
-## 1.13.1 (2025-04-08)
+## 1.13.2 (2025-04-16)
 
 
 ### Build system
 
+
+* build: delete .python-version — Eden Ross Duff, MSc, DDiv <rjdbcm@outlook.com>
+([`73f3740`](https://github.com/OZI-Project/OZI.build/commit/73f37407745c7b8fa819b7d54ee7e7418271138c))
+
+* build: Update ozi.yml to always create a merge PR — Eden Ross Duff, MSc, DDiv <rjdbcm@outlook.com>
+([`578aa45`](https://github.com/OZI-Project/OZI.build/commit/578aa456a4df2edc1173629221578aa92d28d62d))
+
+## 1.13.1 (2025-04-08)
+
+## 1.13.0 (2025-04-02)
+
+
+### Bug fixes
+
+
+* fix: normalize PKG-INFO dir
+([`667d7c7`](https://github.com/OZI-Project/OZI.build/commit/667d7c7f00f17a7e5d493d28e363d6c99bddb6a3))
+
+* fix: normalize PKG-INFO dir
+([`0f34d40`](https://github.com/OZI-Project/OZI.build/commit/0f34d4067138823eed0bae3e6c02d13c1a7818f5))
+
+* fix: correct name normalization — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`2ba634b`](https://github.com/OZI-Project/OZI.build/commit/2ba634bf518023161006d2dd9ed70d61143cc0ca))
+
+* fix: correct name normalization — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`d17df08`](https://github.com/OZI-Project/OZI.build/commit/d17df0876cef25f5952d43df3bb318e2367a8fed))
+
+* fix: normalize package name in dist files — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`aa7f356`](https://github.com/OZI-Project/OZI.build/commit/aa7f3569bc2f1e64cd833754a5b5274cffb500ba))
+
+
+### Build system
+
+
+* build(deps): bump wheel from 0.45.1 to 0.46.1 in /doc
+
+Bumps [wheel](https://github.com/pypa/wheel) from 0.45.1 to 0.46.1.
+- [Release notes](https://github.com/pypa/wheel/releases)
+- [Changelog](https://github.com/pypa/wheel/blob/main/docs/news.rst)
+- [Commits](https://github.com/pypa/wheel/compare/0.45.1...0.46.1)
+
+
+updated-dependencies:
+- dependency-name: wheel
+  dependency-version: 0.46.1
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`d3d95aa`](https://github.com/OZI-Project/OZI.build/commit/d3d95aad2ec2712044e2904f576de5717be5981a))
 
 * build(deps): bump OZI-Project/publish from 1.13.0 to 1.13.1
 
@@ -90,31 +139,6 @@ updated-dependencies:
   update-type: version-update:semver-patch
 ... — dependabot[bot] <support@github.com>
 ([`d9cda30`](https://github.com/OZI-Project/OZI.build/commit/d9cda30481d71927b1ea51329cd494b77383e1a1))
-
-## 1.13.0 (2025-04-02)
-
-
-### Bug fixes
-
-
-* fix: normalize PKG-INFO dir
-([`667d7c7`](https://github.com/OZI-Project/OZI.build/commit/667d7c7f00f17a7e5d493d28e363d6c99bddb6a3))
-
-* fix: normalize PKG-INFO dir
-([`0f34d40`](https://github.com/OZI-Project/OZI.build/commit/0f34d4067138823eed0bae3e6c02d13c1a7818f5))
-
-* fix: correct name normalization — Eden Ross Duff MSc <rjdbcm@outlook.com>
-([`2ba634b`](https://github.com/OZI-Project/OZI.build/commit/2ba634bf518023161006d2dd9ed70d61143cc0ca))
-
-* fix: correct name normalization — Eden Ross Duff MSc <rjdbcm@outlook.com>
-([`d17df08`](https://github.com/OZI-Project/OZI.build/commit/d17df0876cef25f5952d43df3bb318e2367a8fed))
-
-* fix: normalize package name in dist files — Eden Ross Duff MSc <rjdbcm@outlook.com>
-([`aa7f356`](https://github.com/OZI-Project/OZI.build/commit/aa7f3569bc2f1e64cd833754a5b5274cffb500ba))
-
-
-### Build system
-
 
 * build(deps): bump meson[ninja] from 1.7.0 to 1.7.1 in /doc
 
@@ -375,6 +399,13 @@ updated-dependencies:
 
 This requires a change in ozi-templates and a patch for every distribution.
 ([`7108404`](https://github.com/OZI-Project/OZI.build/commit/7108404d3b4de76e8d55b77baf248b45ae5f78c5))
+
+
+### Unknown
+
+
+* Create .python-version — Eden Ross Duff, MSc, DDiv <rjdbcm@outlook.com>
+([`88a7e1f`](https://github.com/OZI-Project/OZI.build/commit/88a7e1f657999c655483594aed3ca2003d075dca))
 
 ## 1.12.0 (2025-02-18)
 
