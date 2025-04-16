@@ -229,6 +229,7 @@ jobs:
     needs: [draft, release]
     if: needs.draft.outputs.drafted == 'true'
     permissions:
+      pull-requests: write
       contents: write
       id-token: write
     steps:
@@ -255,7 +256,7 @@ jobs:
     - name: Publish package distributions to PyPI
       uses: pypa/gh-action-pypi-publish@76f52bc884231f62b9a034ebfe128415bbaabdfc
 
-    - name: create pull request
+    - name: Create pull request
       run: gh pr create -B master -H ${{ github.head_ref || github.ref_name }} --title 'Merge ${{ github.head_ref || github.ref_name }} into master' --body 'Created automatically'
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
