@@ -1,4 +1,13 @@
 # OZI.build CHANGELOG
+## 1.13.3 (2025-04-16)
+
+
+### Build system
+
+
+* build: Update ozi.yml — Eden Ross Duff, MSc, DDiv <rjdbcm@outlook.com>
+([`c8b5be1`](https://github.com/OZI-Project/OZI.build/commit/c8b5be19364d40e8327564f067c812755be2027c))
+
 ## 1.13.2 (2025-04-16)
 
 
