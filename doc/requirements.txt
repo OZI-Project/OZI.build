@@ -66,7 +66,7 @@ pipx
 
 OZI.build~=1.13
     # via ozi
-prompt-toolkit==3.0.50
+prompt-toolkit==3.0.51
     # via ozi
 pydocstyle[toml]==6.3.0
     # via -r requirements.in
