@@ -29,7 +29,6 @@ author-email = "tsaunier@gnome.org"
 description-file = "README.rst"
 maintainer = "Eden Ross Duff MSc"
 maintainer-email = "help@oziproject.dev"
-download-url = "https://github.com/OZI-Project/OZI-build/archive/refs/tags/{version}.tar.gz"
 keywords = "pep517,wheel,build-backend"
 classifiers = [
     "Intended Audience :: Developers",
