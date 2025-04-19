@@ -212,6 +212,18 @@ def build_sdist(sdist_directory, config_settings=None):
                         fileobj=gz,
                         format=tarfile.PAX_FORMAT,
                     ) as tf:
+                        root = Path(installdir) / tf_dir
+                        pyproject = root / 'pyproject.toml'
+                        text = pyproject.read_text()
+                        maybe_comment = re.match(r'^\[project\](.*)\n', text)
+                        maybe_comment = maybe_comment[0] if maybe_comment else ""
+                        text = re.sub(r'^\[project\].*\n(?:name=.*\nversion=.*\n)?', '[project]\n', text)
+                        pyproject.write_text(
+                            text.replace(
+                                '[project]\n',
+                                f'[project]{maybe_comment}\nname="{config["module"]}"\nversion="{config["version"]}"\n',
+                            )
+                        )
                         tf.add(
                             tf_dir,
                             arcname='{}-{}'.format(
@@ -220,7 +232,7 @@ def build_sdist(sdist_directory, config_settings=None):
                             ),
                             recursive=True,
                         )
-                        pkginfo_path = Path(installdir) / tf_dir / 'PKG-INFO'
+                        pkginfo_path = root / 'PKG-INFO'
                         if not pkginfo_path.exists():
                             with open(pkginfo_path, mode='w') as fpkginfo:
                                 fpkginfo.write(pkg_info)
