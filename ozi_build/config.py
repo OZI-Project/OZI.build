@@ -33,6 +33,10 @@ class Config:
         self.__metadata = config['tool']['ozi-build']['metadata']
         self.__entry_points = config['tool']['ozi-build'].get('entry-points', [])
         self.__extras = config.get('project', {}).get('optional_dependencies', None)
+        if config.get('project', {}).get('name', None) is not None:
+            log.warning('pyproject.toml:project.name will be overwritten during sdist')
+        if config.get('project', {}).get('version', None) is not None:
+            log.warning('pyproject.toml:project.version will be overwritten during sdist')
         if self.__extras is not None:
             log.warning(
                 'pyproject.toml:project.optional_dependencies should be renamed to pyproject.toml:project.optional-dependencies'
