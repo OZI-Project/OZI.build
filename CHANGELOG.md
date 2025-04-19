@@ -1,4 +1,60 @@
 # OZI.build CHANGELOG
+## 1.14.0 (2025-04-19)
+
+
+### Build system
+
+
+* build(deps): bump beautifulsoup4 from 4.13.3 to 4.13.4 in /doc
+
+Bumps [beautifulsoup4](https://www.crummy.com/software/BeautifulSoup/bs4/) from 4.13.3 to 4.13.4.
+
+
+updated-dependencies:
+- dependency-name: beautifulsoup4
+  dependency-version: 4.13.4
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`795e617`](https://github.com/OZI-Project/OZI.build/commit/795e61745231eb55657a4bbdd135cfb7ef1bd181))
+
+* build(deps): bump prompt-toolkit from 3.0.50 to 3.0.51 in /doc
+
+Bumps [prompt-toolkit](https://github.com/prompt-toolkit/python-prompt-toolkit) from 3.0.50 to 3.0.51.
+- [Release notes](https://github.com/prompt-toolkit/python-prompt-toolkit/releases)
+- [Changelog](https://github.com/prompt-toolkit/python-prompt-toolkit/blob/main/CHANGELOG)
+- [Commits](https://github.com/prompt-toolkit/python-prompt-toolkit/compare/3.0.50...3.0.51)
+
+
+updated-dependencies:
+- dependency-name: prompt-toolkit
+  dependency-version: 3.0.51
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`39c104c`](https://github.com/OZI-Project/OZI.build/commit/39c104c29b6aba86b6727dcd14d5c4c232e0a431))
+
+
+### Chores
+
+
+* chore: remove deprecated download-url — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`2ae9711`](https://github.com/OZI-Project/OZI.build/commit/2ae9711272b1e20fb497192103398f7fcf6c8d0d))
+
+
+### Features
+
+
+* feat: rewrite pyproject.toml to include name and version during sdist — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`5e8acf7`](https://github.com/OZI-Project/OZI.build/commit/5e8acf7e53654b0ee2fce324afb8934d413fc924))
+
+
+### Performance improvements
+
+
+* perf: add warning that name and version will be overwritten by sdist — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`1fdce1b`](https://github.com/OZI-Project/OZI.build/commit/1fdce1b25c2ae8ef22c041decdebe8f65388c3af))
+
 ## 1.13.3 (2025-04-16)
 
 
