@@ -217,7 +217,11 @@ def build_sdist(sdist_directory, config_settings=None):
                         text = pyproject.read_text()
                         maybe_comment = re.match(r'^\[project\](.*)\n', text)
                         maybe_comment = maybe_comment[0] if maybe_comment else ""
-                        text = re.sub(r'^\[project\].*\n(?:name=.*\nversion=.*\n)?', '[project]\n', text)
+                        text = re.sub(
+                            r'^\[project\].*\n(?:\s*name=.*\n)?(?:\s*version=.*\n)?',
+                            '[project]\n',
+                            text,
+                        )
                         pyproject.write_text(
                             text.replace(
                                 '[project]\n',
