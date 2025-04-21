@@ -23,7 +23,7 @@ class EndOfString:
         return self.character
 
     def __repr__(self) -> str:
-        return f"${self.character}"
+        return "${}".format(self.character)
 
     def __and__(self, other: Character) -> Optional[Character]:
         return other & self.character

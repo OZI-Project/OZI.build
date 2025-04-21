@@ -228,8 +228,8 @@ def literal_repr(literal: int) -> str:
     if c in string.digits or c in string.ascii_letters:
         return c
     elif c in string.punctuation:
-        return f"{literal:02x}:{c}"
-    return f"{literal:02x}"
+        return "{:02x}:{}".format(literal, c)
+    return "{:02x}".format(literal)
 
 
 def range_repr(r: Range) -> str:

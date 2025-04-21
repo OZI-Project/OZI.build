@@ -170,8 +170,9 @@ class Config:
                 )
             elif '{deprecated}' in project[field]['description']:
                 log.warning(
-                    "%s is deprecated in the `[project]` section, "
-                    "got value: %s" % (field, value)
+                    "%s is deprecated in the `[project]` section, " "got value: %s",
+                    field,
+                    value,
                 )
             del project[field]
         for field, desc in project.items():
@@ -224,7 +225,7 @@ class Config:
         for k in self.extras:
             if re.match('^[a-z0-9]+(-[a-z0-9]+)*$', k) is None:
                 raise RuntimeError(
-                    f'[project.optional_dependencies] key "{k}" is not valid.'
+                    '[project.optional_dependencies] key "{}" is not valid.'.format(k)
                 )
 
     def get(self, key, default=None):

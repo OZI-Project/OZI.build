@@ -55,7 +55,7 @@ class InfiniteRepeat(Repeat):
         return 1 + self.repeat.starriness * 10
 
     def __repr__(self) -> str:
-        return f"{self.repeat}{{{self.minimum_repeats}+}}"
+        return "{}{{{}+}}".format(self.repeat, self.minimum_repeats)
 
     def alter_repeat(self, repeat) -> "InfiniteRepeat":
         return InfiniteRepeat(repeat, self.minimum_repeats)
@@ -66,7 +66,7 @@ class FiniteRepeat(Repeat):
     maximum_repeats: int
 
     def __repr__(self) -> str:
-        return f"{self.repeat}{{{self.minimum_repeats},{self.maximum_repeats}}}"
+        return "{}{{{},{}}}".format(self.repeat, self.minimum_repeats, self.maximum_repeats)
 
     def alter_repeat(self, repeat) -> "FiniteRepeat":
         return FiniteRepeat(repeat, self.minimum_repeats, self.maximum_repeats)

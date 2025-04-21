@@ -74,7 +74,7 @@ def auto_python_version(config, python_bin: str, meta):
 
 
 def check_requires_python(config, meta):
-    if config['name'] == 'OZI.build':
+    if config.pure_python_abi is not None:
         meta.pop('min_python')
         meta.pop('max_python')
         res = PKG_INFO_NO_REQUIRES_PYTHON.format(**meta)

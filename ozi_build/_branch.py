@@ -50,7 +50,7 @@ class Branch:
 
     def __repr__(self) -> str:
         middle = " | ".join(str(b) for b in self.branches)
-        return f"BR( {middle} ){'?' if self.optional else ''}"
+        return "BR( {} ){}".format(middle, '?' if self.optional else '')
 
     def matching_repeats(self):
         for b in self.branches:

@@ -225,7 +225,9 @@ def build_sdist(sdist_directory, config_settings=None):
                         pyproject.write_text(
                             text.replace(
                                 '[project]\n',
-                                f'[project]{maybe_comment}\nname="{config["name"]}"\nversion="{config["version"]}"\n',
+                                '[project]{}\nname="{}"\nversion="{}"\n'.format(
+                                    maybe_comment, config["name"], config["version"]
+                                ),
                             )
                         )
                         tf.add(
