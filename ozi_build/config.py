@@ -155,7 +155,7 @@ class Config:
                     "%s is not a valid option in the `[tool.ozi-build.metadata]` section, "
                     "got value: %s" % (field, value)
                 )
-            elif '{deprecated}' in value:
+            elif '{deprecated}' in options[field]['description']:
                 log.warning("%s is deprecated in the `[tool.ozi-build.metadata]` section, "
                     "got value: %s" % (field, value)
                 )
