@@ -36,7 +36,7 @@ class TextOutput:
             print("---")
             self.first_for_regex = False
         print(redos)
-        stars = "\u2b50" * min(10, redos.starriness)
+        stars = "\u2605" * min(10, redos.starriness)
         degree = (
             "exponential"
             if redos.starriness > 10
