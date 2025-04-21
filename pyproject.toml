@@ -8,6 +8,9 @@ dependencies = [
     'wheel~=0.34',
 ]
 
+[project.scripts]
+pyc_wheel = "ozi_build._pyc_wheel:main"
+
 [build-system]
 requires = [
     "wheel~=0.34",

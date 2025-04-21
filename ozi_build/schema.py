@@ -1,7 +1,52 @@
+VALID_PROJECT = {
+    "authors": {"description": """A list of mappings with keys 'name' and 'email'."""},
+    "classifiers": {
+        "description": """A list of [classifiers](https://pypi.python.org/pypi?%3Aaction=list_classifiers)."""
+    },
+    "dependencies": {"description": """A list of requirements."""},
+    "description": {
+        "description": """A short project summary."""
+    },
+    "dynamic": {
+        "description": """A list of other headers to be treated as dynamic fields."""
+    },
+    "entry-points": {"description": """A collection of tables. Each sub-table name is an entry point group."""},
+    "gui-scripts": {"description": """A table of entry point names mapped to modules."""},
+    "keywords": {"description": """Comma-separated keywords as a string."""},
+    "license": {
+        "description": """Text indicating the license covering the distribution.
+This text can be either a valid license expression as defined in [pep639](https://www.python.org/dev/peps/pep-0639/#id88) or any free text.
+"""
+    },
+    "license-files": {"description": """An array of license filenames."""},
+    "maintainers": {"description": """A collection of tables with keys 'name' and 'email'."""},
+    "name": {"description": """The non-normalized package name."""},
+    "optional-dependencies": {"description": "A mapping of optional dependency group names to lists of requirements."},
+    "readme": {"description": "A string of the readme filename or a table with keys ``file`` and ``content-type``."},
+    "requires-python": {
+        "description": """A version specifier for the versions of Python this requires, e.g. ``~=3.3`` or
+``>=3.3,<4`` which are equivalents."""
+    },
+    "scripts": {"description": """A table of entry point names mapped to modules."""},
+    "urls": {
+        "description": """A table of labels mapped to urls.
+For example:
+
+``` toml
+[project.urls]
+Source = "https://github.com/OZI-Project/OZI.build"
+```
+"""
+    },
+    "version": {"description": """The current package version."""},
+}
+
 VALID_OPTIONS = {
-    "author": {"description": "Your name"},
+    "author": {"description": """:::{deprecated} 1.15.0:::
+               Your name"""},
     "author-email": {
-        "description": """Your email address
+        "description": """:::{deprecated} 1.15.0:::
+Your email address
 
 e.g. for ozi-build itself:
 
@@ -12,13 +57,16 @@ author-email="tsaunier@gnome.org"
 ```"""
     },
     "classifiers": {
-        "description": "A list of [classifiers](https://pypi.python.org/pypi?%3Aaction=list_classifiers)."
+        "description": """:::{deprecated} 1.15.0:::
+A list of [classifiers](https://pypi.python.org/pypi?%3Aaction=list_classifiers)."""
     },
     "description": {
-        "description": "The description of the project as a string if you do not want to specify 'description-file'"
+        "description": """:::{deprecated} 1.15.0:::
+The description of the project as a string if you do not want to specify 'description-file'"""
     },
     "description-file": {
-        "description": """A path (relative to the .toml file) to a file containing a longer description
+        "description": """:::{deprecated} 1.15.0:::
+A path (relative to the .toml file) to a file containing a longer description
 of your package to show on PyPI. This should be written in reStructuredText
   Markdown or plain text, and the filename should have the appropriate extension
   (`.rst`, `.md` or `.txt`)."""
@@ -36,19 +84,26 @@ Example:
 A string containing the URL for the package's source, will replace '{version}' with the current version."""
     },
     "dynamic": {
-        "description": """A list of other headers to be treated as dynamic fields."""
+        "description": """:::{deprecated} 1.15.0:::
+A list of other headers to be treated as dynamic fields."""
     },
-    "keywords": {"description": """Comma-separated keywords as a string."""},
+    "keywords": {"description": """:::{deprecated} 1.15.0:::
+Comma-separated keywords as a string."""},
     "license": {
-        "description": """Text indicating the license covering the distribution. This text can be either a valid license expression as defined in [pep639](https://www.python.org/dev/peps/pep-0639/#id88) or any free text."""
+        "description": """:::{deprecated} 1.15.0:::
+Text indicating the license covering the distribution. This text can be either a valid license expression as defined in [pep639](https://www.python.org/dev/peps/pep-0639/#id88) or any free text."""
     },
-    "license-expression": {"description": """A SPDX license expression."""},
-    "license-file": {"description": """The license filename."""},
+    "license-expression": {"description": """:::{deprecated} 1.15.0:::
+A SPDX license expression."""},
+    "license-file": {"description": """:::{deprecated} 1.15.0:::
+The license filename."""},
     "maintainer": {
-        "description": "Name of current maintainer of the project (if different from author)"
+        "description": """:::{deprecated} 1.15.0:::
+Name of current maintainer of the project (if different from author)"""
     },
     "maintainer-email": {
-        "description": """Maintainer email address
+        "description": """:::{deprecated} 1.15.0:::
+Maintainer email address
 
 Example:
 
@@ -68,7 +123,8 @@ to set the python installation when using
 [`python.find_installation()`](http://mesonbuild.com/Python-module.html#find_installation)."""
     },
     "module": {
-        "description": "The name of the module, will use the meson project name if not specified"
+        "description": """:::{deprecated} 1.15.0:::
+The name of the module, will use the meson project name if not specified"""
     },
     "obsoletes": {
         "description": """
@@ -92,7 +148,8 @@ A list of PyPI packages that this project should not be installed concurrently w
     },
     "platforms": {"description": "Supported Python platforms, can be 'any', py3, etc..."},
     "project-urls": {
-        "description": """A list of `Type, url` as described in the
+        "description": """:::{deprecated} 1.15.0:::
+A list of `Type, url` as described in the
 [pep345](https://www.python.org/dev/peps/pep-0345/#project-url-multiple-use).
 For example:
 
@@ -143,11 +200,13 @@ after a semicolon. For example:
 ```"""
     },
     "requires-python": {
-        "description": """A version specifier for the versions of Python this requires, e.g. ``~=3.3`` or
+        "description": """:::{deprecated} 1.15.0:::
+A version specifier for the versions of Python this requires, e.g. ``~=3.3`` or
 ``>=3.3,<4`` which are equivalents."""
     },
     "summary": {
-        "description": "A one sentence summary about the package",
+        "description": """:::{deprecated} 1.15.0:::
+A one sentence summary about the package""",
     },
 }
 VALID_PYC_WHEEL_OPTIONS = {

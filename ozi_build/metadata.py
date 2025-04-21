@@ -227,16 +227,21 @@ def get_description_headers(config):
     res = ''
     description = ''
     description_content_type = 'text/plain'
-    if 'description-file' in config:
-        description_file = Path(config['description-file'])
+    if 'readme' in config and isinstance(config['readme'], str):
+        description_file = Path(config['readme'])
         with open(description_file, 'r') as f:
             description = f.read()
-
         description_content_type = readme_ext_to_content_type.get(
             description_file.suffix.lower(), description_content_type
         )
-    elif 'description' in config:
-        description = config['description']
+    elif 'readme' in config and isinstance(config['readme'], dict):
+        description_file = Path(config['readme']['file'])
+        with open(description_file, 'r') as f:
+            description = f.read()
+        if 'content-type' in config['readme']:
+            description_content_type = config['readme']['content-type']
+        else:
+            raise ValueError('project.readme must specify content-type')
 
     if description:
         res += 'Description-Content-Type: {}\n'.format(description_content_type)

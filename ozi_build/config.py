@@ -31,12 +31,15 @@ class Config:
         config = self.__get_config()
         check_pyproject_regexes(config)
         self.__metadata = config['tool']['ozi-build']['metadata']
-        self.__entry_points = config['tool']['ozi-build'].get('entry-points', [])
-        self.__extras = config.get('project', {}).get('optional_dependencies', None)
+        self.__project = config['project']
+        self.__entry_points = config['project'].get('entry-points', {})
+        self.__scripts = {'console_scripts': config['project'].get('scripts', {})}
+        self.__gui_scripts = {'gui_scripts': config['project'].get('gui-scripts', {})}
         if config.get('project', {}).get('name', None) is not None:
             log.warning('pyproject.toml:project.name will be overwritten during sdist')
         if config.get('project', {}).get('version', None) is not None:
             log.warning('pyproject.toml:project.version will be overwritten during sdist')
+        self.__extras = config.get('project', {}).get('optional_dependencies', None)
         if self.__extras is not None:
             log.warning(
                 'pyproject.toml:project.optional_dependencies should be renamed to pyproject.toml:project.optional-dependencies'
@@ -87,34 +90,30 @@ class Config:
     def __get_config():
         with open('pyproject.toml', 'rb') as f:
             config = toml.load(f)
-            try:
-                config['tool']['ozi-build']['metadata']
-            except KeyError:
-                raise RuntimeError(
-                    "`[tool.ozi-build.metadata]` section is mandatory "
-                    "for the meson backend"
-                )
-
-            return config
+        return config
 
     def __getitem__(self, key):
-        return self.__metadata[key]
+        return self.__project[key]
 
     def __setitem__(self, key, value):
-        self.__metadata[key] = value
+        self.__project[key] = value
 
     def __contains__(self, key):
-        return key in self.__metadata
+        return key in self.__project
 
     @property
     def entry_points(self):
         res = ''
-        for group_name in sorted(self.__entry_points):
-            res += '[{}]\n'.format(group_name)
-            group = self.__entry_points[group_name]
-            for entrypoint in sorted(group):
-                res += '{}\n'.format(entrypoint)
-            res += '\n'
+        entry_points = self.__entry_points.copy()
+        entry_points.update(self.__scripts)
+        entry_points.update(self.__gui_scripts)
+        for group_name in sorted(entry_points):
+            group = entry_points[group_name]
+            if len(group) != 0:
+                res += '[{}]\n'.format(group_name)
+                for entrypoint, module in group.items():
+                    res += '{} = "{}"\n'.format(entrypoint, module)
+                res += '\n'
         return res
 
     @property
@@ -154,6 +153,10 @@ class Config:
             if field not in options:
                 raise RuntimeError(
                     "%s is not a valid option in the `[tool.ozi-build.metadata]` section, "
+                    "got value: %s" % (field, value)
+                )
+            elif '{deprecated}' in value:
+                log.warning("%s is deprecated in the `[tool.ozi-build.metadata]` section, "
                     "got value: %s" % (field, value)
                 )
             del options[field]
