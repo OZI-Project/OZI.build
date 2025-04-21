@@ -98,7 +98,7 @@ requires = [
 backend-path = [".", "ozi_build"]
 build-backend = "ozi_build.buildapi"
 
-[tool.ozi-build.metadata]
+[tool.ozi-build]
 pure-python-abi="py3-none"
 
 [tool.ozi-build.pyc_wheel]

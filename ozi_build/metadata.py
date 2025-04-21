@@ -74,7 +74,7 @@ def auto_python_version(config, python_bin: str, meta):
 
 
 def check_requires_python(config, meta):
-    if config['module'] == 'OZI.build':
+    if config['name'] == 'OZI.build':
         meta.pop('min_python')
         meta.pop('max_python')
         res = PKG_INFO_NO_REQUIRES_PYTHON.format(**meta)
@@ -94,7 +94,7 @@ def get_python_bin(config):
     if not option_build:
         log.warning(
             "meson-python-option-name not specified in the "
-            + "[tool.ozi-build.metadata] section, assuming `python3`"
+            + "[tool.ozi-build] section, assuming `python3`"
         )
     else:
         for opt in config.options:
@@ -150,64 +150,35 @@ def get_optional_dependencies(config):
 
 def get_simple_headers(config):  # noqa: C901
     res = ''
-    for key in [
-        'summary',
-        'home-page',
-        'author',
-        'author-email',
-        'maintainer',
-        'maintainer-email',
-        'license',
-    ]:
-        if key in config:
-            if key == 'home-page':
-                log.warning(
-                    'pyproject.toml:tools.ozi-build.metadata.home-page is deprecated since OZI.build 1.12, removal recommended.'
-                )
-            res += '{}: {}\n'.format(key.capitalize(), config[key])
     for key, mdata_key in [
-        ('provides', 'Provides-Dist'),
-        ('obsoletes', 'Obsoletes-Dist'),
         ('classifiers', 'Classifier'),
-        ('project-urls', 'Project-URL'),
-        ('requires-external', 'Requires-External'),
+        ('urls', 'Project-URL'),
         ('dynamic', 'Dynamic'),
-        ('license-file', 'License-File'),
+        ('license-files', 'License-File'),
+        ('license', 'License'),
+        ('description', 'Summary'),
     ]:
         vals = config.get(key, [])
         if key == 'dynamic':
             for i in vals:
                 if i in {'Name', 'Version', 'Metadata-Version'}:
                     raise ValueError('{} is not a valid value for dynamic'.format(key))
+        if isinstance(vals, str):
+            res += '{}: {}\n'.format(mdata_key, vals)
+        elif isinstance(vals, dict):
+            for k, v in vals.items():
+                res += '{}: {}, {}\n'.format(mdata_key, k, v)
+        else:
+            for val in vals:
+                res += '{}: {}\n'.format(mdata_key, val)
+    for key, mdata_key in [
+        ('provides', 'Provides-Dist'),
+        ('obsoletes', 'Obsoletes-Dist'),
+        ('requires-external', 'Requires-External'),
+    ]:
+        vals = config.other_metadata.get(key, [])
         for val in vals:
             res += '{}: {}\n'.format(mdata_key, val)
-    return res
-
-
-def get_license_headers(config):
-    res = ''
-    key = 'license-expression'
-    if key in config:
-        if 'license' in config:
-            raise ValueError('license and license-expression are mutually exclusive')
-        log.warning(
-            'License-Expression from config is not yet compatible, renaming to License.'
-        )
-        header = 'License'
-        res += '{}: {}\n'.format(header, config[key])
-    return res
-
-
-def get_download_url_headers(config):
-    res = ''
-    if 'download-url' in config:
-        log.warning(
-            'pyproject.toml:tools.ozi-build.metadata.download-url is deprecated since OZI.build 1.12, removal recommended.'
-        )
-        if '{version}' in config['download-url']:
-            res += f'Download-URL: {config["download-url"].replace("{version}", config["version"])}\n'
-        else:
-            res += f'Download-URL: {config["download-url"]}\n'
     return res
 
 

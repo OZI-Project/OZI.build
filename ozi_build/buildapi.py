@@ -68,7 +68,7 @@ def prepare_metadata_for_build_wheel(
     dist_info = Path(
         metadata_directory,
         '{}-{}.dist-info'.format(
-            normalize(config['module']).replace('-', '_'), config['version']
+            normalize(config['name']).replace('-', '_'), config['version']
         ),
     )
     dist_info.mkdir(exist_ok=True)
@@ -108,7 +108,7 @@ class WheelBuilder:
             self.builddir.name,
             '--prefix',
             self.installdir.name,
-        ] + config.get('meson-options', [])
+        ] + config.meson_options
         meson_configure(*args, config_settings=config_settings)
         config.builddir = self.builddir.name
         if config['version'] == '%OZIBUILDVERSION%':
@@ -118,14 +118,14 @@ class WheelBuilder:
         )
 
         is_pure = check_is_pure(config.installed)
-        platform_tag = config.get('platforms', 'any' if is_pure else get_platform_tag())
+        platform_tag = config.platforms or 'any' if is_pure else get_platform_tag()
         python = get_python_bin(config)
         if not is_pure:
             abi = get_abi(python)
         else:
-            abi = config.get('pure-python-abi', get_abi(python))
+            abi = config.pure_python_abi or get_abi(python)
         target_fp = wheel_directory / '{}-{}-{}-{}.whl'.format(
-            normalize(config['module']).replace('-', '_'),
+            normalize(config['name']).replace('-', '_'),
             config['version'],
             abi,
             platform_tag,
@@ -188,7 +188,7 @@ def build_sdist(sdist_directory, config_settings=None):
 
             config = Config(builddir)
             meson('dist', '--no-tests', '-C', builddir)
-            tf_dir = '{}-{}'.format(config['module'], config['version'])
+            tf_dir = '{}-{}'.format(config['name'], config['version'])
             mesondistfilename = '%s.tar.xz' % tf_dir
             mesondisttar = tarfile.open(Path(builddir) / 'meson-dist' / mesondistfilename)
             for entry in mesondisttar:
@@ -199,7 +199,7 @@ def build_sdist(sdist_directory, config_settings=None):
             # OZI uses setuptools_scm to create PKG-INFO
             pkg_info = config.get_metadata()
             distfilename = '{}-{}.tar.gz'.format(
-                normalize(config['module']).replace('-', '_'), config['version']
+                normalize(config['name']).replace('-', '_'), config['version']
             )
             target = distdir / distfilename
             source_date_epoch = os.environ.get('SOURCE_DATE_EPOCH', '')
@@ -225,13 +225,13 @@ def build_sdist(sdist_directory, config_settings=None):
                         pyproject.write_text(
                             text.replace(
                                 '[project]\n',
-                                f'[project]{maybe_comment}\nname="{config["module"]}"\nversion="{config["version"]}"\n',
+                                f'[project]{maybe_comment}\nname="{config["name"]}"\nversion="{config["version"]}"\n',
                             )
                         )
                         tf.add(
                             tf_dir,
                             arcname='{}-{}'.format(
-                                normalize(config['module']).replace('-', '_'),
+                                normalize(config['name']).replace('-', '_'),
                                 config['version'],
                             ),
                             recursive=True,
@@ -245,7 +245,7 @@ def build_sdist(sdist_directory, config_settings=None):
                                     Path(tf_dir) / 'PKG-INFO',
                                     arcname=Path(
                                         '{}-{}'.format(
-                                            normalize(config['module']).replace('-', '_'),
+                                            normalize(config['name']).replace('-', '_'),
                                             config['version'],
                                         )
                                     )

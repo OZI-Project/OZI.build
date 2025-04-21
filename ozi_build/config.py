@@ -9,13 +9,13 @@ from .metadata import auto_python_version
 from .metadata import check_pkg_info_file
 from .metadata import check_requires_python
 from .metadata import get_description_headers
-from .metadata import get_download_url_headers
-from .metadata import get_license_headers
 from .metadata import get_optional_dependencies
 from .metadata import get_python_bin
 from .metadata import get_requirements_headers
 from .metadata import get_simple_headers
-from .schema import VALID_OPTIONS
+from .schema import VALID_BUILD_OPTIONS
+from .schema import VALID_EXTRA_METADATA
+from .schema import VALID_PROJECT
 from .schema import VALID_PYC_WHEEL_OPTIONS
 
 if sys.version_info >= (3, 11):
@@ -30,7 +30,8 @@ class Config:
     def __init__(self, builddir=None):
         config = self.__get_config()
         check_pyproject_regexes(config)
-        self.__metadata = config['tool']['ozi-build']['metadata']
+        self.__metadata = config['tool']['ozi-build'].get('metadata', {})
+        self.__build = config['tool'].get('ozi-build', {})
         self.__project = config['project']
         self.__entry_points = config['project'].get('entry-points', {})
         self.__scripts = {'console_scripts': config['project'].get('scripts', {})}
@@ -57,6 +58,10 @@ class Config:
             self.builddir = builddir
 
     @property
+    def other_metadata(self):
+        return self.__metadata
+
+    @property
     def extras(self):
         return self.__extras
 
@@ -75,6 +80,18 @@ class Config:
     @property
     def pyc_wheel(self):
         return self.__pyc_wheel
+
+    @property
+    def meson_options(self):
+        return self.__build.get('meson-options', [])
+
+    @property
+    def pure_python_abi(self):
+        return self.__build.get('pure-python-abi', None)
+
+    @property
+    def platforms(self):
+        return self.__build.get('platforms', None)
 
     def __introspect(self, introspect_type):
         with open(
@@ -124,21 +141,19 @@ class Config:
     def builddir(self, builddir):
         self.__builddir = builddir
         project = self.__introspect('projectinfo')
-
+        self['name'] = project['descriptive_name']
         self['version'] = project['version']
-        if 'module' not in self:
-            self['module'] = project['descriptive_name']
-        if 'license-expression' not in self:
-            self['license-expression'] = project.get('license', '')[0]
-            if 'license-expression' == '':
+        if 'license' not in self:
+            self['license'] = project.get('license', '')[0]
+            if 'license' == '':
                 raise RuntimeError(
-                    "license-expression metadata not found in pyproject.toml or meson.build"
+                    "license metadata not found in pyproject.toml or meson.build"
                 )
         if self.license_file[0] is None:
-            self['license-file'] = self.license_file = project.get('license_files', [])
+            self['license-files'] = self.license_file = project.get('license_files', [])
             if len(self.license_file) == 0:
                 raise RuntimeError(
-                    "license-file metadata not found in pyproject.toml or meson.build"
+                    "license-files metadata not found in pyproject.toml or meson.build"
                 )
 
         self.installed = self.__introspect('installed')
@@ -146,26 +161,58 @@ class Config:
         self.validate_options()
 
     def validate_options(self):  # noqa: C901
-        options = VALID_OPTIONS.copy()
-        options['version'] = {}
-        options['module'] = {}
+        project = VALID_PROJECT.copy()
+        for field, value in self.__project.items():
+            if field not in project:
+                raise RuntimeError(
+                    "%s is not a valid option in the `[project]` section, "
+                    "got value: %s" % (field, value)
+                )
+            elif '{deprecated}' in project[field]['description']:
+                log.warning(
+                    "%s is deprecated in the `[project]` section, "
+                    "got value: %s" % (field, value)
+                )
+            del project[field]
+        for field, desc in project.items():
+            if desc.get('required'):
+                raise RuntimeError(
+                    "%s is mandatory in the `[project]` section but was not found" % field
+                )
+        metadata = VALID_EXTRA_METADATA.copy()
+        metadata['version'] = {}
+        metadata['module'] = {}
         for field, value in self.__metadata.items():
-            if field not in options:
+            if field not in metadata:
                 raise RuntimeError(
                     "%s is not a valid option in the `[tool.ozi-build.metadata]` section, "
                     "got value: %s" % (field, value)
                 )
-            elif '{deprecated}' in options[field]['description']:
-                log.warning("%s is deprecated in the `[tool.ozi-build.metadata]` section, "
+            elif '{deprecated}' in metadata[field]['description']:
+                log.warning(
+                    "%s is deprecated in the `[tool.ozi-build.metadata]` section, "
                     "got value: %s" % (field, value)
                 )
-            del options[field]
-        for field, desc in options.items():
+            del metadata[field]
+        for field, desc in metadata.items():
             if desc.get('required'):
                 raise RuntimeError(
-                    "%s is mandatory in the `[tool.ozi-build.metadata] section but was not found"
+                    "%s is mandatory in the `[tool.ozi-build.metadata]` section but was not found"
                     % field
                 )
+        build = VALID_BUILD_OPTIONS.copy()
+        for field, value in self.__build.items():
+            if field not in build:
+                raise RuntimeError(
+                    "%s is not a valid option in the `[tool.ozi-build]` section, "
+                    "got value: %s" % (field, value)
+                )
+            elif '{deprecated}' in build[field]['description']:
+                log.warning(
+                    "%s is deprecated in the `[tool.ozi-build]` section, "
+                    "got value: %s" % (field, value)
+                )
+            del build[field]
         pyc_whl_options = VALID_PYC_WHEEL_OPTIONS.copy()
         for field, value in self.__pyc_wheel.items():
             if field not in pyc_whl_options:
@@ -181,11 +228,11 @@ class Config:
                 )
 
     def get(self, key, default=None):
-        return self.__metadata.get(key, default)
+        return self.__project.get(key, default)
 
     def get_metadata(self):
         meta = {
-            'name': self['module'],
+            'name': self['name'],
             'version': self['version'],
         }
         pkg_info_file = check_pkg_info_file(self, meta)
@@ -195,11 +242,9 @@ class Config:
         res = check_requires_python(
             self, auto_python_version(self, get_python_bin(self), meta)
         )
-        res += get_optional_dependencies(self)
         res += get_simple_headers(self)
-        res += get_license_headers(self)
-        res += get_download_url_headers(self)
         res += get_requirements_headers(self)
+        res += get_optional_dependencies(self)
         res += get_description_headers(self)
 
         return res
