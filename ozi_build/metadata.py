@@ -89,7 +89,7 @@ def check_requires_python(config, meta):
 
 
 def get_python_bin(config):
-    option_build = config.get('meson-python-option-name')
+    option_build = config.meson_python_option_name
     python = 'python3'
     if not option_build:
         log.warning(

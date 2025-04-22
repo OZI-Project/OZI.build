@@ -173,6 +173,36 @@ def adjust_name(info: tarfile.TarInfo) -> tarfile.TarInfo:
     return info
 
 
+def add_name(config, pyproject):
+    text = pyproject.read_text()
+    maybe_comment = re.match(r'^\[project\](.*)\n', text)
+    maybe_comment = maybe_comment[0] if maybe_comment else ""
+    pyproject.write_text(
+        text.replace(
+            '[project]\n',
+            '[project]{}\nname="{}"\n'.format(
+                maybe_comment,
+                config["name"],
+            ),
+        )
+    )
+
+
+def add_version(config, pyproject):
+    text = pyproject.read_text()
+    maybe_comment = re.match(r'^\[project\](.*)\n', text)
+    maybe_comment = maybe_comment[0] if maybe_comment else ""
+    pyproject.write_text(
+        text.replace(
+            '[project]\n',
+            '[project]{}\nversion="{}"\n'.format(
+                maybe_comment,
+                config["version"],
+            ),
+        )
+    )
+
+
 def build_sdist(sdist_directory, config_settings=None):
     """Builds an sdist, places it in sdist_directory"""
     distdir = Path(sdist_directory)
@@ -213,23 +243,10 @@ def build_sdist(sdist_directory, config_settings=None):
                         format=tarfile.PAX_FORMAT,
                     ) as tf:
                         root = Path(installdir) / tf_dir
-                        pyproject = root / 'pyproject.toml'
-                        text = pyproject.read_text()
-                        maybe_comment = re.match(r'^\[project\](.*)\n', text)
-                        maybe_comment = maybe_comment[0] if maybe_comment else ""
-                        text = re.sub(
-                            r'^\[project\].*\n(?:\s*name=.*\n)?(?:\s*version=.*\n)?',
-                            '[project]\n',
-                            text,
-                        )
-                        pyproject.write_text(
-                            text.replace(
-                                '[project]\n',
-                                '[project]{}\nname="{}"\nversion="{}"\n'.format(
-                                    maybe_comment, config["name"], config["version"]
-                                ),
-                            )
-                        )
+                        if not config.version_provided:
+                            add_version(config, root / 'pyproject.toml')
+                        if not config.name_provided:
+                            add_name(config, root / 'pyproject.toml')
                         tf.add(
                             tf_dir,
                             arcname='{}-{}'.format(

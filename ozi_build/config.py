@@ -36,10 +36,6 @@ class Config:
         self.__entry_points = config['project'].get('entry-points', {})
         self.__scripts = {'console_scripts': config['project'].get('scripts', {})}
         self.__gui_scripts = {'gui_scripts': config['project'].get('gui-scripts', {})}
-        if config.get('project', {}).get('name', None) is not None:
-            log.warning('pyproject.toml:project.name will be overwritten during sdist')
-        if config.get('project', {}).get('version', None) is not None:
-            log.warning('pyproject.toml:project.version will be overwritten during sdist')
         self.__extras = config.get('project', {}).get('optional_dependencies', None)
         if self.__extras is not None:
             log.warning(
@@ -54,6 +50,8 @@ class Config:
         self.__pyc_wheel = config['tool']['ozi-build'].get('pyc_wheel', {})
         self.installed = []
         self.options = []
+        self.name_provided = config['project'].get('name', None) is not None
+        self.version_provided = config['project'].get('version', None) is not None
         if builddir:
             self.builddir = builddir
 
@@ -84,6 +82,10 @@ class Config:
     @property
     def meson_options(self):
         return self.__build.get('meson-options', [])
+
+    @property
+    def meson_python_option_name(self):
+        return self.__build.get('meson-python-option-name', None)
 
     @property
     def pure_python_abi(self):
