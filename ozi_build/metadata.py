@@ -94,7 +94,7 @@ def get_python_bin(config):
     if not option_build:
         log.warning(
             "meson-python-option-name not specified in the "
-            + "[tool.ozi-build] section, assuming `python3`"
+            + "[tool.ozi-build] section, assuming the python binary is `python3`"
         )
     else:
         for opt in config.options:
