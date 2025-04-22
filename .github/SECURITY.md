@@ -2,9 +2,7 @@
 
 ## Supported Versions
 
-| Version   | Supported          |
-| --------- | ------------------ |
-| >1.5.x    | ✅                 |
+Always use the latest major version of OZI.build
 
 ## Disclosure
 
