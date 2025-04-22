@@ -34,7 +34,7 @@ def __rm_file(fp: Path, exclude: re.Pattern | None, quiet: bool) -> None:
 
     if exclude is None or not exclude.search(str(fp)):
         if not quiet:
-            print("Deleting {!s} file: {!s}".format(fp.suffix.lstrip('.'), fp))
+            print("Deleting {!s} file {!s}...".format(fp.suffix.lstrip('.'), fp))
         fp.chmod(stat.S_IWUSR)
         fp.unlink()
 
@@ -85,7 +85,7 @@ def remove_pycache(whl_dir: str, exclude: re.Pattern | None, quiet: bool) -> Non
         pycache = Path(root, "__pycache__")
         if pycache.exists():
             if not quiet:
-                print("Removing {!s}".format(pycache))
+                print("Removing {!s}...".format(pycache))
             shutil.rmtree(pycache)
 
 
@@ -194,7 +194,7 @@ def rewrite_dist_info(dist_info_path: Path, *, exclude=None):
     whl_path = dist_info_path.resolve().parent
     record_path = dist_info_path / "RECORD"
     record_path.chmod(stat.S_IWUSR | stat.S_IRUSR)
-    print('Rewriting:', record_path)
+    print('Rewriting', record_path+'...')
 
     with record_path.open("r") as record:
         record_data = update_record_entries(record, whl_path, exclude)
