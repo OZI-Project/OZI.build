@@ -194,7 +194,7 @@ def rewrite_dist_info(dist_info_path: Path, *, exclude=None):
     whl_path = dist_info_path.resolve().parent
     record_path = dist_info_path / "RECORD"
     record_path.chmod(stat.S_IWUSR | stat.S_IRUSR)
-    print('Rewriting', record_path+'...')
+    print('Rewriting', '{}...'.format(record_path))
 
     with record_path.open("r") as record:
         record_data = update_record_entries(record, whl_path, exclude)

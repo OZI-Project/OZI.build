@@ -102,6 +102,9 @@ build-backend = "ozi_build.buildapi"
 pure-python-abi="py3-none"
 meson-python-option-name="python3"
 
+[tool.ozi-build.metadata]
+provides=['pyc_wheel']
+
 [tool.ozi-build.pyc_wheel]
 exclude='.*\.py'
 
