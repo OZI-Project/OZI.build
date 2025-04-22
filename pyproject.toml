@@ -1,35 +1,7 @@
 # Part of OZI.build.
 # See LICENSE.txt in the project root for details.
 [project]
-dependencies = [
-    'meson[ninja]~=1.2',
-    'packaging',
-    'tomli~=2.0;python_version<"3.11"',
-    'wheel~=0.34',
-]
-
-[build-system]
-requires = [
-    "wheel~=0.34",
-    "meson[ninja]~=1.2",
-    'packaging',
-    'tomli~=2.0;python_version<"3.11"',
-    "setuptools>=64",
-    "setuptools_scm[toml]~=8.0",
-    "pip-tools~=7.0",
-    "pathvalidate~=3.2.1",
-]
-backend-path = [".", "ozi_build"]
-build-backend = "ozi_build.buildapi"
-
-[tool.ozi-build.metadata]
-summary = "Create pep517 compliant packages from the meson build system, OZI-maintained fork."
-author = "Thibault Saunier"
-author-email = "tsaunier@gnome.org"
-description-file = "README.rst"
-maintainer = "Eden Ross Duff MSc"
-maintainer-email = "help@oziproject.dev"
-keywords = "pep517,wheel,build-backend"
+authors = [{name="Thibault Saunier", email="tsaunier@gnome.org"}]
 classifiers = [
     "Intended Audience :: Developers",
     "License :: OSI Approved :: Apache Software License",
@@ -39,15 +11,16 @@ classifiers = [
     "Topic :: System :: Archiving :: Packaging",
     "Development Status :: 4 - Beta",
 ]
-project-urls=[
-    'Bug Tracker, https://github.com/OZI-Project/OZI.build/issues',
-    'Documentation, https://build.oziproject.dev/',
-    'Homepage, https://oziproject.dev/',
+dependencies = [
+    'meson[ninja]~=1.2',
+    'packaging',
+    'tomli~=2.0;python_version<"3.11"',
+    'wheel~=0.34',
 ]
-pure-python-abi="py3-none"
-
-[tool.ozi-build.pyc_wheel]
-exclude='.*\.py'
+description = "Create pep517 compliant packages from the meson build system, OZI-maintained fork."
+readme = "README.rst"
+keywords = "pep517,wheel,build-backend"
+maintainers = [{name="Eden Ross Duff MSc", email = "help@oziproject.dev"}]
 
 [project.optional-dependencies] # also meson test suite names
 # OZI Packaging Dependencies
@@ -102,6 +75,37 @@ test = [
     "pytest-tcpclient",
     "pytest-xdist",
 ]
+
+[project.scripts]
+pyc_wheel = "ozi_build._pyc_wheel:main"
+
+[project.urls]
+"Bug Tracker" = "https://github.com/OZI-Project/OZI.build/issues"
+Documentation = "https://build.oziproject.dev/"
+Homepage = "https://oziproject.dev/"
+
+[build-system]
+requires = [
+    "wheel~=0.34",
+    "meson[ninja]~=1.2",
+    'packaging',
+    'tomli~=2.0;python_version<"3.11"',
+    "setuptools>=64",
+    "setuptools_scm[toml]~=8.0",
+    "pip-tools~=7.0",
+    "pathvalidate~=3.2.1",
+]
+backend-path = [".", "ozi_build"]
+build-backend = "ozi_build.buildapi"
+
+[tool.ozi-build]
+pure-python-abi="py3-none"
+
+[tool.ozi-build.metadata]
+provides=['pyc_wheel']
+
+[tool.ozi-build.pyc_wheel]
+exclude='.*\.py'
 
 [tool.setuptools_scm]
 fallback_version = "@VCS_TAG@"

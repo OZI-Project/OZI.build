@@ -36,15 +36,15 @@ class Redos:
         repeated_char_s = (
             repeated_char.example().encode("unicode_escape").decode().replace("'", "\\'")
         )
-        e = f"'{prefix}' + " if prefix else ""
+        e = "'{}' + ".format(prefix) if prefix else ""
         if js_flavour:
-            e += f"'{repeated_char_s}'.repeat(3456)"
+            e += "'{}'.repeat(3456)".format(repeated_char_s)
         else:
-            e += f"'{repeated_char_s}' * 3456"
+            e += "'{}' * 3456".format(repeated_char_s)
 
         if killer:
             killer_s = killer.example().encode("unicode_escape").decode().replace("'", "\\'")
-            return e + f" + '{killer_s}'"
+            return e + " + '{}'".format(killer_s)
         return e
 
 

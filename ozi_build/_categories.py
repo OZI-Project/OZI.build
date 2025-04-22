@@ -19,7 +19,7 @@ class Category(Enum):
 
     def negate(self) -> "Category":
         if self.is_positive:
-            return Category[f"NOT_{self.name}"]
+            return Category["NOT_{}".format(self.name)]
         else:
             return Category[self.name[4:]]
 

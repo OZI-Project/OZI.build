@@ -6,16 +6,15 @@ import sys
 
 from ._util import check_pyproject_regexes
 from .metadata import auto_python_version
-from .metadata import check_pkg_info_file
 from .metadata import check_requires_python
 from .metadata import get_description_headers
-from .metadata import get_download_url_headers
-from .metadata import get_license_headers
 from .metadata import get_optional_dependencies
 from .metadata import get_python_bin
 from .metadata import get_requirements_headers
 from .metadata import get_simple_headers
-from .schema import VALID_OPTIONS
+from .schema import VALID_BUILD_OPTIONS
+from .schema import VALID_EXTRA_METADATA
+from .schema import VALID_PROJECT
 from .schema import VALID_PYC_WHEEL_OPTIONS
 
 if sys.version_info >= (3, 11):
@@ -29,14 +28,13 @@ log = logging.getLogger(__name__)
 class Config:
     def __init__(self, builddir=None):
         config = self.__get_config()
-        check_pyproject_regexes(config)
-        self.__metadata = config['tool']['ozi-build']['metadata']
-        self.__entry_points = config['tool']['ozi-build'].get('entry-points', [])
+        self.__metadata = config['tool']['ozi-build'].get('metadata', {})
+        self.__build = config['tool'].get('ozi-build', {})
+        self.__project = config['project']
+        self.__entry_points = config['project'].get('entry-points', {})
+        self.__scripts = {'console_scripts': config['project'].get('scripts', {})}
+        self.__gui_scripts = {'gui_scripts': config['project'].get('gui-scripts', {})}
         self.__extras = config.get('project', {}).get('optional_dependencies', None)
-        if config.get('project', {}).get('name', None) is not None:
-            log.warning('pyproject.toml:project.name will be overwritten during sdist')
-        if config.get('project', {}).get('version', None) is not None:
-            log.warning('pyproject.toml:project.version will be overwritten during sdist')
         if self.__extras is not None:
             log.warning(
                 'pyproject.toml:project.optional_dependencies should be renamed to pyproject.toml:project.optional-dependencies'
@@ -50,8 +48,14 @@ class Config:
         self.__pyc_wheel = config['tool']['ozi-build'].get('pyc_wheel', {})
         self.installed = []
         self.options = []
+        self.name_provided = config['project'].get('name', None) is not None
+        self.version_provided = config['project'].get('version', None) is not None
         if builddir:
             self.builddir = builddir
+
+    @property
+    def other_metadata(self):
+        return self.__metadata
 
     @property
     def extras(self):
@@ -73,6 +77,22 @@ class Config:
     def pyc_wheel(self):
         return self.__pyc_wheel
 
+    @property
+    def meson_options(self):
+        return self.__build.get('meson-options', [])
+
+    @property
+    def meson_python_option_name(self):
+        return self.__build.get('meson-python-option-name', None)
+
+    @property
+    def pure_python_abi(self):
+        return self.__build.get('pure-python-abi', None)
+
+    @property
+    def platforms(self):
+        return self.__build.get('platforms', None)
+
     def __introspect(self, introspect_type):
         with open(
             os.path.join(
@@ -87,34 +107,31 @@ class Config:
     def __get_config():
         with open('pyproject.toml', 'rb') as f:
             config = toml.load(f)
-            try:
-                config['tool']['ozi-build']['metadata']
-            except KeyError:
-                raise RuntimeError(
-                    "`[tool.ozi-build.metadata]` section is mandatory "
-                    "for the meson backend"
-                )
-
-            return config
+        check_pyproject_regexes(config)
+        return config
 
     def __getitem__(self, key):
-        return self.__metadata[key]
+        return self.__project[key]
 
     def __setitem__(self, key, value):
-        self.__metadata[key] = value
+        self.__project[key] = value
 
     def __contains__(self, key):
-        return key in self.__metadata
+        return key in self.__project
 
     @property
     def entry_points(self):
         res = ''
-        for group_name in sorted(self.__entry_points):
-            res += '[{}]\n'.format(group_name)
-            group = self.__entry_points[group_name]
-            for entrypoint in sorted(group):
-                res += '{}\n'.format(entrypoint)
-            res += '\n'
+        entry_points = self.__entry_points.copy()
+        entry_points.update(self.__scripts)
+        entry_points.update(self.__gui_scripts)
+        for group_name in sorted(entry_points):
+            group = entry_points[group_name]
+            if len(group) != 0:
+                res += '[{}]\n'.format(group_name)
+                for entrypoint, module in group.items():
+                    res += '{} = "{}"\n'.format(entrypoint, module)
+                res += '\n'
         return res
 
     @property
@@ -125,21 +142,19 @@ class Config:
     def builddir(self, builddir):
         self.__builddir = builddir
         project = self.__introspect('projectinfo')
-
+        self['name'] = project['descriptive_name']
         self['version'] = project['version']
-        if 'module' not in self:
-            self['module'] = project['descriptive_name']
-        if 'license-expression' not in self:
-            self['license-expression'] = project.get('license', '')[0]
-            if 'license-expression' == '':
+        if 'license' not in self:
+            self['license'] = project.get('license', '')[0]
+            if 'license' == '':
                 raise RuntimeError(
-                    "license-expression metadata not found in pyproject.toml or meson.build"
+                    "license metadata not found in pyproject.toml or meson.build"
                 )
         if self.license_file[0] is None:
-            self['license-file'] = self.license_file = project.get('license_files', [])
+            self['license-files'] = self.license_file = project.get('license_files', [])
             if len(self.license_file) == 0:
                 raise RuntimeError(
-                    "license-file metadata not found in pyproject.toml or meson.build"
+                    "license-files metadata not found in pyproject.toml or meson.build"
                 )
 
         self.installed = self.__introspect('installed')
@@ -147,22 +162,59 @@ class Config:
         self.validate_options()
 
     def validate_options(self):  # noqa: C901
-        options = VALID_OPTIONS.copy()
-        options['version'] = {}
-        options['module'] = {}
+        project = VALID_PROJECT.copy()
+        for field, value in self.__project.items():
+            if field not in project:
+                raise RuntimeError(
+                    "%s is not a valid option in the `[project]` section, "
+                    "got value: %s" % (field, value)
+                )
+            elif '{deprecated}' in project[field]['description']:
+                log.warning(
+                    "%s is deprecated in the `[project]` section, " "got value: %s",
+                    field,
+                    value,
+                )
+            del project[field]
+        for field, desc in project.items():
+            if desc.get('required'):
+                raise RuntimeError(
+                    "%s is mandatory in the `[project]` section but was not found" % field
+                )
+        metadata = VALID_EXTRA_METADATA.copy()
+        metadata['version'] = {}
+        metadata['module'] = {}
         for field, value in self.__metadata.items():
-            if field not in options:
+            if field not in metadata:
                 raise RuntimeError(
                     "%s is not a valid option in the `[tool.ozi-build.metadata]` section, "
                     "got value: %s" % (field, value)
                 )
-            del options[field]
-        for field, desc in options.items():
+            elif '{deprecated}' in metadata[field]['description']:
+                log.warning(
+                    "%s is deprecated in the `[tool.ozi-build.metadata]` section, "
+                    "got value: %s" % (field, value)
+                )
+            del metadata[field]
+        for field, desc in metadata.items():
             if desc.get('required'):
                 raise RuntimeError(
-                    "%s is mandatory in the `[tool.ozi-build.metadata] section but was not found"
+                    "%s is mandatory in the `[tool.ozi-build.metadata]` section but was not found"
                     % field
                 )
+        build = VALID_BUILD_OPTIONS.copy()
+        for field, value in self.__build.items():
+            if field not in build:
+                raise RuntimeError(
+                    "%s is not a valid option in the `[tool.ozi-build]` section, "
+                    "got value: %s" % (field, value)
+                )
+            elif '{deprecated}' in build[field]['description']:
+                log.warning(
+                    "%s is deprecated in the `[tool.ozi-build]` section, "
+                    "got value: %s" % (field, value)
+                )
+            del build[field]
         pyc_whl_options = VALID_PYC_WHEEL_OPTIONS.copy()
         for field, value in self.__pyc_wheel.items():
             if field not in pyc_whl_options:
@@ -174,29 +226,23 @@ class Config:
         for k in self.extras:
             if re.match('^[a-z0-9]+(-[a-z0-9]+)*$', k) is None:
                 raise RuntimeError(
-                    f'[project.optional_dependencies] key "{k}" is not valid.'
+                    '[project.optional_dependencies] key "{}" is not valid.'.format(k)
                 )
 
     def get(self, key, default=None):
-        return self.__metadata.get(key, default)
+        return self.__project.get(key, default)
 
     def get_metadata(self):
         meta = {
-            'name': self['module'],
+            'name': self['name'],
             'version': self['version'],
         }
-        pkg_info_file = check_pkg_info_file(self, meta)
-        if pkg_info_file is not None:
-            return pkg_info_file
-
         res = check_requires_python(
             self, auto_python_version(self, get_python_bin(self), meta)
         )
-        res += get_optional_dependencies(self)
         res += get_simple_headers(self)
-        res += get_license_headers(self)
-        res += get_download_url_headers(self)
         res += get_requirements_headers(self)
+        res += get_optional_dependencies(self)
         res += get_description_headers(self)
 
         return res

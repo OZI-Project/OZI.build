@@ -31,7 +31,7 @@ class SreOpParser:
         return self.sequence_or_singleton(sre_parse.parse(pattern, flags))
 
     def parse_op(self, op: SreConstant, data: SreOpData):
-        return getattr(self, f"from_{op.name}")(data)
+        return getattr(self, "from_{}".format(op.name))(data)
 
     def sequence_or_singleton(self, ops: List[SreOp]):
         elems = []

@@ -27,23 +27,23 @@ class TextOutput:
         if self.first_for_regex:
             if filename:
                 if lineno is not None:
-                    print(f"Vulnerable regex in {filename} #{lineno}")
+                    print("Vulnerable regex in {} #{}".format(filename, lineno))
                 else:
-                    print(f"Vulnerable regex in {filename}")
-            print(f"Pattern: {pattern}")
+                    print("Vulnerable regex in {}".format(filename))
+            print("Pattern: {}".format(pattern))
             if context:
-                print(f"Context: {context}")
+                print("Context: {}".format(context))
             print("---")
             self.first_for_regex = False
         print(redos)
-        stars = "\u2b50" * min(10, redos.starriness)
+        stars = "\u2605" * min(10, redos.starriness)
         degree = (
             "exponential"
             if redos.starriness > 10
             else POLYNOMIAL_DEGREES[redos.starriness - 1] if redos.starriness > 0 else "?"
         )
-        print(f"Worst-case complexity: {redos.starriness} {stars} ({degree})")
-        print(f"Repeated character: {redos.repeated_character}")
+        print("Worst-case complexity: {} {} ({})".format(redos.starriness, stars, degree))
+        print("Repeated character: {}".format(redos.repeated_character))
         if redos.killer:
-            print(f"Final character to cause backtracking: {redos.killer}")
-        print(f"Example: {redos.example(self.js_flavour)}\n")
+            print("Final character to cause backtracking: {}".format(redos.killer))
+        print("Example: {}\n".format(redos.example(self.js_flavour)))

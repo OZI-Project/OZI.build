@@ -1,7 +1,6 @@
 import logging
 import string
 import subprocess
-import tempfile
 from pathlib import Path
 
 from packaging.version import Version
@@ -10,35 +9,9 @@ from ._util import GET_PYTHON_VERSION
 from ._util import PKG_INFO
 from ._util import PKG_INFO_CONFIG_REQUIRES_PYTHON
 from ._util import PKG_INFO_NO_REQUIRES_PYTHON
-from ._util import meson
-from ._util import meson_configure
 from ._util import readme_ext_to_content_type
 
 log = logging.getLogger(__name__)
-
-
-def check_pkg_info_file(config, meta):
-    if 'pkg-info-file' in config:
-        if not Path(config['pkg-info-file']).exists():
-            builddir = tempfile.TemporaryDirectory().name
-            meson_configure(builddir)
-            meson('compile', '-C', builddir)
-            pkg_info_file = Path(builddir) / 'PKG-INFO'
-        else:
-            pkg_info_file = config['pkg-info-file']
-        res = '\n'.join(PKG_INFO_NO_REQUIRES_PYTHON.split('\n')[:3]).format(**meta) + '\n'
-        with open(pkg_info_file, 'r') as f:
-            orig_lines = f.readlines()
-            for line in orig_lines:
-                if (
-                    line.startswith('Metadata-Version:')
-                    or line.startswith('Version:')
-                    or line.startswith('Name:')
-                ):
-                    res += config._parse_project()
-                    continue
-                res += line
-        return res
 
 
 def auto_python_version(config, python_bin: str, meta):
@@ -74,7 +47,7 @@ def auto_python_version(config, python_bin: str, meta):
 
 
 def check_requires_python(config, meta):
-    if config['module'] == 'OZI.build':
+    if config.pure_python_abi is not None:
         meta.pop('min_python')
         meta.pop('max_python')
         res = PKG_INFO_NO_REQUIRES_PYTHON.format(**meta)
@@ -89,12 +62,12 @@ def check_requires_python(config, meta):
 
 
 def get_python_bin(config):
-    option_build = config.get('meson-python-option-name')
+    option_build = config.meson_python_option_name
     python = 'python3'
     if not option_build:
         log.warning(
             "meson-python-option-name not specified in the "
-            + "[tool.ozi-build.metadata] section, assuming `python3`"
+            + "[tool.ozi-build] section, assuming the python binary is `python3`"
         )
     else:
         for opt in config.options:
@@ -150,64 +123,35 @@ def get_optional_dependencies(config):
 
 def get_simple_headers(config):  # noqa: C901
     res = ''
-    for key in [
-        'summary',
-        'home-page',
-        'author',
-        'author-email',
-        'maintainer',
-        'maintainer-email',
-        'license',
-    ]:
-        if key in config:
-            if key == 'home-page':
-                log.warning(
-                    'pyproject.toml:tools.ozi-build.metadata.home-page is deprecated since OZI.build 1.12, removal recommended.'
-                )
-            res += '{}: {}\n'.format(key.capitalize(), config[key])
     for key, mdata_key in [
-        ('provides', 'Provides-Dist'),
-        ('obsoletes', 'Obsoletes-Dist'),
         ('classifiers', 'Classifier'),
-        ('project-urls', 'Project-URL'),
-        ('requires-external', 'Requires-External'),
+        ('urls', 'Project-URL'),
         ('dynamic', 'Dynamic'),
-        ('license-file', 'License-File'),
+        ('license-files', 'License-File'),
+        ('license', 'License'),
+        ('description', 'Summary'),
     ]:
         vals = config.get(key, [])
         if key == 'dynamic':
             for i in vals:
                 if i in {'Name', 'Version', 'Metadata-Version'}:
                     raise ValueError('{} is not a valid value for dynamic'.format(key))
+        if isinstance(vals, str):
+            res += '{}: {}\n'.format(mdata_key, vals)
+        elif isinstance(vals, dict):
+            for k, v in vals.items():
+                res += '{}: {}, {}\n'.format(mdata_key, k, v)
+        else:
+            for val in vals:
+                res += '{}: {}\n'.format(mdata_key, val)
+    for key, mdata_key in [
+        ('provides', 'Provides-Dist'),
+        ('obsoletes', 'Obsoletes-Dist'),
+        ('requires-external', 'Requires-External'),
+    ]:
+        vals = config.other_metadata.get(key, [])
         for val in vals:
             res += '{}: {}\n'.format(mdata_key, val)
-    return res
-
-
-def get_license_headers(config):
-    res = ''
-    key = 'license-expression'
-    if key in config:
-        if 'license' in config:
-            raise ValueError('license and license-expression are mutually exclusive')
-        log.warning(
-            'License-Expression from config is not yet compatible, renaming to License.'
-        )
-        header = 'License'
-        res += '{}: {}\n'.format(header, config[key])
-    return res
-
-
-def get_download_url_headers(config):
-    res = ''
-    if 'download-url' in config:
-        log.warning(
-            'pyproject.toml:tools.ozi-build.metadata.download-url is deprecated since OZI.build 1.12, removal recommended.'
-        )
-        if '{version}' in config['download-url']:
-            res += f'Download-URL: {config["download-url"].replace("{version}", config["version"])}\n'
-        else:
-            res += f'Download-URL: {config["download-url"]}\n'
     return res
 
 
@@ -227,16 +171,21 @@ def get_description_headers(config):
     res = ''
     description = ''
     description_content_type = 'text/plain'
-    if 'description-file' in config:
-        description_file = Path(config['description-file'])
+    if 'readme' in config and isinstance(config['readme'], str):
+        description_file = Path(config['readme'])
         with open(description_file, 'r') as f:
             description = f.read()
-
         description_content_type = readme_ext_to_content_type.get(
             description_file.suffix.lower(), description_content_type
         )
-    elif 'description' in config:
-        description = config['description']
+    elif 'readme' in config and isinstance(config['readme'], dict):
+        description_file = Path(config['readme']['file'])
+        with open(description_file, 'r') as f:
+            description = f.read()
+        if 'content-type' in config['readme']:
+            description_content_type = config['readme']['content-type']
+        else:
+            raise ValueError('project.readme must specify content-type')
 
     if description:
         res += 'Description-Content-Type: {}\n'.format(description_content_type)
