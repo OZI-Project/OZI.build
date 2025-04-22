@@ -17,30 +17,6 @@ from ._util import readme_ext_to_content_type
 log = logging.getLogger(__name__)
 
 
-def check_pkg_info_file(config, meta):
-    if 'pkg-info-file' in config:
-        if not Path(config['pkg-info-file']).exists():
-            builddir = tempfile.TemporaryDirectory().name
-            meson_configure(builddir)
-            meson('compile', '-C', builddir)
-            pkg_info_file = Path(builddir) / 'PKG-INFO'
-        else:
-            pkg_info_file = config['pkg-info-file']
-        res = '\n'.join(PKG_INFO_NO_REQUIRES_PYTHON.split('\n')[:3]).format(**meta) + '\n'
-        with open(pkg_info_file, 'r') as f:
-            orig_lines = f.readlines()
-            for line in orig_lines:
-                if (
-                    line.startswith('Metadata-Version:')
-                    or line.startswith('Version:')
-                    or line.startswith('Name:')
-                ):
-                    res += config._parse_project()
-                    continue
-                res += line
-        return res
-
-
 def auto_python_version(config, python_bin: str, meta):
     python_version = Version(
         subprocess.check_output([python_bin, '-c', GET_PYTHON_VERSION])

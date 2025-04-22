@@ -238,10 +238,6 @@ class Config:
             'name': self['name'],
             'version': self['version'],
         }
-        pkg_info_file = check_pkg_info_file(self, meta)
-        if pkg_info_file is not None:
-            return pkg_info_file
-
         res = check_requires_python(
             self, auto_python_version(self, get_python_bin(self), meta)
         )
