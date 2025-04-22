@@ -1,4 +1,167 @@
 # OZI.build CHANGELOG
+## 2.0.0 (2025-04-22)
+
+
+### Bug fixes
+
+
+* fix: clarify meson-python-option-name warning — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`ea68b41`](https://github.com/OZI-Project/OZI.build/commit/ea68b41a6700d53a3e7cfd47f59c2822ccb9af1c))
+
+* fix: cleanup pyc_wheel outputs — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`cf2d9f0`](https://github.com/OZI-Project/OZI.build/commit/cf2d9f0e1a186c613ae714bcfe55104763a6fcd9))
+
+* fix: properly handle required metadata name/version
+
+BREAKING CHANGE: Major change to how metadata is handled — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`fce28dc`](https://github.com/OZI-Project/OZI.build/commit/fce28dc65a1beb73ead2fc12b0019a4335fb6253))
+
+* fix: remove f-strings for compatibility — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`c8b0672`](https://github.com/OZI-Project/OZI.build/commit/c8b0672c27f291f868eae32a811248578f606cec))
+
+
+### Build system
+
+
+* build(deps): bump OZI-Project/checkpoint from 1.7.0 to 1.7.1
+
+Bumps [OZI-Project/checkpoint](https://github.com/ozi-project/checkpoint) from 1.7.0 to 1.7.1.
+- [Release notes](https://github.com/ozi-project/checkpoint/releases)
+- [Commits](https://github.com/ozi-project/checkpoint/compare/bec3d96cd1cb3bbce358fbeabc70eb25482bd3bf...dbe6f38e4bb6ed375129d0cf718b6d6968340a13)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/checkpoint
+  dependency-version: 1.7.1
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`1c2a73c`](https://github.com/OZI-Project/OZI.build/commit/1c2a73ca62870af263a02682e6183ddc1592fa96))
+
+* build(deps): bump OZI-Project/publish from 1.13.1 to 1.13.3
+
+Bumps [OZI-Project/publish](https://github.com/ozi-project/publish) from 1.13.1 to 1.13.3.
+- [Release notes](https://github.com/ozi-project/publish/releases)
+- [Commits](https://github.com/ozi-project/publish/compare/26f38aa55610d51537ae92c1e89464a18959ba90...df67e9c0f38d22c078568807d2eefed313340e2d)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/publish
+  dependency-version: 1.13.3
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`f1e0bb0`](https://github.com/OZI-Project/OZI.build/commit/f1e0bb021ed990742c83c3ce9c9bd4ab0a6c5675))
+
+* build(deps): bump soupsieve from 2.6 to 2.7 in /doc
+
+Bumps [soupsieve](https://github.com/facelessuser/soupsieve) from 2.6 to 2.7.
+- [Release notes](https://github.com/facelessuser/soupsieve/releases)
+- [Commits](https://github.com/facelessuser/soupsieve/compare/2.6...2.7)
+
+
+updated-dependencies:
+- dependency-name: soupsieve
+  dependency-version: '2.7'
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`2aed00a`](https://github.com/OZI-Project/OZI.build/commit/2aed00a5c28647e6a1831292200121b6311433cd))
+
+* build(deps): update ozi-build requirement from ~=1.13 to ~=1.14 in /doc
+
+Updates the requirements on [ozi-build](https://github.com/OZI-Project/OZI.build) to permit the latest version.
+- [Release notes](https://github.com/OZI-Project/OZI.build/releases)
+- [Changelog](https://github.com/OZI-Project/OZI.build/blob/master/CHANGELOG.md)
+- [Commits](https://github.com/OZI-Project/OZI.build/compare/1.13.0...1.14.0)
+
+
+updated-dependencies:
+- dependency-name: ozi-build
+  dependency-version: 1.14.0
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`1bd825f`](https://github.com/OZI-Project/OZI.build/commit/1bd825f1bcc02640456a6da8166eb670796b537c))
+
+* build(deps): bump packaging from 24.2 to 25.0 in /doc
+
+Bumps [packaging](https://github.com/pypa/packaging) from 24.2 to 25.0.
+- [Release notes](https://github.com/pypa/packaging/releases)
+- [Changelog](https://github.com/pypa/packaging/blob/main/CHANGELOG.rst)
+- [Commits](https://github.com/pypa/packaging/compare/24.2...25.0)
+
+
+updated-dependencies:
+- dependency-name: packaging
+  dependency-version: '25.0'
+  dependency-type: direct:production
+  update-type: version-update:semver-major
+... — dependabot[bot] <support@github.com>
+([`6d33cc9`](https://github.com/OZI-Project/OZI.build/commit/6d33cc96c212e2a80b638c474eeac1400f4c4a90))
+
+* build(deps): bump step-security/harden-runner from 2.11.1 to 2.12.0
+
+Bumps [step-security/harden-runner](https://github.com/step-security/harden-runner) from 2.11.1 to 2.12.0.
+- [Release notes](https://github.com/step-security/harden-runner/releases)
+- [Commits](https://github.com/step-security/harden-runner/compare/c6295a65d1254861815972266d5933fd6e532bdf...0634a2670c59f64b4a01f0f96f84700a4088b9f0)
+
+
+updated-dependencies:
+- dependency-name: step-security/harden-runner
+  dependency-version: 2.12.0
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`c27a807`](https://github.com/OZI-Project/OZI.build/commit/c27a8078bbb56b714906b902b274b77514881fb6))
+
+* build: add Provides-Dist: pyc_wheel — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`b1dcb4e`](https://github.com/OZI-Project/OZI.build/commit/b1dcb4e78d4c85e15e5146c2fc517a66df4a12dd))
+
+
+### Chores
+
+
+* chore: update documentation for 2.0 — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`4c0dd3d`](https://github.com/OZI-Project/OZI.build/commit/4c0dd3d3163abd3b44591583f13869972163bdcc))
+
+* chore: clean up deprecated imports — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`99fc1c3`](https://github.com/OZI-Project/OZI.build/commit/99fc1c309da84a0b6a9ee4ee1b84faeaec9f5927))
+
+* chore: update config option validation — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`a317d86`](https://github.com/OZI-Project/OZI.build/commit/a317d86aaf244a0b987a4b40408ff5c81a2db080))
+
+* chore: update project metadata — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`8e50463`](https://github.com/OZI-Project/OZI.build/commit/8e504631a42421afb81876c7ac15345a8e4a8bde))
+
+
+### Features
+
+
+* feat: deprecate [tool.ozi-build.metadata] — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`c9acb3e`](https://github.com/OZI-Project/OZI.build/commit/c9acb3e2d4f021f347d6d555b8ed48fa3a603588))
+
+
+### Performance improvements
+
+
+* perf: deprecate pre-prepared PKG-INFO from setuptools_scm
+
+BREAKING_CHANGE: This fully removes ``check_pkg_info_file``. — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`0f823ce`](https://github.com/OZI-Project/OZI.build/commit/0f823ce9cd1209f0a397edf922f547291da3ece2))
+
+* perf: warn about deprecated metadata — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`6a67ed9`](https://github.com/OZI-Project/OZI.build/commit/6a67ed91c565b3bd68670dec0d2e3c66e865ea96))
+
+* perf: redos checker output now NO_COLOR friendly — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`0c17a5b`](https://github.com/OZI-Project/OZI.build/commit/0c17a5bcde73e91d21a4eb9ce469f541c7b300ff))
+
+
+### Unknown
+
+
+* Update SECURITY.md — Eden Ross Duff, MSc, DDiv <rjdbcm@outlook.com>
+([`77a0244`](https://github.com/OZI-Project/OZI.build/commit/77a0244f975b963ca95ce91907e86bb2315cfae5))
+
 ## 1.14.0 (2025-04-19)
 
 
