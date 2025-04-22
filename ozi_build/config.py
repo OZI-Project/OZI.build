@@ -6,7 +6,6 @@ import sys
 
 from ._util import check_pyproject_regexes
 from .metadata import auto_python_version
-from .metadata import check_pkg_info_file
 from .metadata import check_requires_python
 from .metadata import get_description_headers
 from .metadata import get_optional_dependencies
@@ -29,7 +28,6 @@ log = logging.getLogger(__name__)
 class Config:
     def __init__(self, builddir=None):
         config = self.__get_config()
-        check_pyproject_regexes(config)
         self.__metadata = config['tool']['ozi-build'].get('metadata', {})
         self.__build = config['tool'].get('ozi-build', {})
         self.__project = config['project']
@@ -109,6 +107,7 @@ class Config:
     def __get_config():
         with open('pyproject.toml', 'rb') as f:
             config = toml.load(f)
+        check_pyproject_regexes(config)
         return config
 
     def __getitem__(self, key):

@@ -1,7 +1,6 @@
 import logging
 import string
 import subprocess
-import tempfile
 from pathlib import Path
 
 from packaging.version import Version
@@ -10,8 +9,6 @@ from ._util import GET_PYTHON_VERSION
 from ._util import PKG_INFO
 from ._util import PKG_INFO_CONFIG_REQUIRES_PYTHON
 from ._util import PKG_INFO_NO_REQUIRES_PYTHON
-from ._util import meson
-from ._util import meson_configure
 from ._util import readme_ext_to_content_type
 
 log = logging.getLogger(__name__)
