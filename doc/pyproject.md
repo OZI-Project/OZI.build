@@ -4,7 +4,7 @@ OZI.build only supports reading configuration from `pyproject.toml`.
 This file lives at the root of the module/package, at the same place
 as the toplevel `meson.build` file.
 
-## Build system section
+## Build system table
 
 This tells tools like pip to build your project with flit. It's a standard
 defined by PEP 517. For any project using OZI.build, it will look something like this:
@@ -15,7 +15,7 @@ defined by PEP 517. For any project using OZI.build, it will look something like
     build-backend = "ozi_build.buildapi"
 ```
 
-## Project section
+## Project table
 
 This holds the essential project metadata that is outside of the ``meson.build`` file.
 Some keys remain in the project table for improved cross-compatibility.
@@ -23,6 +23,7 @@ It should look similar to this in an OZI.build project:
 
 ``` toml
     [project]
+    name = "project_name"
     dynamic = ["version"]
     dependencies = [
     'TAP-Producer~=1.0.4',
@@ -35,61 +36,56 @@ It should look similar to this in an OZI.build project:
     ...
 ```
 
-## Metadata section
-
 > NOTE: The project version and name are extracted from the `meson.build`
-> [`project()`](http://mesonbuild.com/Reference-manual.html#project) section.
+> [`project()`](http://mesonbuild.com/Reference-manual.html#project) table.
 
-This section is called `[tool.ozi-build.metadata]` in the file.
+### `authors`
 
-### `author`
-
-Your name
-
-### `author-email`
-
-Your email address
-
-e.g. for ozi-build itself:
-
-``` toml
-[tool.ozi-build.metadata]
-author="Thibault Saunier"
-author-email="tsaunier@gnome.org"
-```
+A list of mappings with keys 'name' and 'email'.
 
 ### `classifiers`
 
 A list of [classifiers](https://pypi.python.org/pypi?%3Aaction=list_classifiers).
 
+### `dependencies`
+
+A list of requirements.
+
 ### `description`
 
-The description of the project as a string if you do not want to specify 'description-file'
-
-### `description-file`
-
-A path (relative to the .toml file) to a file containing a longer description
-of your package to show on PyPI. This should be written in reStructuredText
-  Markdown or plain text, and the filename should have the appropriate extension
-  (`.rst`, `.md` or `.txt`).
-
-### `home-page`
-
-:::{deprecated} 1.12.0:::
-A string containing the URL for the package's home page.
-
-Example:
-
-`http://www.example.com/~cschultz/bvote/`
-
-### `download-url`
-
-:::{deprecated} 1.12.0:::
-A string containing the URL for the package's source, will replace '{version}' with the current version.
+A short project summary.
 
 ### `dynamic`
 
 A list of other headers to be treated as dynamic fields.
+
+### `entry-points`
+
+A collection of tables. Each sub-table name is an entry point group.
+For example:
+
+``` toml
+[project.entry-points."otio"]
+view = "opentimelineview.console:main"
+cat = "opentimelineio.console.otiocat:main"
+convert = "opentimelineio.console.otioconvert:main"
+stat = "opentimelineio.console.otiostat:main"
+autogen_serialized_schema_docs = "opentimelineio.console.autogen_serialized_datamodel:main"
+```
+
+### `gui-scripts`
+
+A table of entry point names mapped to modules.
+For example:
+
+``` toml
+[project.gui-scripts]
+otioview = "opentimelineview.console:main"
+otiocat = "opentimelineio.console.otiocat:main"
+otioconvert = "opentimelineio.console.otioconvert:main"
+otiostat = "opentimelineio.console.otiostat:main"
+otioautogen_serialized_schema_docs = "opentimelineio.console.autogen_serialized_datamodel:main"
+```
 
 ### `keywords`
 
@@ -97,46 +93,70 @@ Comma-separated keywords as a string.
 
 ### `license`
 
-Text indicating the license covering the distribution. This text can be either a valid license expression as defined in [pep639](https://www.python.org/dev/peps/pep-0639/#id88) or any free text.
+Text indicating the license covering the distribution.
+This text can be either a valid license expression as defined in [pep639](https://www.python.org/dev/peps/pep-0639/#id88) or any free text.
 
-### `license-expression`
 
-A SPDX license expression.
+### `license-files`
 
-### `license-file`
+An array of license filenames.
 
-The license filename.
+### `maintainers`
 
-### `maintainer`
+A collection of tables with keys 'name' and 'email'.
 
-Name of current maintainer of the project (if different from author)
+### `name`
 
-### `maintainer-email`
+The non-normalized package name.
 
-Maintainer email address
+### `optional-dependencies`
 
-Example:
+A mapping of optional dependency group names to lists of requirements.
+
+### `readme`
+
+A string of the readme filename or a table with keys ``file`` and ``content-type``.
+
+### `requires-python`
+
+A version specifier for the versions of Python this requires, e.g. ``~=3.3`` or
+``>=3.3,<4`` which are equivalents.
+
+### `scripts`
+
+A table of entry point names mapped to modules.
+
+For example:
 
 ``` toml
-[tool.ozi-build.metadata]
-maintainer="Robin Goode"
-maintainer-email="rgoode@example.org"
+[project.scripts]
+otioview = "opentimelineview.console:main"
+otiocat = "opentimelineio.console.otiocat:main"
+otioconvert = "opentimelineio.console.otioconvert:main"
+otiostat = "opentimelineio.console.otiostat:main"
+otioautogen_serialized_schema_docs = "opentimelineio.console.autogen_serialized_datamodel:main"
 ```
 
-### `meson-options`
 
-A list of default meson options to set, can be overriden and expended through the `MESON_ARGS`
-environement variable at build time.
+### `urls`
 
-### `meson-python-option-name`
+A table of labels mapped to urls.
+For example:
 
-The name of the meson options that is used in the meson build definition
-to set the python installation when using
-[`python.find_installation()`](http://mesonbuild.com/Python-module.html#find_installation).
+``` toml
+[project.urls]
+Source = "https://github.com/OZI-Project/OZI.build"
+```
 
-### `module`
 
-The name of the module, will use the meson project name if not specified
+### `version`
+
+The current package version.
+
+
+## Metadata table
+
+This table is called `[tool.ozi-build.metadata]` in the file.
 
 ### `obsoletes`
 
@@ -152,30 +172,6 @@ A list of PyPI packages that this project should not be installed concurrently w
 ```
 
 
-### `pkg-info-file`
-
-Pass a PKG-INFO file direcly usable.
-
-> ! NOTE: All other keys will be ignored if you pass an already prepared `PKG-INFO`
-> file
-
-
-### `platforms`
-
-Supported Python platforms, can be 'any', py3, etc...
-
-### `project-urls`
-
-A list of `Type, url` as described in the
-[pep345](https://www.python.org/dev/peps/pep-0345/#project-url-multiple-use).
-For example:
-
-``` toml
-project-urls = [
-    "Source, https://gitlab.com/OZI-Project/OZI.build",
-]
-```
-
 ### `provides`
 
 A list of PyPI packages that this project provides its own version of.
@@ -185,27 +181,6 @@ A list of PyPI packages that this project provides its own version of.
         "OtherProject",
         "AnotherProject==3.4",
         'virtual_package; python_version >= "3.4"',
-      ]
-```
-
-### `pure-python-abi`
-
-An override of the pure python abi build target e.g. ``py3-none``.
-
-### `requires`
-
-:::{deprecated} 1.3.0
-Use project.dependencies instead.
-:::
-A list of other packages from PyPI that this package needs. Each package may
-be followed by a version specifier like ``(>=4.1)`` or ``>=4.1``, and/or an
-[environment marker](https://www.python.org/dev/peps/pep-0345/#environment-markers)
-after a semicolon. For example:
-
-``` toml
-      requires = [
-          "requests >=2.6",
-          "configparser; python_version == '2.7'",
       ]
 ```
 
@@ -220,19 +195,42 @@ A list of non-PyPI dependency packages. For example:
       ]
 ```
 
-### `requires-python`
 
-A version specifier for the versions of Python this requires, e.g. ``~=3.3`` or
-``>=3.3,<4`` which are equivalents.
+## OZI.build configuration
 
-### `summary`
+This table is called `[tool.ozi-build]` in the file.
 
-A one sentence summary about the package
+### `meson-options`
+
+A list of default meson options to set, can be overridden and expanded through the `MESON_ARGS`
+environment variable at build time.
+
+### `meson-python-option-name`
+
+The name of the meson options that is used in the meson build definition
+to set the python installation when using
+[`python.find_installation()`](http://mesonbuild.com/Python-module.html#find_installation).
+
+### `metadata`
+
+Table of additional, rarely used packaging metadata.
+
+### `platforms`
+
+Supported Python platforms, can be 'any', py3, etc...
+
+### `pure-python-abi`
+
+An override of the pure python abi build target e.g. ``py3-none``.
+
+### `pyc_wheel`
+
+Table of options for pyc_wheel.
 
 
 ## ``pyc_wheel`` configuration
 
-This section is called `[tool.ozi-build.pyc_wheel]` in the file.
+This table is called `[tool.ozi-build.pyc_wheel]` in the file.
 
 ### `exclude`
 
@@ -243,20 +241,3 @@ A regular expression of files for pyc_wheel to ignore.
 Quiet non-error output of pyc_wheel.
 
 
-## Entry points section (Optional)
-
-You can declare [entry points](http://entrypoints.readthedocs.io/en/latest/)
-in the `[tools.ozi-build.entry-points]` section. It is a list of
-'entrypointname = module:funcname` strings, for example for console
-scripts entry points:
-
-``` toml
-[tool.ozi-build.entry-points]
-console_scripts = [
-    'otioview = opentimelineview.console:main',
-    'otiocat = opentimelineio.console.otiocat:main',
-    'otioconvert = opentimelineio.console.otioconvert:main',
-    'otiostat = opentimelineio.console.otiostat:main',
-    'otioautogen_serialized_schema_docs = opentimelineio.console.autogen_serialized_datamodel:main',
-]
-```

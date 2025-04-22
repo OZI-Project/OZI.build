@@ -9,9 +9,31 @@ VALID_PROJECT = {
         "description": """A list of other headers to be treated as dynamic fields."""
     },
     "entry-points": {
-        "description": """A collection of tables. Each sub-table name is an entry point group."""
+        "description": """A collection of tables. Each sub-table name is an entry point group.
+For example:
+
+``` toml
+[project.entry-points."otio"]
+view = "opentimelineview.console:main"
+cat = "opentimelineio.console.otiocat:main"
+convert = "opentimelineio.console.otioconvert:main"
+stat = "opentimelineio.console.otiostat:main"
+autogen_serialized_schema_docs = "opentimelineio.console.autogen_serialized_datamodel:main"
+```"""
     },
-    "gui-scripts": {"description": """A table of entry point names mapped to modules."""},
+    "gui-scripts": {
+        "description": """A table of entry point names mapped to modules.
+For example:
+
+``` toml
+[project.gui-scripts]
+otioview = "opentimelineview.console:main"
+otiocat = "opentimelineio.console.otiocat:main"
+otioconvert = "opentimelineio.console.otioconvert:main"
+otiostat = "opentimelineio.console.otiostat:main"
+otioautogen_serialized_schema_docs = "opentimelineio.console.autogen_serialized_datamodel:main"
+```"""
+    },
     "keywords": {"description": """Comma-separated keywords as a string."""},
     "license": {
         "description": """Text indicating the license covering the distribution.
@@ -33,7 +55,21 @@ This text can be either a valid license expression as defined in [pep639](https:
         "description": """A version specifier for the versions of Python this requires, e.g. ``~=3.3`` or
 ``>=3.3,<4`` which are equivalents."""
     },
-    "scripts": {"description": """A table of entry point names mapped to modules."""},
+    "scripts": {
+        "description": """A table of entry point names mapped to modules.
+
+For example:
+
+``` toml
+[project.scripts]
+otioview = "opentimelineview.console:main"
+otiocat = "opentimelineio.console.otiocat:main"
+otioconvert = "opentimelineio.console.otioconvert:main"
+otiostat = "opentimelineio.console.otiostat:main"
+otioautogen_serialized_schema_docs = "opentimelineio.console.autogen_serialized_datamodel:main"
+```
+"""
+    },
     "urls": {
         "description": """A table of labels mapped to urls.
 For example:
@@ -67,11 +103,11 @@ to set the python installation when using
 
 VALID_EXTRA_METADATA = {
     "author": {
-        "description": """:::{deprecated} 1.15.0:::
+        "description": """:::{deprecated} 2.0:::
                Your name"""
     },
     "author-email": {
-        "description": """:::{deprecated} 1.15.0:::
+        "description": """:::{deprecated} 2.0:::
 Your email address
 
 e.g. for ozi-build itself:
@@ -83,15 +119,15 @@ author-email="tsaunier@gnome.org"
 ```"""
     },
     "classifiers": {
-        "description": """:::{deprecated} 1.15.0:::
+        "description": """:::{deprecated} 2.0:::
 A list of [classifiers](https://pypi.python.org/pypi?%3Aaction=list_classifiers)."""
     },
     "description": {
-        "description": """:::{deprecated} 1.15.0:::
+        "description": """:::{deprecated} 2.0:::
 The description of the project as a string if you do not want to specify 'description-file'"""
     },
     "description-file": {
-        "description": """:::{deprecated} 1.15.0:::
+        "description": """:::{deprecated} 2.0:::
 A path (relative to the .toml file) to a file containing a longer description
 of your package to show on PyPI. This should be written in reStructuredText
   Markdown or plain text, and the filename should have the appropriate extension
@@ -110,31 +146,31 @@ Example:
 A string containing the URL for the package's source, will replace '{version}' with the current version."""
     },
     "dynamic": {
-        "description": """:::{deprecated} 1.15.0:::
+        "description": """:::{deprecated} 2.0:::
 A list of other headers to be treated as dynamic fields."""
     },
     "keywords": {
-        "description": """:::{deprecated} 1.15.0:::
+        "description": """:::{deprecated} 2.0:::
 Comma-separated keywords as a string."""
     },
     "license": {
-        "description": """:::{deprecated} 1.15.0:::
+        "description": """:::{deprecated} 2.0:::
 Text indicating the license covering the distribution. This text can be either a valid license expression as defined in [pep639](https://www.python.org/dev/peps/pep-0639/#id88) or any free text."""
     },
     "license-expression": {
-        "description": """:::{deprecated} 1.15.0:::
+        "description": """:::{deprecated} 2.0:::
 A SPDX license expression."""
     },
     "license-file": {
-        "description": """:::{deprecated} 1.15.0:::
+        "description": """:::{deprecated} 2.0:::
 The license filename."""
     },
     "maintainer": {
-        "description": """:::{deprecated} 1.15.0:::
+        "description": """:::{deprecated} 2.0:::
 Name of current maintainer of the project (if different from author)"""
     },
     "maintainer-email": {
-        "description": """:::{deprecated} 1.15.0:::
+        "description": """:::{deprecated} 2.0:::
 Maintainer email address
 
 Example:
@@ -146,18 +182,18 @@ maintainer-email="rgoode@example.org"
 ```"""
     },
     "meson-options": {
-        "description": """:::{deprecated} 1.15.0:::
+        "description": """:::{deprecated} 2.0:::
 A list of default meson options to set, can be overridden and expanded through the `MESON_ARGS`
 environment variable at build time."""
     },
     "meson-python-option-name": {
-        "description": """:::{deprecated} 1.15.0:::
+        "description": """:::{deprecated} 2.0:::
 The name of the meson options that is used in the meson build definition
 to set the python installation when using
 [`python.find_installation()`](http://mesonbuild.com/Python-module.html#find_installation)."""
     },
     "module": {
-        "description": """:::{deprecated} 1.15.0:::
+        "description": """:::{deprecated} 2.0:::
 The name of the module, will use the meson project name if not specified"""
     },
     "obsoletes": {
@@ -174,7 +210,7 @@ A list of PyPI packages that this project should not be installed concurrently w
 """
     },
     "pkg-info-file": {
-        "description": """:::{deprecated} 1.15.0:::
+        "description": """:::{deprecated} 2.0:::
 Pass a PKG-INFO file directly usable.
 
 > ! NOTE: All other keys will be ignored if you pass an already prepared `PKG-INFO`
@@ -182,11 +218,11 @@ Pass a PKG-INFO file directly usable.
 """
     },
     "platforms": {
-        "description": """:::{deprecated} 1.15.0:::
+        "description": """:::{deprecated} 2.0:::
 Supported Python platforms, can be 'any', py3, etc..."""
     },
     "project-urls": {
-        "description": """:::{deprecated} 1.15.0:::
+        "description": """:::{deprecated} 2.0:::
 A list of `Type, url` as described in the
 [pep345](https://www.python.org/dev/peps/pep-0345/#project-url-multiple-use).
 For example:
@@ -209,7 +245,7 @@ project-urls = [
 ```"""
     },
     "pure-python-abi": {
-        "description": """:::{deprecated} 1.15.0:::
+        "description": """:::{deprecated} 2.0:::
 An override of the pure python abi build target e.g. ``py3-none``."""
     },
     "requires": {
@@ -239,12 +275,12 @@ after a semicolon. For example:
 ```"""
     },
     "requires-python": {
-        "description": """:::{deprecated} 1.15.0:::
+        "description": """:::{deprecated} 2.0:::
 A version specifier for the versions of Python this requires, e.g. ``~=3.3`` or
 ``>=3.3,<4`` which are equivalents."""
     },
     "summary": {
-        "description": """:::{deprecated} 1.15.0:::
+        "description": """:::{deprecated} 2.0:::
 A one sentence summary about the package""",
     },
 }
