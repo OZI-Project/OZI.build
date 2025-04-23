@@ -130,7 +130,7 @@ class Config:
             if len(group) != 0:
                 res += '[{}]\n'.format(group_name)
                 for entrypoint, module in group.items():
-                    res += '{} = "{}"\n'.format(entrypoint, module)
+                    res += '{} = {}\n'.format(entrypoint, module)
                 res += '\n'
         return res
 
