@@ -1,4 +1,48 @@
 # OZI.build CHANGELOG
+## 2.0.1 (2025-04-23)
+
+
+### Build system
+
+
+* build(deps): bump setuptools-scm[toml] from 8.2.1 to 8.3.0 in /doc
+
+Bumps [setuptools-scm[toml]](https://github.com/pypa/setuptools-scm) from 8.2.1 to 8.3.0.
+- [Release notes](https://github.com/pypa/setuptools-scm/releases)
+- [Changelog](https://github.com/pypa/setuptools-scm/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/pypa/setuptools-scm/compare/v8.2.1...v8.3.0)
+
+
+updated-dependencies:
+- dependency-name: setuptools-scm[toml]
+  dependency-version: 8.3.0
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`1a8b7ab`](https://github.com/OZI-Project/OZI.build/commit/1a8b7ab2925e367b5ab124cf49d65a0203773756))
+
+* build(deps): update ozi-build requirement from ~=1.14 to ~=2.0 in /doc
+
+Updates the requirements on [ozi-build](https://github.com/OZI-Project/OZI.build) to permit the latest version.
+- [Release notes](https://github.com/OZI-Project/OZI.build/releases)
+- [Changelog](https://github.com/OZI-Project/OZI.build/blob/master/CHANGELOG.md)
+- [Commits](https://github.com/OZI-Project/OZI.build/compare/1.14.0...2.0.0)
+
+
+updated-dependencies:
+- dependency-name: ozi-build
+  dependency-version: 2.0.0
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`86547bf`](https://github.com/OZI-Project/OZI.build/commit/86547bfe04c000b071e47b923381cb7d8c51d09d))
+
+
+### Performance improvements
+
+
+* perf: split ``pip`` extra from ``core`` extra — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`185bd6c`](https://github.com/OZI-Project/OZI.build/commit/185bd6c3996ebe04b56b460be027ac2e62f2e53f))
+
 ## 2.0.0 (2025-04-22)
 
 
