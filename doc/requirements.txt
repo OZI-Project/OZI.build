@@ -64,7 +64,7 @@ pip-tools==7.4.1
     # via ozi
 pipx
 
-OZI.build~=1.14
+OZI.build~=2.0
     # via ozi
 prompt-toolkit==3.0.51
     # via ozi
@@ -87,7 +87,7 @@ requests==2.32.3
     #   sphinx
 restructuredtext-lint==1.4.0
     # via doc8
-setuptools-scm[toml]==8.2.1
+setuptools-scm[toml]==8.3.0
     # via
     #   ozi
     #   ozi-spec
