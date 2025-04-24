@@ -1,4 +1,16 @@
 # OZI.build CHANGELOG
+## 2.0.5 (2025-04-24)
+
+
+### Bug fixes
+
+
+* fix: correct dict get — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`7ba9665`](https://github.com/OZI-Project/OZI.build/commit/7ba96650f09b82087a290d3d41da4c132f9845d2))
+
+* fix: make the tool table optional — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`b100a83`](https://github.com/OZI-Project/OZI.build/commit/b100a833a13019ce768d7913e3ab6f65915a0934))
+
 ## 2.0.4 (2025-04-24)
 
 
