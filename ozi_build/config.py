@@ -42,7 +42,7 @@ class Config:
         else:
             self.__extras = config.get('project', {}).get('optional-dependencies', {})
         self.__requires = config.get('project', {}).get('dependencies', None)
-        self.license_file = [config.get('project', {}).get('license', {}).get('file', None)]
+        self.license_file = config.get('project', {}).get('license-files', [])
         self.__min_python = '3.10'
         self.__max_python = '3.13'
         self.__pyc_wheel = config.get('tool', {}).get('ozi-build', {}).get('pyc_wheel', {})
