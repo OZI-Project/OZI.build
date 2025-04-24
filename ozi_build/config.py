@@ -150,7 +150,7 @@ class Config:
                 raise RuntimeError(
                     "license metadata not found in pyproject.toml or meson.build"
                 )
-        if self.license_file[0] is None:
+        if self.license_file:
             self['license-files'] = self.license_file = project.get('license_files', [])
             if len(self.license_file) == 0:
                 raise RuntimeError(
