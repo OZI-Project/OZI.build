@@ -123,7 +123,10 @@ def get_optional_dependencies(config):
 
 def get_simple_headers(config):  # noqa: C901
     res = ''
-    for key, name_header, email_header in [('authors', 'Author', 'Author-email'), ('maintainers', 'Maintainer', 'Maintainer-email'),]:
+    for key, name_header, email_header in [
+        ('authors', 'Author', 'Author-email'),
+        ('maintainers', 'Maintainer', 'Maintainer-email'),
+    ]:
         tables = config.get(key, [])
         names = []
         emails = []
