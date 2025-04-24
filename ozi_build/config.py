@@ -28,8 +28,8 @@ log = logging.getLogger(__name__)
 class Config:
     def __init__(self, builddir=None):
         config = self.__get_config()
-        self.__metadata = config['tool'].get('ozi-build', {}).get('metadata', {})
-        self.__build = config['tool'].get('ozi-build', {})
+        self.__metadata = config.get('tool', {}).get('ozi-build', {}).get('metadata', {})
+        self.__build = config.get('tool', {}).get('ozi-build', {})
         self.__project = config['project']
         self.__entry_points = config['project'].get('entry-points', {})
         self.__scripts = {'console_scripts': config['project'].get('scripts', {})}
@@ -45,7 +45,7 @@ class Config:
         self.license_file = [config.get('project', {}).get('license', {}).get('file', None)]
         self.__min_python = '3.10'
         self.__max_python = '3.13'
-        self.__pyc_wheel = config['tool']['ozi-build'].get('pyc_wheel', {})
+        self.__pyc_wheel = config('tool', {}).get('ozi-build', {}).get('pyc_wheel', {})
         self.installed = []
         self.options = []
         self.name_provided = config['project'].get('name', None) is not None
