@@ -123,6 +123,22 @@ def get_optional_dependencies(config):
 
 def get_simple_headers(config):  # noqa: C901
     res = ''
+    for key, name_header, email_header in [
+        ('authors', 'Author', 'Author-email'),
+        ('maintainers', 'Maintainer', 'Maintainer-email'),
+    ]:
+        tables = config.get(key, [])
+        names = []
+        emails = []
+        for table in tables:
+            if table.get('name'):
+                names += [table['name']]
+            if table.get('email'):
+                emails += [table['email']]
+        if names:
+            res += '{}: {}\n'.format(name_header, ', '.join(names))
+        if emails:
+            res += '{}: {}\n'.format(email_header, ', '.join(emails))
     for key, mdata_key in [
         ('classifiers', 'Classifier'),
         ('urls', 'Project-URL'),
