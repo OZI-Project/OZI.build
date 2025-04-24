@@ -1,4 +1,56 @@
 # OZI.build CHANGELOG
+## 2.0.3 (2025-04-24)
+
+
+### Bug fixes
+
+
+* fix: correctly parse authors and maintainers — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`0fa0356`](https://github.com/OZI-Project/OZI.build/commit/0fa035627fe778803e468cbcc3b7a48e0e7a81a4))
+
+
+### Build system
+
+
+* build(deps): bump setuptools-scm[toml] from 8.3.0 to 8.3.1 in /doc
+
+Bumps [setuptools-scm[toml]](https://github.com/pypa/setuptools-scm) from 8.3.0 to 8.3.1.
+- [Release notes](https://github.com/pypa/setuptools-scm/releases)
+- [Changelog](https://github.com/pypa/setuptools-scm/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/pypa/setuptools-scm/compare/v8.3.0...v8.3.1)
+
+
+updated-dependencies:
+- dependency-name: setuptools-scm[toml]
+  dependency-version: 8.3.1
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`827f198`](https://github.com/OZI-Project/OZI.build/commit/827f1986f8cc46d2d41a8f3ad5a738a7678d363c))
+
+* build(deps): bump github/codeql-action from 3.28.15 to 3.28.16
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.28.15 to 3.28.16.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/45775bd8235c68ba998cffa5171334d58593da47...28deaeda66b76a05916b6923827895f2b14ab387)
+
+
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-version: 3.28.16
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`97e12ca`](https://github.com/OZI-Project/OZI.build/commit/97e12cac5476e008d0f080546821df70778aeac8))
+
+
+### Chores
+
+
+* chore: run black — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`0d8fe8d`](https://github.com/OZI-Project/OZI.build/commit/0d8fe8d4ad08f46a9873465ee49cc081227243fc))
+
 ## 2.0.2 (2025-04-23)
 
 
