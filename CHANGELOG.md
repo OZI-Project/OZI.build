@@ -1,4 +1,13 @@
 # OZI.build CHANGELOG
+## 2.0.2 (2025-04-23)
+
+
+### Bug fixes
+
+
+* fix: entry_points.txt values unquoted — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`11e0ef6`](https://github.com/OZI-Project/OZI.build/commit/11e0ef6579aa3199f9f73bdaf7391214432be30c))
+
 ## 2.0.1 (2025-04-23)
 
 
