@@ -45,7 +45,7 @@ class Config:
         self.license_file = [config.get('project', {}).get('license', {}).get('file', None)]
         self.__min_python = '3.10'
         self.__max_python = '3.13'
-        self.__pyc_wheel = config('tool', {}).get('ozi-build', {}).get('pyc_wheel', {})
+        self.__pyc_wheel = config.get('tool', {}).get('ozi-build', {}).get('pyc_wheel', {})
         self.installed = []
         self.options = []
         self.name_provided = config['project'].get('name', None) is not None
