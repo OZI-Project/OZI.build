@@ -1,4 +1,13 @@
 # OZI.build CHANGELOG
+## 2.0.4 (2025-04-24)
+
+
+### Bug fixes
+
+
+* fix: tool.ozi-build should not be a required table — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`11b2009`](https://github.com/OZI-Project/OZI.build/commit/11b20096231871616d46ff398a6574c4bb915b4e))
+
 ## 2.0.3 (2025-04-24)
 
 
