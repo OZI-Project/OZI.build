@@ -28,7 +28,7 @@ log = logging.getLogger(__name__)
 class Config:
     def __init__(self, builddir=None):
         config = self.__get_config()
-        self.__metadata = config['tool']['ozi-build'].get('metadata', {})
+        self.__metadata = config['tool'].get('ozi-build', {}).get('metadata', {})
         self.__build = config['tool'].get('ozi-build', {})
         self.__project = config['project']
         self.__entry_points = config['project'].get('entry-points', {})
