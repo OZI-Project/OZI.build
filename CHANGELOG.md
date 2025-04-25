@@ -1,4 +1,28 @@
 # OZI.build CHANGELOG
+## 2.0.6 (2025-04-24)
+
+
+### Bug fixes
+
+
+* fix: license-file guard without indexing — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`72ed911`](https://github.com/OZI-Project/OZI.build/commit/72ed9119823cd5c64b2bb7f34b34f2a26a1f36a8))
+
+* fix: remove legacy license table parsing — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`f585924`](https://github.com/OZI-Project/OZI.build/commit/f58592487fa837fcc0d51ea2d4984e474799b30f))
+
+## 2.0.5 (2025-04-24)
+
+
+### Bug fixes
+
+
+* fix: correct dict get — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`7ba9665`](https://github.com/OZI-Project/OZI.build/commit/7ba96650f09b82087a290d3d41da4c132f9845d2))
+
+* fix: make the tool table optional — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`b100a83`](https://github.com/OZI-Project/OZI.build/commit/b100a833a13019ce768d7913e3ab6f65915a0934))
+
 ## 2.0.4 (2025-04-24)
 
 
