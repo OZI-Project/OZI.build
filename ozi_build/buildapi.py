@@ -175,8 +175,8 @@ def adjust_name(info: tarfile.TarInfo) -> tarfile.TarInfo:
 
 def add_name(config, pyproject):
     text = pyproject.read_text()
-    maybe_comment = re.match(r'^\[project\](.*)\n', text)
-    maybe_comment = maybe_comment[0] if maybe_comment else ""
+    maybe_comment = re.search(r'\[project\](.*)\n', text)
+    maybe_comment = maybe_comment.group(1) if maybe_comment else ""
     pyproject.write_text(
         text.replace(
             '[project]\n',
@@ -190,17 +190,25 @@ def add_name(config, pyproject):
 
 def add_version(config, pyproject):
     text = pyproject.read_text()
-    maybe_comment = re.match(r'^\[project\](.*)\n', text)
-    maybe_comment = maybe_comment[0] if maybe_comment else ""
-    pyproject.write_text(
-        text.replace(
-            '[project]\n',
-            '[project]{}\nversion="{}"\n'.format(
-                maybe_comment,
-                config["version"],
-            ),
+    maybe_comment = re.search(r'\[project\](.*)\n', text)
+    maybe_comment = maybe_comment.group(1) if maybe_comment else ""
+    maybe_version = re.search(r'\[project\](?:(?:.*)\n)*(\s*version\s*=.*)', text)
+    if maybe_version:
+        pyproject.write_text(
+            text.replace('[project]\n', '[project]{}\n'.format(maybe_comment)).replace(
+                maybe_version.group(1), 'version = "{}"'.format(config["version"])
+            )
         )
-    )
+    else:
+        pyproject.write_text(
+            text.replace(
+                '[project]\n',
+                '[project]{}\nversion="{}"\n'.format(
+                    maybe_comment,
+                    config["version"],
+                ),
+            )
+        )
 
 
 def build_sdist(sdist_directory, config_settings=None):
@@ -243,8 +251,7 @@ def build_sdist(sdist_directory, config_settings=None):
                         format=tarfile.PAX_FORMAT,
                     ) as tf:
                         root = Path(installdir) / tf_dir
-                        if not config.version_provided:
-                            add_version(config, root / 'pyproject.toml')
+                        add_version(config, root / 'pyproject.toml')
                         if not config.name_provided:
                             add_name(config, root / 'pyproject.toml')
                         tf.add(
