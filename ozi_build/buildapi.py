@@ -192,15 +192,23 @@ def add_version(config, pyproject):
     text = pyproject.read_text()
     maybe_comment = re.match(r'^\[project\](.*)\n', text)
     maybe_comment = maybe_comment[0] if maybe_comment else ""
-    pyproject.write_text(
-        text.replace(
-            '[project]\n',
-            '[project]{}\nversion="{}"\n'.format(
-                maybe_comment,
-                config["version"],
-            ),
+    maybe_version = re.match(r'^\[project\](?:(?:.*)\n)*(\s*version\s*=.*$)', text)
+    if maybe_version:
+        pyproject.write_text(
+            text.replace('[project]\n', '[project]{}\n'.format(maybe_comment)).replace(
+                maybe_version[0], 'version = "{}"\n'.format(config["version"])
+            )
         )
-    )
+    else:
+        pyproject.write_text(
+            text.replace(
+                '[project]\n',
+                '[project]{}\nversion="{}"\n'.format(
+                    maybe_comment,
+                    config["version"],
+                ),
+            )
+        )
 
 
 def build_sdist(sdist_directory, config_settings=None):
