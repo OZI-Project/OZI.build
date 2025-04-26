@@ -1,6 +1,8 @@
 # Part of OZI.build.
 # See LICENSE.txt in the project root for details.
 [project]
+name = "OZI.build"
+version = "2.0.x"
 authors = [{name="Thibault Saunier", email="tsaunier@gnome.org"}]
 classifiers = [
     "Intended Audience :: Developers",
