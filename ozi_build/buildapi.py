@@ -149,7 +149,7 @@ class WheelBuilder:
             if i.get('name', '') == 'python.bytecompile'
         ]
         convert_wheel(Path(target_fp), optimize=optimize, **config.pyc_wheel)
-        return str(target_fp)
+        return target_fp.name
 
     def pack_files(self, config):
         for _, installpath in config.installed.items():
