@@ -175,8 +175,8 @@ def adjust_name(info: tarfile.TarInfo) -> tarfile.TarInfo:
 
 def add_name(config, pyproject):
     text = pyproject.read_text()
-    maybe_comment = re.match(r'\[project\](.*)\n', text)
-    maybe_comment = maybe_comment[0] if maybe_comment else ""
+    maybe_comment = re.search(r'\[project\](.*)\n', text)
+    maybe_comment = maybe_comment.group(1) if maybe_comment else ""
     pyproject.write_text(
         text.replace(
             '[project]\n',
