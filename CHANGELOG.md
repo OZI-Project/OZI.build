@@ -1,4 +1,32 @@
 # OZI.build CHANGELOG
+## 2.0.7 (2025-04-26)
+
+
+### Bug fixes
+
+
+* fix: return basename from build_wheel — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`1d495e5`](https://github.com/OZI-Project/OZI.build/commit/1d495e512c5729186ef9e45fac3eb5072cae4231))
+
+
+### Build system
+
+
+* build(deps): bump actions/download-artifact from 4.2.1 to 4.3.0
+
+Bumps [actions/download-artifact](https://github.com/actions/download-artifact) from 4.2.1 to 4.3.0.
+- [Release notes](https://github.com/actions/download-artifact/releases)
+- [Commits](https://github.com/actions/download-artifact/compare/95815c38cf2ff2164869cbab79da8d1f422bc89e...d3f86a106a0bac45b974a628896c90dbdf5c8093)
+
+
+updated-dependencies:
+- dependency-name: actions/download-artifact
+  dependency-version: 4.3.0
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`ca23bbf`](https://github.com/OZI-Project/OZI.build/commit/ca23bbfcfbad874aa5610487aed002951d9e0e8e))
+
 ## 2.0.6 (2025-04-24)
 
 
