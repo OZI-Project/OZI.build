@@ -1,4 +1,23 @@
 # OZI.build CHANGELOG
+## 2.0.8 (2025-04-26)
+
+
+### Bug fixes
+
+
+* fix: use search instead of match — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`91db7a2`](https://github.com/OZI-Project/OZI.build/commit/91db7a2dac0fcd644a0cae00a87dc4aba75e985e))
+
+
+### Performance improvements
+
+
+* perf: replace version during sdist — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`bd72361`](https://github.com/OZI-Project/OZI.build/commit/bd72361b37160781ca8180d955b3fcc343ac38d2))
+
+* perf: replace version during sdist — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`82d016b`](https://github.com/OZI-Project/OZI.build/commit/82d016bc347b0978770fcfe7c6d0e8cd36bc4f82))
+
 ## 2.0.7 (2025-04-26)
 
 
