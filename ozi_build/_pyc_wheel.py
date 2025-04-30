@@ -156,7 +156,9 @@ def convert_wheel(
         remove_pycache(whl_dir, exclude, quiet)
         update_file_attrs(whl_dir, members)
         rewrite_dist_info(
-            whl_path.joinpath("{}.dist-info".format(dist_info)), exclude=exclude
+            whl_path.joinpath("{}.dist-info".format(dist_info)),
+            exclude=exclude,
+            quiet=quiet,
         )
         zip_wheel(whl_file, whl_dir, with_backup)
     finally:
@@ -186,7 +188,7 @@ def update_record_entries(record: TextIO, whl_path, exclude: re.Pattern | None):
     return record_data
 
 
-def rewrite_dist_info(dist_info_path: Path, *, exclude=None):
+def rewrite_dist_info(dist_info_path: Path, *, exclude=None, quiet=False):
     """Rewrite the record file with pyc files instead of py files."""
     if not dist_info_path.exists():
         return
@@ -194,7 +196,8 @@ def rewrite_dist_info(dist_info_path: Path, *, exclude=None):
     whl_path = dist_info_path.resolve().parent
     record_path = dist_info_path / "RECORD"
     record_path.chmod(stat.S_IWUSR | stat.S_IRUSR)
-    print('Rewriting', '{}...'.format(record_path))
+    if not quiet:
+        print('Rewriting', '{}...'.format(record_path))
 
     with record_path.open("r") as record:
         record_data = update_record_entries(record, whl_path, exclude)

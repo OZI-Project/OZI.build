@@ -2,7 +2,7 @@
 # See LICENSE.txt in the project root for details.
 [project]
 name = "OZI.build"
-version = "2.0.x"
+version = "2.0"
 authors = [{name="Thibault Saunier", email="tsaunier@gnome.org"}]
 classifiers = [
     "Intended Audience :: Developers",
@@ -105,7 +105,8 @@ pure-python-abi="py3-none"
 provides=['pyc_wheel']
 
 [tool.ozi-build.pyc_wheel]
-exclude='.*\.py'
+exclude = '.*\.py'
+quiet = true
 
 [tool.setuptools_scm]
 fallback_version = "@VCS_TAG@"

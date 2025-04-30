@@ -61,7 +61,7 @@ def prepare_metadata_for_build_wheel(
     """Creates {metadata_directory}/foo-1.2.dist-info"""
     if not builddir:
         builddir = tempfile.TemporaryDirectory().name
-        meson_configure(builddir, config_settings=config_settings)
+        meson_configure(builddir)
     if not config:
         config = Config(builddir)
 
@@ -80,14 +80,27 @@ def prepare_metadata_for_build_wheel(
     with (dist_info / 'METADATA').open('w') as f:
         f.write(config.get_metadata())
 
-    for i in config.license_file:
+    for i in config.get('license-files'):
         with (dist_info / i).open('w') as fw:
             with Path(i).open('r') as fr:
                 fw.write(fr.read())
 
-    if config.entry_points:
+    if config.get('entry-points') or config.get('scripts') or config.get('gui-scripts'):
+        res = ''
+        console_scripts = {'console_scripts': config.get('scripts', {})}
+        gui_scripts = {'gui_scripts': config.get('gui-scripts', {})}
+        entry_points = config.get('entry-points', {})
+        entry_points.update(console_scripts)
+        entry_points.update(gui_scripts)
+        for group_name in sorted(entry_points):
+            group = entry_points[group_name]
+            if len(group) != 0:
+                res += '[{}]\n'.format(group_name)
+                for entrypoint, module in group.items():
+                    res += '{} = {}\n'.format(entrypoint, module)
+                res += '\n'
         with (dist_info / 'entry_points.txt').open('w') as f:
-            f.write(config.entry_points)
+            f.write(res)
 
     return dist_info.name
 
@@ -104,12 +117,16 @@ class WheelBuilder:
 
     def build(self, wheel_directory, config_settings, metadata_dir):
         config = Config()
+        argv_meson_options = config_settings.get('meson-options', '').split(' ')
+        meson_options = (
+            argv_meson_options if not config.meson_options else config.meson_options
+        )
         args = [
             self.builddir.name,
             '--prefix',
             self.installdir.name,
-        ] + config.meson_options
-        meson_configure(*args, config_settings=config_settings)
+        ] + meson_options
+        meson_configure(*args)
         config.builddir = self.builddir.name
         if config['version'] == '%OZIBUILDVERSION%':
             config['version'] = Path(os.getcwd()).name.split('-')[1]
@@ -216,16 +233,26 @@ def build_sdist(sdist_directory, config_settings=None):
     distdir = Path(sdist_directory)
     with tempfile.TemporaryDirectory() as builddir:
         with tempfile.TemporaryDirectory() as installdir:
-            meson(
-                builddir,
-                '--prefix',
-                installdir,
-                config_settings=config_settings,
-                builddir=builddir,
+            config = Config()
+            argv_meson_options = list(
+                filter(None, config_settings.get('meson-options', '').split(' '))
             )
-
-            config = Config(builddir)
-            meson('dist', '--no-tests', '-C', builddir)
+            meson_options = (
+                argv_meson_options if not config.meson_options else config.meson_options
+            )
+            args = [builddir, '--prefix', installdir] + meson_options
+            meson(*args, builddir=builddir)
+            config.builddir = builddir
+            argv_dist_options = list(
+                filter(None, config_settings.get('meson-dist-options', '').split(' '))
+            )
+            meson_options = (
+                argv_dist_options
+                if not config.meson_dist_options
+                else config.meson_dist_options
+            )
+            dist_args = ['dist', '--no-tests', '-C', builddir] + meson_options
+            meson(*dist_args)
             tf_dir = '{}-{}'.format(config['name'], config['version'])
             mesondistfilename = '%s.tar.xz' % tf_dir
             mesondisttar = tarfile.open(Path(builddir) / 'meson-dist' / mesondistfilename)

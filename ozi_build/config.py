@@ -31,18 +31,6 @@ class Config:
         self.__metadata = config.get('tool', {}).get('ozi-build', {}).get('metadata', {})
         self.__build = config.get('tool', {}).get('ozi-build', {})
         self.__project = config['project']
-        self.__entry_points = config['project'].get('entry-points', {})
-        self.__scripts = {'console_scripts': config['project'].get('scripts', {})}
-        self.__gui_scripts = {'gui_scripts': config['project'].get('gui-scripts', {})}
-        self.__extras = config.get('project', {}).get('optional_dependencies', None)
-        if self.__extras is not None:
-            log.warning(
-                'pyproject.toml:project.optional_dependencies should be renamed to pyproject.toml:project.optional-dependencies'
-            )
-        else:
-            self.__extras = config.get('project', {}).get('optional-dependencies', {})
-        self.__requires = config.get('project', {}).get('dependencies', None)
-        self.license_file = config.get('project', {}).get('license-files', [])
         self.__min_python = '3.10'
         self.__max_python = '3.13'
         self.__pyc_wheel = config.get('tool', {}).get('ozi-build', {}).get('pyc_wheel', {})
@@ -58,10 +46,6 @@ class Config:
         return self.__metadata
 
     @property
-    def extras(self):
-        return self.__extras
-
-    @property
     def min_python(self):
         return self.__min_python
 
@@ -70,16 +54,16 @@ class Config:
         return self.__max_python
 
     @property
-    def requirements(self):
-        return self.__requires if self.__requires else []
-
-    @property
     def pyc_wheel(self):
         return self.__pyc_wheel
 
     @property
     def meson_options(self):
         return self.__build.get('meson-options', [])
+
+    @property
+    def meson_dist_options(self):
+        return self.__build.get('meson-dist-options', [])
 
     @property
     def meson_python_option_name(self):
@@ -120,21 +104,6 @@ class Config:
         return key in self.__project
 
     @property
-    def entry_points(self):
-        res = ''
-        entry_points = self.__entry_points.copy()
-        entry_points.update(self.__scripts)
-        entry_points.update(self.__gui_scripts)
-        for group_name in sorted(entry_points):
-            group = entry_points[group_name]
-            if len(group) != 0:
-                res += '[{}]\n'.format(group_name)
-                for entrypoint, module in group.items():
-                    res += '{} = {}\n'.format(entrypoint, module)
-                res += '\n'
-        return res
-
-    @property
     def builddir(self):
         return self.__builddir
 
@@ -150,12 +119,14 @@ class Config:
                 raise RuntimeError(
                     "license metadata not found in pyproject.toml or meson.build"
                 )
-        if self.license_file:
-            self['license-files'] = self.license_file = project.get('license_files', [])
-            if len(self.license_file) == 0:
-                raise RuntimeError(
-                    "license-files metadata not found in pyproject.toml or meson.build"
-                )
+        build_licenses = project.get('license_files')
+        self['license-files'] = (
+            build_licenses if build_licenses else self.get('license-files', [])
+        )
+        if len(self.get('license-files')) == 0:
+            raise RuntimeError(
+                "license-files metadata not found in pyproject.toml or meson.build"
+            )
 
         self.installed = self.__introspect('installed')
         self.options = self.__introspect('buildoptions')
@@ -223,10 +194,10 @@ class Config:
                     "got value: %s" % (field, value)
                 )
             del pyc_whl_options[field]
-        for k in self.extras:
+        for k in self['optional-dependencies']:
             if re.match('^[a-z0-9]+(-[a-z0-9]+)*$', k) is None:
                 raise RuntimeError(
-                    '[project.optional_dependencies] key "{}" is not valid.'.format(k)
+                    '[project.optional-dependencies] key "{}" is not valid.'.format(k)
                 )
 
     def get(self, key, default=None):
