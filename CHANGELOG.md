@@ -1,4 +1,49 @@
 # OZI.build CHANGELOG
+## 2.0.9 (2025-05-01)
+
+
+### Bug fixes
+
+
+* fix: meson support upper limit of 1.9
+
+perf: clean up build API
+([`053b318`](https://github.com/OZI-Project/OZI.build/commit/053b318ab939f3f61110ed52d56f6113ceb795f4))
+
+* fix: filter empty config args — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`6c5171c`](https://github.com/OZI-Project/OZI.build/commit/6c5171ca75c9ab51d34839cd5359ab3f6af1598c))
+
+
+### Build system
+
+
+* build(deps): bump certifi from 2025.1.31 to 2025.4.26 in /doc
+
+Bumps [certifi](https://github.com/certifi/python-certifi) from 2025.1.31 to 2025.4.26.
+- [Commits](https://github.com/certifi/python-certifi/compare/2025.01.31...2025.04.26)
+
+
+updated-dependencies:
+- dependency-name: certifi
+  dependency-version: 2025.4.26
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`fdf6a91`](https://github.com/OZI-Project/OZI.build/commit/fdf6a915ea7782e364b0bf95848d42901e20565a))
+
+
+### Performance improvements
+
+
+* perf: patch pyproject for OZI 1.39 — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`ee362ef`](https://github.com/OZI-Project/OZI.build/commit/ee362eff99cc039145a20dc153e160704f48c282))
+
+* perf: patch pyproject for OZI 1.39 — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`dbb85eb`](https://github.com/OZI-Project/OZI.build/commit/dbb85eb57cfff2018ee7f76ea0da2c58ecedb9a4))
+
+* perf: clean up build API — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`4bf1070`](https://github.com/OZI-Project/OZI.build/commit/4bf107079faf5f6eccc7e6d45e69cfc48db06dd1))
+
 ## 2.0.8 (2025-04-26)
 
 
