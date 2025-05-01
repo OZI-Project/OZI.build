@@ -125,7 +125,7 @@ class WheelBuilder:
             self.builddir.name,
             '--prefix',
             self.installdir.name,
-        ] + meson_options
+        ] + list(filter(None, meson_options))
         meson_configure(*args)
         config.builddir = self.builddir.name
         if config['version'] == '%OZIBUILDVERSION%':
