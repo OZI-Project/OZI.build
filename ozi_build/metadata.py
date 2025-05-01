@@ -64,12 +64,7 @@ def check_requires_python(config, meta):
 def get_python_bin(config):
     option_build = config.meson_python_option_name
     python = 'python3'
-    if not option_build:
-        log.warning(
-            "meson-python-option-name not specified in the "
-            + "[tool.ozi-build] section, assuming the python binary is `python3`"
-        )
-    else:
+    if option_build:
         for opt in config.options:
             if opt['name'] == option_build:
                 python = opt['value']
@@ -90,7 +85,7 @@ def _parse_project_optional_dependencies(config, k: str, v: str):
         )
     for j in (name for name in v.strip('[]').rstrip(',').split(',')):
         if len(j) > 0 and j[0] in string.ascii_uppercase + string.ascii_lowercase:
-            for package in config.extras.get(j, []):
+            for package in config.get('optional-dependencies', {}).get(j, []):
                 metadata += 'Requires-Dist: {}; extra=="{}"\n'.format(package, k)
         else:
             raise ValueError(
@@ -103,7 +98,7 @@ def _parse_project_optional_dependencies(config, k: str, v: str):
 
 def get_optional_dependencies(config):
     res = ''
-    for k, v in config.extras.items():
+    for k, v in config.get('optional-dependencies', {}).items():
         res += "Provides-Extra: {}\n".format(k)
         if isinstance(v, list):
             for i in v:
@@ -112,7 +107,7 @@ def get_optional_dependencies(config):
                 else:
                     res += 'Requires-Dist: {}; extra=="{}"\n'.format(i, k)
         elif isinstance(v, str):
-            res += config._parse_project_optional_dependencies(config, k, v)
+            res += _parse_project_optional_dependencies(config, k, v)
             log.warning(
                 'pyproject.toml:project.optional-dependencies nested key type should be a toml array, like a=["[b,c]", "[d,e]", "foo"], parsed string "{}"'.format(
                     v
@@ -173,8 +168,9 @@ def get_simple_headers(config):  # noqa: C901
 
 def get_requirements_headers(config):
     res = ''
-    if config.requirements:
-        for package in config.requirements:
+    deps = config.get('dependencies', [])
+    if deps:
+        for package in deps:
             res += 'Requires-Dist: {}\n'.format(package)
     if config.get('requires', None):
         raise ValueError(

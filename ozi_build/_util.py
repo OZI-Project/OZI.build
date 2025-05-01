@@ -138,7 +138,7 @@ def install_files_path(installpath, target):
     return installpath
 
 
-def meson(*args, config_settings=None, builddir=''):
+def meson(*args, builddir=''):
     try:
         return subprocess.check_output(['meson'] + list(args))
     except subprocess.CalledProcessError as e:
@@ -159,11 +159,11 @@ def meson(*args, config_settings=None, builddir=''):
         raise e
 
 
-def meson_configure(*args, config_settings=None):
+def meson_configure(*args):
     if 'MESON_ARGS' in os.environ:
         args = os.environ.get('MESON_ARGS').split(' ') + list(args)  # type: ignore
         print("USING MESON_ARGS: %s" % args)
     args = list(args)
     args.append('-Dlibdir=lib')
 
-    meson(*args, builddir=args[0], config_settings=config_settings)
+    meson(*args, builddir=args[0])
