@@ -2,7 +2,7 @@
 # See LICENSE.txt in the project root for details.
 [project]
 name = "OZI.build"
-version = "2.0.x"
+version = "2.0"
 authors = [{name="Thibault Saunier", email="tsaunier@gnome.org"}]
 classifiers = [
     "Intended Audience :: Developers",
@@ -87,7 +87,7 @@ Homepage = "https://oziproject.dev/"
 [build-system]
 requires = [
     "wheel~=0.34",
-    "meson[ninja]~=1.2",
+    "meson[ninja]~=1.2,<1.9",
     'packaging',
     'tomli~=2.0;python_version<"3.11"',
     "setuptools>=64",
@@ -105,7 +105,8 @@ pure-python-abi="py3-none"
 provides=['pyc_wheel']
 
 [tool.ozi-build.pyc_wheel]
-exclude='.*\.py'
+exclude = '.*\.py'
+quiet = true
 
 [tool.setuptools_scm]
 fallback_version = "@VCS_TAG@"
@@ -291,13 +292,13 @@ package = wheel
 deps =
     setuptools_scm[toml]~=8.0
     pip-tools~=7.0
-    meson[ninja]~=1.2
+    meson[ninja]~=1.2,<1.9
     invoke~=2.2
     pathvalidate~=3.2.1
 commands_pre =
      pipx install --python=python meson
 commands =
-     meson setup {env_tmp_dir} -Dozi:dist=disabled -Dozi:tox-env-dir={env_dir}
+     meson setup {env_tmp_dir} -Dozi:{env_name}=enabled -Dozi:tox-env-dir={env_dir}
      meson compile -C {env_tmp_dir}
      rm -rf {env_tmp_dir}{/}.gitignore
 commands_post =
