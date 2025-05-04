@@ -33,7 +33,7 @@ def normalize(name: str) -> str:
 
 def get_requires_for_build_wheel(config_settings=None):
     """Returns a list of requirements for building, as strings"""
-    return Config().get('requires', [])
+    return Config().get('dependencies', [])
 
 
 # For now, we require all dependencies to build either a wheel or an sdist.
