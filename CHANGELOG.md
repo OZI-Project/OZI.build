@@ -1,4 +1,62 @@
 # OZI.build CHANGELOG
+## 2.0.10 (2025-05-04)
+
+
+### Bug fixes
+
+
+* fix: get_requires_for_build_wheel/sdist no longer returns an empty list in all cases — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`aba9877`](https://github.com/OZI-Project/OZI.build/commit/aba987776be6d054ba8292e37421366bb510a8f9))
+
+
+### Build system
+
+
+* build(deps): bump OZI-Project/draft from 1.13.1 to 1.13.2
+
+Bumps [OZI-Project/draft](https://github.com/ozi-project/draft) from 1.13.1 to 1.13.2.
+- [Release notes](https://github.com/ozi-project/draft/releases)
+- [Commits](https://github.com/ozi-project/draft/compare/ed08d630ad83cfd14061b78cf695c20eb51984a5...92712f8a95c9cb1fa00731f9a29edeb1cd9799b8)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/draft
+  dependency-version: 1.13.2
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`586fb2e`](https://github.com/OZI-Project/OZI.build/commit/586fb2ebb5aefb0b6fa6e86bb3180802a6aec5a0))
+
+* build(deps): bump OZI-Project/publish from 1.13.3 to 1.13.4
+
+Bumps [OZI-Project/publish](https://github.com/ozi-project/publish) from 1.13.3 to 1.13.4.
+- [Release notes](https://github.com/ozi-project/publish/releases)
+- [Commits](https://github.com/ozi-project/publish/compare/df67e9c0f38d22c078568807d2eefed313340e2d...8297bf52054be7cae27ab2770e08d96676fd3162)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/publish
+  dependency-version: 1.13.4
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`ae0339a`](https://github.com/OZI-Project/OZI.build/commit/ae0339a1ff10299e3681c56475aa003e5d0cd2c5))
+
+* build(deps): bump OZI-Project/checkpoint from 1.7.1 to 1.7.2
+
+Bumps [OZI-Project/checkpoint](https://github.com/ozi-project/checkpoint) from 1.7.1 to 1.7.2.
+- [Release notes](https://github.com/ozi-project/checkpoint/releases)
+- [Commits](https://github.com/ozi-project/checkpoint/compare/dbe6f38e4bb6ed375129d0cf718b6d6968340a13...ac9e45ece7eecacce1a9acb44ae4443985fe310b)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/checkpoint
+  dependency-version: 1.7.2
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`4911358`](https://github.com/OZI-Project/OZI.build/commit/4911358743ef325c733e5583da9b049c8549074e))
+
 ## 2.0.9 (2025-05-01)
 
 
