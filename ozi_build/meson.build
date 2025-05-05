@@ -1,6 +1,13 @@
+configure_file(
+    input: '_util.py',
+    output: '_util.py',
+    configuration: configuration_data({'VERSION': meson.project_version()}),
+    install: true,
+    install_dir: python.get_install_dir() / 'ozi_build',
+    install_tag: 'python-runtime',
+)
 sources = [
     '__init__.py',
-    '_util.py',
     '_at.py',
     '_branch.py',
     '_categories.py',
