@@ -192,15 +192,14 @@ option('args-pytest',
     description: 'application',
     type: 'array',
     value: [
-        '--version',
-#        '@build_root@/test',
-#        '--basetemp=temp',
-#        '--exitfirst',
-#        '--cov-config=pyproject.toml',
-#        '--cov=ozi_build',
-#        '-n',
-#        'auto',
-#        '-d',
+        '@build_root@/test',
+        '--basetemp=temp',
+        '--exitfirst',
+        '--cov-config=pyproject.toml',
+        '--cov=ozi_build',
+        '-n',
+        'auto',
+        '-d',
     ]
 )
 option(
