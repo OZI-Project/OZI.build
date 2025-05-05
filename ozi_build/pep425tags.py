@@ -30,7 +30,6 @@
 #
 """Generate PEP 425 compatibility tags."""
 
-import distutils.util
 import platform
 import sys
 import sysconfig
@@ -127,4 +126,4 @@ def get_impl_ver():
 
 def get_platform_tag():
     """Return the PEP-425 compatible platform tag."""
-    return distutils.util.get_platform().replace("-", "_").replace(".", "_")
+    return platform.get_platform().replace("-", "_").replace(".", "_")
