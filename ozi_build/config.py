@@ -36,8 +36,6 @@ class Config:
         self.__pyc_wheel = config.get('tool', {}).get('ozi-build', {}).get('pyc_wheel', {})
         self.installed = []
         self.options = []
-        self.name_provided = config['project'].get('name', None) is not None
-        self.version_provided = config['project'].get('version', None) is not None
         if builddir:
             self.builddir = builddir
 
