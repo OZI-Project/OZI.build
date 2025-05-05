@@ -1,5 +1,5 @@
-import sre_constants
-import sre_parse
+from re import _constants
+from re import _parser
 from typing import List  # noqa: I100, I201
 from typing import Optional
 from typing import Set
@@ -17,7 +17,7 @@ from ._repeat import FiniteRepeat
 from ._repeat import InfiniteRepeat
 from ._sequence import Sequence
 
-SreConstant = sre_constants._NamedIntConstant
+SreConstant = _constants._NamedIntConstant
 SreOpData = Union[Tuple, List, int, SreConstant, None]
 SreOp = Tuple[SreConstant, SreOpData]
 
@@ -28,7 +28,7 @@ class SreOpParser:
         self.negative_lookahead: Optional[Character] = None
 
     def parse_sre(self, pattern: str, flags: int = 0):
-        return self.sequence_or_singleton(sre_parse.parse(pattern, flags))
+        return self.sequence_or_singleton(_parser.parse(pattern, flags))
 
     def parse_op(self, op: SreConstant, data: SreOpData):
         return getattr(self, "from_{}".format(op.name))(data)
@@ -63,7 +63,7 @@ class SreOpParser:
         ],
     ) -> Union[FiniteRepeat, InfiniteRepeat, Branch, None]:
         minimum, maximum, elements = data
-        infinite = maximum is sre_constants.MAXREPEAT
+        infinite = maximum is _constants.MAXREPEAT
         # TODO support negative lookahead before repeat with minimum = 0  # noqa: T101
         negative_lookahead = self.use_negative_lookahead()
         repeatable = self.sequence_or_singleton(elements)
@@ -124,7 +124,7 @@ class SreOpParser:
         # TODO: handling for multiline  # noqa: T101
         # TODO: handling for \\b  # noqa: T101
         self.use_negative_lookahead()
-        if at is sre_constants.AT_END:
+        if at is _constants.AT_END:
             return EndOfString()
         return None
 
@@ -147,20 +147,20 @@ class SreOpParser:
         literals: Optional[Set[int]] = None
         categories: Optional[Set] = None
         positive = True
-        if len(data) > 1 and data[0] == (sre_constants.NEGATE, None):
+        if len(data) > 1 and data[0] == (_constants.NEGATE, None):
             positive = False
             data = data[1:]
         for in_op, in_data in data:
-            if in_op is sre_constants.LITERAL:
+            if in_op is _constants.LITERAL:
                 if literals is None:
                     literals = set()
                 literals.add(in_data)
-            elif in_op is sre_constants.RANGE:
+            elif in_op is _constants.RANGE:
                 if literals is None:
                     literals = set()
                 min_val, max_val = in_data
                 literals.update(range(min_val, max_val + 1))
-            elif in_op is sre_constants.CATEGORY:
+            elif in_op is _constants.CATEGORY:
                 if categories is None:
                     categories = set()
                 categories.add(Category[in_data.name[9:]])
@@ -188,9 +188,9 @@ class SreOpParser:
             if len(ops) == 1:
                 character_op = ops[0]
                 if character_op[0] in (
-                    sre_constants.LITERAL,
-                    sre_constants.NOT_LITERAL,
-                    sre_constants.IN,
+                    _constants.LITERAL,
+                    _constants.NOT_LITERAL,
+                    _constants.IN,
                 ):
                     negative_lookahead = self.use_negative_lookahead()
                     not_assertion = self.parse_op(*character_op)
