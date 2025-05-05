@@ -5,13 +5,36 @@ from pathlib import Path
 
 from packaging.version import Version
 
-from ._util import GET_PYTHON_VERSION
-from ._util import PKG_INFO
-from ._util import PKG_INFO_CONFIG_REQUIRES_PYTHON
-from ._util import PKG_INFO_NO_REQUIRES_PYTHON
-from ._util import readme_ext_to_content_type
-
 log = logging.getLogger(__name__)
+
+PKG_INFO = """\
+Metadata-Version: 2.3
+Requires-Python: >={min_python}, <{max_python}
+Name: {name}
+Version: {version}
+"""
+
+PKG_INFO_CONFIG_REQUIRES_PYTHON = """\
+Metadata-Version: 2.3
+Requires-Python: {requires_python}
+Name: {name}
+Version: {version}
+"""
+
+PKG_INFO_NO_REQUIRES_PYTHON = """\
+Metadata-Version: 2.3
+Name: {name}
+Version: {version}
+"""
+
+readme_ext_to_content_type = {
+    '.rst': 'text/x-rst',
+    '.md': 'text/markdown',
+    '.txt': 'text/plain',
+    '': 'text/plain',
+}
+
+GET_PYTHON_VERSION = 'import sys;print("{}.{}".format(*sys.version_info[:2]))'
 
 
 def auto_python_version(config, python_bin: str, meta):
