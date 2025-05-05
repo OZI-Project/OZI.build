@@ -9,6 +9,7 @@ sources = [
     '_groupref.py',
     '_ranges.py',
     '_redos.py',
+    '_regexploit.py',
     '_repeat.py',
     '_sequence.py',
     '_sre.py',

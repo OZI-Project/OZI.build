@@ -4,7 +4,7 @@ import os
 import re
 import sys
 
-from ._util import check_pyproject_regexes
+from ._regexploit import check_pyproject_regexes
 from .metadata import auto_python_version
 from .metadata import check_requires_python
 from .metadata import get_description_headers
