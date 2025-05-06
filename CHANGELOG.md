@@ -1,4 +1,109 @@
 # OZI.build CHANGELOG
+## 2.1.0 (2025-05-06)
+
+
+### Bug fixes
+
+
+* fix: maybe_add_key_to_project doesnt duplicate keys — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`74b14a8`](https://github.com/OZI-Project/OZI.build/commit/74b14a87198c597ec44a9090d9c4974e3f1f2fce))
+
+* fix: sre_parse module name typo — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`be54fc3`](https://github.com/OZI-Project/OZI.build/commit/be54fc3db4e769dc4d06fb417bc20802eeafe265))
+
+* fix: re internals version guard — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`63f7e00`](https://github.com/OZI-Project/OZI.build/commit/63f7e008920a2419eb3279b8ebb762f83e00c53f))
+
+* fix: handle re internals correctly in <3.11 — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`efef6e5`](https://github.com/OZI-Project/OZI.build/commit/efef6e5d59b7ad1170860589e6b4d96bb82e1193))
+
+* fix: force meson install to tox envs — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`d72c859`](https://github.com/OZI-Project/OZI.build/commit/d72c859978d604515f5a315dad2f7371716a5d13))
+
+* fix: remove distutils import — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`442f30a`](https://github.com/OZI-Project/OZI.build/commit/442f30af80a00569174af056b71bcefa9e8a5b38))
+
+* fix: _sre import of re internals — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`a442079`](https://github.com/OZI-Project/OZI.build/commit/a442079cef750dce7f2db9e9158ced1612ebeb7e))
+
+
+### Build system
+
+
+* build(deps): bump charset-normalizer from 3.4.1 to 3.4.2 in /doc
+
+Bumps [charset-normalizer](https://github.com/jawah/charset_normalizer) from 3.4.1 to 3.4.2.
+- [Release notes](https://github.com/jawah/charset_normalizer/releases)
+- [Changelog](https://github.com/jawah/charset_normalizer/blob/master/CHANGELOG.md)
+- [Commits](https://github.com/jawah/charset_normalizer/compare/3.4.1...3.4.2)
+
+
+updated-dependencies:
+- dependency-name: charset-normalizer
+  dependency-version: 3.4.2
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`3a7ed9f`](https://github.com/OZI-Project/OZI.build/commit/3a7ed9fcdb64954d4536c1cab225c69427e632dc))
+
+* build(deps): bump github/codeql-action from 3.28.16 to 3.28.17
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.28.16 to 3.28.17.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/28deaeda66b76a05916b6923827895f2b14ab387...60168efe1c415ce0f5521ea06d5c2062adbeed1b)
+
+
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-version: 3.28.17
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`5eaaf41`](https://github.com/OZI-Project/OZI.build/commit/5eaaf4119db16dee36ebb0c8d333d6ef5d5ef5b4))
+
+
+### Chores
+
+
+* chore: cleanup lint — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`da6f310`](https://github.com/OZI-Project/OZI.build/commit/da6f310f5c2e2b8a566aa6d8db966d13df191cde))
+
+* chore: clean up API — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`7791886`](https://github.com/OZI-Project/OZI.build/commit/7791886d9381988a6306f0761c46bcd9f824906a))
+
+* chore: remove dep install dist scripts — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`7afc48d`](https://github.com/OZI-Project/OZI.build/commit/7afc48dacc43915f0b95eb64952bd5d6a99b3703))
+
+* chore: update wrap-file to OZI-1.41.5 — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`cc4eb20`](https://github.com/OZI-Project/OZI.build/commit/cc4eb20e23fcd73f4e2f379eac231b1821c914c3))
+
+* chore: move metadata related constants to metadata module — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`da133ed`](https://github.com/OZI-Project/OZI.build/commit/da133ed29868c59c406efb1669ce38d45a1955de))
+
+
+### Features
+
+
+* feat: Wheel-Version 1.9 include Generator version — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`8ff9826`](https://github.com/OZI-Project/OZI.build/commit/8ff98262e019e22ce599b17f37a309b474343edf))
+
+
+### Performance improvements
+
+
+* perf: add several known reDOS pattern tests labelled by ``test_cve_...`` — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`185537c`](https://github.com/OZI-Project/OZI.build/commit/185537cb84e31b5eb90a9a325cb24a1a071e1941))
+
+* perf: copy regexploit tests to repo — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`828fb2d`](https://github.com/OZI-Project/OZI.build/commit/828fb2d0cf625ae734848e7f6ecd1999f5e35327))
+
+* perf: use uv for OZI backend — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`4e2180f`](https://github.com/OZI-Project/OZI.build/commit/4e2180f931ff968235d4d11c75a9255093914276))
+
+* perf: move regexploit entrypoint to new _regexploit module — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`fbfc5c6`](https://github.com/OZI-Project/OZI.build/commit/fbfc5c6ab4f114eaf8f0633b371fa5e2a16c6e29))
+
 ## 2.0.10 (2025-05-04)
 
 
