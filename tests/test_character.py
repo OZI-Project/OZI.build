@@ -9,7 +9,7 @@ from ozi_build._char import Character
 from ozi_build._sre import SreOpParser
 
 if sys.version_info < (3, 11):
-    import sre_parser as _parser
+    import sre_parse as _parser
 else:
     from re import _parser
 

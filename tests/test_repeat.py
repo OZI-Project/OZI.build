@@ -7,7 +7,7 @@ from ozi_build._repeat import Repeat  # noqa: TC001
 from ozi_build._sre import SreOpParser
 
 if sys.version_info < (3, 11):
-    import sre_parser as _parser
+    import sre_parse as _parser
 else:
     from re import _parser
 
