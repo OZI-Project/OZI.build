@@ -207,11 +207,11 @@ def maybe_add_key_to_project(config, pyproject, key):
     text = pyproject.read_text()
     maybe_comment = re.search(r'\[project\](.*)\n', text)
     maybe_comment = maybe_comment.group(1) if maybe_comment else ""
-    maybe_version = re.search(r'\[project\](?:(?:.*)\n)*(\s*version\s*=.*)', text)
-    if maybe_version:
+    maybe_key = re.search(r'\[project\](?:(?:.*)\n)*(\s*{}\s*=.*)'.format(key), text)
+    if maybe_key:
         pyproject.write_text(
             text.replace('[project]\n', '[project]{}\n'.format(maybe_comment)).replace(
-                maybe_version.group(1), '{} = "{}"'.format(key, config[key])
+                maybe_key.group(1), '{} = "{}"'.format(key, config[key])
             )
         )
     else:
