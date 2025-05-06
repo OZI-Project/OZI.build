@@ -1,3 +1,4 @@
+# noqa: INP001
 import pytest
 
 from ozi_build._at import EndOfString

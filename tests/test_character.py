@@ -1,3 +1,4 @@
+# noqa: INP001
 from re import _parser
 
 import pytest
@@ -106,7 +107,7 @@ def test_category_category_covers_none():
 
 
 @pytest.mark.parametrize(
-    "category_identifier,category_enum,character",
+    ('category_identifier', 'category_enum', 'character'),
     [
         ("w", Category.WORD, "b"),
         ("w", Category.WORD, "C"),
@@ -128,7 +129,7 @@ def test_categories(category_identifier: str, category_enum: Category, character
 
 
 @pytest.mark.parametrize(
-    "category_identifier,category_enum,not_character",
+    ('category_identifier', 'category_enum', 'not_character'),
     [
         ("w", Category.WORD, "-"),
         ("W", Category.NOT_WORD, "_"),

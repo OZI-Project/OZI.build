@@ -1,9 +1,10 @@
+# noqa: INP001
 import re
 
 import pytest
 
 from ozi_build._redos import find
-from ozi_build._sequence import Sequence
+from ozi_build._sequence import Sequence  # noqa: TC001
 from ozi_build._sre import SreOpParser
 
 

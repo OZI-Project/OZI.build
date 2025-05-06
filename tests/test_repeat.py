@@ -1,8 +1,9 @@
+# noqa: INP001
 from re import _parser
-from typing import Union  # noqa: I100, I201
+from typing import Union
 
-from ozi_build._char import Character
-from ozi_build._repeat import Repeat
+from ozi_build._char import Character  # noqa: TC001
+from ozi_build._repeat import Repeat  # noqa: TC001
 from ozi_build._sre import SreOpParser
 
 
