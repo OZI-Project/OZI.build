@@ -1,6 +1,13 @@
+configure_file(
+    input: '_util.py',
+    output: '_util.py',
+    configuration: configuration_data({'VERSION': meson.project_version()}),
+    install: true,
+    install_dir: python.get_install_dir() / 'ozi_build',
+    install_tag: 'python-runtime',
+)
 sources = [
     '__init__.py',
-    '_util.py',
     '_at.py',
     '_branch.py',
     '_categories.py',
@@ -9,6 +16,7 @@ sources = [
     '_groupref.py',
     '_ranges.py',
     '_redos.py',
+    '_regexploit.py',
     '_repeat.py',
     '_sequence.py',
     '_sre.py',

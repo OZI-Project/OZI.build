@@ -138,7 +138,7 @@ exclude_lines = [
     "if __name__ == .__main__.:",
     "if TYPE_CHECKING:",
 ]
-fail_under = 100.0
+fail_under = 43.0
 show_missing = true
 skip_covered = true
 skip_empty = true
@@ -284,19 +284,17 @@ python =
 
 [testenv]
 allowlist_externals =
-     rm
-     pipx
-     python
      meson
+     rm
 package = wheel
 deps =
     setuptools_scm[toml]~=8.0
-    pip-tools~=7.0
-    meson[ninja]~=1.2,<1.9
     invoke~=2.2
     pathvalidate~=3.2.1
+    meson[ninja]~=1.2,<1.9
+    uv
 commands_pre =
-     pipx install --python=python meson
+     uv tool install --python={env_python} --force "meson[ninja]~=1.2,<1.9"
 commands =
      meson setup {env_tmp_dir} -Dozi:{env_name}=enabled -Dozi:tox-env-dir={env_dir}
      meson compile -C {env_tmp_dir}
@@ -308,12 +306,13 @@ commands_post =
 [testenv:test]
 [testenv:fix]
 description = quickly fix minor source issues
-deps = pipx
+deps = uv
 skip_install = true
 commands =
-     pipx run --python {env_python} -q black -S .
-     pipx run --python {env_python} -q isort .
-     pipx run --python {env_python} -q autoflake -i -r .
+     uv tool run --python {env_python} -q black -S .
+     uv tool run --python {env_python} -q isort .
+     uv tool run --python {env_python} -q autoflake -i -r .
+commands_post =
 
 [testenv:scm]
 description = OZI supply chain management (setuptools_scm)

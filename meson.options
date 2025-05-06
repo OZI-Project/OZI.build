@@ -22,6 +22,21 @@ option(
     ]
 )
 option(
+    'compile-requirements-command',
+    type: 'array',
+    value: ['uv', 'pip', 'compile'],
+)
+option(
+    'install-requirements-command',
+    type: 'array',
+    value: ['uv', 'pip'],
+)
+option(
+    'install-tools-command',
+    type: 'array',
+    value: ['uv', 'pip', 'install'],
+)
+option(
     'variables',
     type: 'array',
     value: [
@@ -88,16 +103,6 @@ option(
         'pytest-tcpclient',
         'pytest-xdist',
     ]
-)
-option(
-    'compile-requirements-command',
-    type: 'array',
-    value: ['pip-compile'],
-)
-option(
-    'install-requirements-command',
-    type: 'array',
-    value: ['pip'],
 )
 option('install-subprojects', type: 'feature', value: 'disabled')
 option('source-to-build', type: 'feature', value: 'auto')
@@ -187,15 +192,14 @@ option('args-pytest',
     description: 'application',
     type: 'array',
     value: [
-        '--version',
-#        '@build_root@/test',
-#        '--basetemp=temp',
-#        '--exitfirst',
-#        '--cov-config=pyproject.toml',
-#        '--cov=ozi_build',
-#        '-n',
-#        'auto',
-#        '-d',
+        '@build_root@/test',
+        '--basetemp=temp',
+        '--exitfirst',
+        '--cov-config=pyproject.toml',
+        '--cov=ozi_build',
+        '-n',
+        'auto',
+        '-d',
     ]
 )
 option(

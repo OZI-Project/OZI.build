@@ -4,7 +4,7 @@ import os
 import re
 import sys
 
-from ._util import check_pyproject_regexes
+from ._regexploit import check_pyproject_regexes
 from .metadata import auto_python_version
 from .metadata import check_requires_python
 from .metadata import get_description_headers
@@ -36,8 +36,6 @@ class Config:
         self.__pyc_wheel = config.get('tool', {}).get('ozi-build', {}).get('pyc_wheel', {})
         self.installed = []
         self.options = []
-        self.name_provided = config['project'].get('name', None) is not None
-        self.version_provided = config['project'].get('version', None) is not None
         if builddir:
             self.builddir = builddir
 
