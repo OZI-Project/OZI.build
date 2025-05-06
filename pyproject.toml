@@ -294,7 +294,7 @@ deps =
     meson[ninja]~=1.2,<1.9
     uv
 commands_pre =
-     uv tool install --python={env_python} "meson[ninja]~=1.2,<1.9"
+     uv tool install --python={env_python} --force "meson[ninja]~=1.2,<1.9"
 commands =
      meson setup {env_tmp_dir} -Dozi:{env_name}=enabled -Dozi:tox-env-dir={env_dir}
      meson compile -C {env_tmp_dir}
