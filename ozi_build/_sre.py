@@ -1,5 +1,4 @@
-from re import _constants
-from re import _parser
+import sys
 from typing import List  # noqa: I100, I201
 from typing import Optional
 from typing import Set
@@ -16,6 +15,13 @@ from ._groupref import subpattern_to_groupref
 from ._repeat import FiniteRepeat
 from ._repeat import InfiniteRepeat
 from ._sequence import Sequence
+
+if sys.version_info > (3, 10):
+    from re import _constants
+    from re import _parser
+else:
+    import sre_constants as _constants
+    import sre_parse as _parser
 
 SreConstant = _constants._NamedIntConstant
 SreOpData = Union[Tuple, List, int, SreConstant, None]

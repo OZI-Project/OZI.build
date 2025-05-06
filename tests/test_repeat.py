@@ -1,10 +1,15 @@
 # noqa: INP001
-from re import _parser
+import sys
 from typing import Union
 
 from ozi_build._char import Character  # noqa: TC001
 from ozi_build._repeat import Repeat  # noqa: TC001
 from ozi_build._sre import SreOpParser
+
+if sys.version_info > (3, 10):
+    from re import _parser
+else:
+    import sre_parser as _parser
 
 
 def from_regex(pattern: str) -> Union[Repeat, Character]:

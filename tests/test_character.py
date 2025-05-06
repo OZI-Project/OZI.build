@@ -1,11 +1,17 @@
 # noqa: INP001
-from re import _parser
+
+import sys
 
 import pytest
 
 from ozi_build._categories import Category
 from ozi_build._char import Character
 from ozi_build._sre import SreOpParser
+
+if sys.version_info > (3, 10):
+    from re import _parser
+else:
+    import sre_parser as _parser
 
 
 def from_regex(pattern: str) -> Character:
