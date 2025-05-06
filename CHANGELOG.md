@@ -5,6 +5,9 @@
 ### Bug fixes
 
 
+* fix: maybe_add_key_to_project doesnt duplicate keys — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`74b14a8`](https://github.com/OZI-Project/OZI.build/commit/74b14a87198c597ec44a9090d9c4974e3f1f2fce))
+
 * fix: sre_parse module name typo — Eden Ross Duff MSc <rjdbcm@outlook.com>
 ([`be54fc3`](https://github.com/OZI-Project/OZI.build/commit/be54fc3db4e769dc4d06fb417bc20802eeafe265))
 
