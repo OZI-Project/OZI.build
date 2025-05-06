@@ -1,5 +1,6 @@
-import pytest
 from re import _parser
+
+import pytest
 
 from ozi_build._categories import Category
 from ozi_build._char import Character
@@ -85,9 +86,7 @@ def test_or():
     assert from_regex("a") | from_regex("a") == from_regex("a")
     assert from_regex("a") | from_regex("b") == from_regex("[ab]")
     assert from_regex(r"\w") | from_regex("b") == from_regex(r"\w").expand_categories()
-    assert (
-        from_regex(r"\w") | from_regex("9") == from_regex(r"[9\w]").expand_categories()
-    )
+    assert from_regex(r"\w") | from_regex("9") == from_regex(r"[9\w]").expand_categories()
     assert from_regex("[^a]") | from_regex("[^b]") == from_regex(".")
 
 

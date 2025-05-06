@@ -2,9 +2,9 @@ import re
 
 import pytest
 
+from ozi_build._redos import find
 from ozi_build._sequence import Sequence
 from ozi_build._sre import SreOpParser
-from ozi_build._redos import find
 
 
 def from_regex(pattern: str, flags: int = 0) -> Sequence:
@@ -95,7 +95,72 @@ def test_dollar():
     assert r.killer == from_regex(r"[^b]")
 
 
-def test_real_cpython_cookielib():
+def test_real_ssri():
+    rs = find_redos(r"^([A-Za-z0-9+/=]{4})(\?[\x21-\x7E]*)*$")
+    r = rs[0]
+    assert r.starriness > 10
+    assert r.repeated_character == from_regex(r"\?")
+    assert r.example_prefix == "0000"
+
+
+def test_real_pdf():
+    # \012 == \n == \x0a
+    rs = find_redos(
+        r"t[\011\012\015\040]*\<\<(.*?\>\>)[\011\012\015\040]*[\r\n]+[\011\012\015\040]*s"
+    )
+    r = rs[0]
+    assert r.starriness == 3
+    assert r.repeated_character == from_regex(r"[\n\r]")
+    assert r.example_prefix == "t<<>>"
+    assert not r.killer
+
+
+def test_cve_2020_8492():
+    rs = find_redos(r"(,*,)*(,+)[ \t]")
+    r = rs[0]
+    assert r.starriness == 12  # exponential
+
+
+def test_cve_2022_36087():
+    rs = find_redos(r"([A-Fa-f0-9:]+:+)+[A-Fa-f0-9]+")
+    assert rs[0].starriness == rs[1].starriness == 21
+    assert rs[0].example_prefix == rs[1].example_prefix == ''
+    assert not rs[0].killer
+    assert not rs[1].killer
+
+
+def test_cve_2022_40023():
+    rs = find_redos(
+        r"""
+        \<%     # opening tag
+
+        ([\w\.\:]+)   # keyword
+
+        ((?:\s+\w+|\s*=\s*|".*?"|'.*?')*)  # attrname, = \
+                                            #        sign, string expression
+
+        \s*     # more whitespace
+
+        (/)?>   # closing
+
+        """,
+        re.I | re.S | re.X,
+    )
+    assert rs[0].starriness == rs[1].starriness == 11
+    assert rs[0].example_prefix == rs[1].example_prefix == '<%0'
+    assert not rs[0].killer
+    assert not rs[1].killer
+
+
+def test_cve_2022_40897():
+    rs = find_redos(r"""<([^>]*\srel\s*=\s*['"]?([^'">]+)[^>]*)>""", re.I)
+    r = rs[0]
+    assert r.starriness == 3
+    assert r.example_prefix == '< rel='
+    assert not r.killer
+
+
+def test_cve_2022_40899():
     # We don't support the (?!) assertions, but can still find ReDoS
     LOOSE_HTTP_DATE_RE = r"""^
         (\d\d?)            # day
@@ -120,29 +185,15 @@ def test_real_cpython_cookielib():
     assert r.killer == from_regex(r"[^\s]")
 
 
-def test_real_cpython_cve():
-    rs = find_redos(r"(,*,)*(,+)[ \t]")
-    r = rs[0]
-    assert r.starriness == 12  # exponential
-
-
-def test_real_ssri():
-    rs = find_redos(r"^([A-Za-z0-9+/=]{4})(\?[\x21-\x7E]*)*$")
-    r = rs[0]
-    assert r.starriness > 10
-    assert r.repeated_character == from_regex(r"\?")
-    assert r.example_prefix == "0000"
-
-
-def test_real_pdf():
-    # \012 == \n == \x0a
-    rs = find_redos(
-        r"t[\011\012\015\040]*\<\<(.*?\>\>)[\011\012\015\040]*[\r\n]+[\011\012\015\040]*s"
-    )
+def test_cve_2024_24762():
+    SPECIAL_CHARS = re.escape(b'()<>@,;:\\"/[]?={} \t')
+    QUOTED_STR = br'"(?:\\.|[^"])*"'
+    VALUE_STR = br'(?:[^' + SPECIAL_CHARS + br']+|' + QUOTED_STR + br')'
+    OPTION_RE_STR = br'(?:;|^)\s*([^' + SPECIAL_CHARS + br']+)\s*=\s*(' + VALUE_STR + br')'
+    rs = find_redos(OPTION_RE_STR)
     r = rs[0]
     assert r.starriness == 3
-    assert r.repeated_character == from_regex(r"[\n\r]")
-    assert r.example_prefix == "t<<>>"
+    assert r.example_prefix == ''
     assert not r.killer
 
 
@@ -174,6 +225,7 @@ def test_backtrack_repeated_char():
     [
         r"a+",
         r"a(aa)+a",
+        r"aa*a",
         r"a*",
         r"\w*b?c*(def|gh+i|$|\b||)+",
     ],
