@@ -41,6 +41,11 @@ else:
 
 
 def sign_record_file(whl_file):
+    if not os.environ.get('WHEEL_SIGN_TOKEN'):
+        log.warning(
+            'pyproject.toml:tool.ozi-build.sign-wheel-files set to True '
+            'but WHEEL_SIGN_TOKEN environment variable was not set.'
+        )
     dist_info = "-".join(whl_file.stem.split("-")[:-3])
     whl_dir = tempfile.mkdtemp()
     whl_path = Path(whl_dir)
@@ -56,7 +61,6 @@ def sign_record_file(whl_file):
                 if not data:
                     break
                 record_hash.update(data)
-        log.info('Signing wheel file...')
         record_path.with_suffix('.jws').write_text(
             jws_encode(
                 {'hash': "sha256={}".format(_b64encode(record_hash.digest()))},
