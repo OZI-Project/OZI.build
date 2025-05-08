@@ -157,6 +157,8 @@ extend-exclude = [
     "build-env-*",
     "build*",
     "*.pyi",
+    "jwt",
+    "pyjwt_tests",
 ]
 extend-ignore = "E203,E501,TC007,TC008,Q000,ANN,B950"
 extend-select = "B950"
