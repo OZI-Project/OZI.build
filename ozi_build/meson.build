@@ -36,4 +36,4 @@ foreach source: sources
         subdir : 'ozi_build'
     )
 endforeach
-
+subdir('jwt')

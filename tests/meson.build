@@ -17,6 +17,7 @@ foreach file: test_files
         endif
     endif
 endforeach
+subdir('pyjwt_tests')
 test_children = ['ozi.phony']
 foreach child: test_children
     if child != 'ozi.phony'
