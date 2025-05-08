@@ -205,6 +205,10 @@ This table is called `[tool.ozi-build]` in the file.
 A list of default meson options to set, can be overridden and expanded through the `MESON_ARGS`
 environment variable at build time.
 
+### `meson-dist-options`
+
+A list of default ``meson dist`` options to set at build time.
+
 ### `meson-python-option-name`
 
 The name of the meson options that is used in the meson build definition
