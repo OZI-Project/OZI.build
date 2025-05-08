@@ -1,4 +1,62 @@
 # OZI.build CHANGELOG
+## 2.1.1 (2025-05-08)
+
+
+### Build system
+
+
+* build(deps): bump OZI-Project/publish from 1.13.4 to 1.13.5
+
+Bumps [OZI-Project/publish](https://github.com/ozi-project/publish) from 1.13.4 to 1.13.5.
+- [Release notes](https://github.com/ozi-project/publish/releases)
+- [Commits](https://github.com/ozi-project/publish/compare/8297bf52054be7cae27ab2770e08d96676fd3162...2db0b4c8cd2073e42b9aa5f399020b78cfee31e0)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/publish
+  dependency-version: 1.13.5
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`3e78144`](https://github.com/OZI-Project/OZI.build/commit/3e78144fc159bbfe2f94e24cdcbf3e357ba3fb71))
+
+* build(deps): bump OZI-Project/draft from 1.13.2 to 1.13.3
+
+Bumps [OZI-Project/draft](https://github.com/ozi-project/draft) from 1.13.2 to 1.13.3.
+- [Release notes](https://github.com/ozi-project/draft/releases)
+- [Commits](https://github.com/ozi-project/draft/compare/92712f8a95c9cb1fa00731f9a29edeb1cd9799b8...68b9a0082a1e1fafa581b7cb6488254df5f47a39)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/draft
+  dependency-version: 1.13.3
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`91ffc59`](https://github.com/OZI-Project/OZI.build/commit/91ffc5967bbc5cd1598f8407d88da7cf61b21673))
+
+* build(deps): update ozi-build requirement from ~=2.0 to ~=2.1 in /doc
+
+Updates the requirements on [ozi-build](https://github.com/OZI-Project/OZI.build) to permit the latest version.
+- [Release notes](https://github.com/OZI-Project/OZI.build/releases)
+- [Changelog](https://github.com/OZI-Project/OZI.build/blob/master/CHANGELOG.md)
+- [Commits](https://github.com/OZI-Project/OZI.build/compare/2.0.0...2.1.0)
+
+
+updated-dependencies:
+- dependency-name: ozi-build
+  dependency-version: 2.1.0
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`b04f5ae`](https://github.com/OZI-Project/OZI.build/commit/b04f5ae20a3ffb653941770f7fd91febf8dbb7ae))
+
+
+### Chores
+
+
+* chore: update docs for 1.1 — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`4464b5e`](https://github.com/OZI-Project/OZI.build/commit/4464b5e582ec85678ab952cce92146e6fb5cc112))
+
 ## 2.1.0 (2025-05-06)
 
 
