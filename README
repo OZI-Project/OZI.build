@@ -17,6 +17,7 @@ for the project and to publish your project on PyPI.
 
 Other features include:
 
+* `signing <https://packaging.python.org/en/latest/specifications/binary-distribution-format/#signed-wheel-files>` wheels with JOSE JWS
 * compiling modules to bytecode with pyc_wheel
 * scanning ``pyproject.toml`` for exploitable ReDoS patterns with regexploit
 
@@ -44,6 +45,8 @@ MIT contributors
 ^^^^^^^^^^^^^^^^
 
 ``wheel`` Copyright (c) 2012-2014 Daniel Holth <dholth@fastmail.fm> and contributors.
+
+``PyJWT`` Copyright (c) 2015-2022 José Padilla
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
