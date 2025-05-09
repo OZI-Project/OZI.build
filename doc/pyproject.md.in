@@ -40,16 +40,16 @@ It should look similar to this in an OZI.build project:
 > [`project()`](http://mesonbuild.com/Reference-manual.html#project) table.
 
 {project_desc}
-## Metadata table
-
-This table is called `[tool.ozi-build.metadata]` in the file.
-
-{extra_fields_desc}
 ## OZI.build configuration
 
 This table is called `[tool.ozi-build]` in the file.
 
 {build_desc}
+## Metadata table
+
+This table is called `[tool.ozi-build.metadata]` in the file.
+
+{extra_fields_desc}
 ## ``pyc_wheel`` configuration
 
 This table is called `[tool.ozi-build.pyc_wheel]` in the file.

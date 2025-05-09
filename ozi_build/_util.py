@@ -1,25 +1,34 @@
 import contextlib
+import logging
 import os
 import re
 import shutil
+import stat
 import subprocess
 import sys
 import sysconfig
 import tarfile
 import tempfile
 from email.message import EmailMessage
+from hashlib import sha256
 from pathlib import Path
 from typing import Optional
 
 from wheel.wheelfile import WheelFile
 
+from ._pyc_wheel import _b64encode
 from ._pyc_wheel import convert_wheel
+from ._pyc_wheel import extract_wheel
+from ._pyc_wheel import zip_wheel
 from .config import Config
 from .config import get_python_bin
+from .jwt import encode as jws_encode
 from .pep425tags import get_abbr_impl
 from .pep425tags import get_abi_tag
 from .pep425tags import get_impl_ver
 from .pep425tags import get_platform_tag
+
+log = logging.getLogger(__name__)
 
 GET_CHECK = """
 from ozi_build import pep425tags
@@ -29,6 +38,40 @@ if tag != pep425tags.get_abi_tag():
 else:
     print("{0}-none".format(tag))
 """
+
+
+def sign_record_file(whl_file):
+    if not os.environ.get('WHEEL_SIGN_TOKEN'):
+        log.warning(
+            'pyproject.toml:tool.ozi-build.sign-wheel-files set to True '
+            'but WHEEL_SIGN_TOKEN environment variable was not set.'
+        )
+        return
+    dist_info = "-".join(whl_file.stem.split("-")[:-3])
+    whl_dir = tempfile.mkdtemp()
+    whl_path = Path(whl_dir)
+    try:
+        members, _ = extract_wheel(whl_file, whl_dir)
+        dist_info_path = whl_path.joinpath("{}.dist-info".format(dist_info))
+        record_path = dist_info_path / "RECORD"
+        record_path.chmod(stat.S_IWUSR | stat.S_IRUSR)
+        record_hash = sha256()
+        with open(record_path, 'rb') as f:
+            while True:
+                data = f.read(1024)
+                if not data:
+                    break
+                record_hash.update(data)
+        record_path.with_suffix('.jws').write_text(
+            jws_encode(
+                {'hash': "sha256={}".format(_b64encode(record_hash.digest()))},
+                key=os.environ['WHEEL_SIGN_TOKEN'],
+            )
+        )
+        zip_wheel(whl_file, whl_dir, False)
+    finally:
+        # Clean up original directory
+        shutil.rmtree(whl_dir, ignore_errors=True)
 
 
 @contextlib.contextmanager
@@ -184,6 +227,8 @@ class WheelBuilder:
             if i.get('name', '') == 'python.bytecompile'
         ]
         convert_wheel(Path(target_fp), optimize=optimize, **config.pyc_wheel)
+        if config.sign_wheel_files:
+            sign_record_file(Path(target_fp))
         return target_fp.name
 
     def pack_files(self, config):
