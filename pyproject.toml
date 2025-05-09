@@ -99,7 +99,8 @@ backend-path = [".", "ozi_build"]
 build-backend = "ozi_build.buildapi"
 
 [tool.ozi-build]
-pure-python-abi="py3-none"
+pure-python-abi = "py3-none"
+sign-wheel-files = true
 
 [tool.ozi-build.metadata]
 provides=['pyc_wheel']
@@ -157,6 +158,8 @@ extend-exclude = [
     "build-env-*",
     "build*",
     "*.pyi",
+    "jwt",
+    "pyjwt_tests",
 ]
 extend-ignore = "E203,E501,TC007,TC008,Q000,ANN,B950"
 extend-select = "B950"

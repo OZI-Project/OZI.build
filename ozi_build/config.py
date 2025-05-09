@@ -60,6 +60,10 @@ class Config:
         return self.__build.get('meson-options', [])
 
     @property
+    def sign_wheel_files(self):
+        return self.__build.get('sign-wheel-files', False)
+
+    @property
     def meson_dist_options(self):
         return self.__build.get('meson-dist-options', [])
 

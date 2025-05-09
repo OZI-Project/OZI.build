@@ -96,6 +96,13 @@ environment variable at build time."""
 to set the python installation when using
 [`python.find_installation()`](http://mesonbuild.com/Python-module.html#find_installation)."""
     },
+    "sign-wheel-files": {
+        "description": """:::{versionadded} 2.2
+Sign wheel RECORD files with JWS (JSON Web Signature).
+:::
+
+> ! NOTE: Requires WHEEL_SIGN_TOKEN environment variable to be set."""
+    },
     "metadata": {"description": "Table of additional, rarely used packaging metadata."},
     "platforms": {"description": "Supported Python platforms, can be 'any', py3, etc..."},
     "pure-python-abi": {

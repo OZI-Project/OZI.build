@@ -154,6 +154,50 @@ Source = "https://github.com/OZI-Project/OZI.build"
 The current package version.
 
 
+## OZI.build configuration
+
+This table is called `[tool.ozi-build]` in the file.
+
+### `meson-options`
+
+A list of default meson options to set, can be overridden and expanded through the `MESON_ARGS`
+environment variable at build time.
+
+### `meson-dist-options`
+
+A list of default ``meson dist`` options to set at build time.
+
+### `meson-python-option-name`
+
+The name of the meson options that is used in the meson build definition
+to set the python installation when using
+[`python.find_installation()`](http://mesonbuild.com/Python-module.html#find_installation).
+
+### `sign-wheel-files`
+
+:::{versionadded} 2.2
+Sign wheel RECORD files with JWS (JSON Web Signature).
+:::
+
+> ! NOTE: Requires WHEEL_SIGN_TOKEN environment variable to be set.
+
+### `metadata`
+
+Table of additional, rarely used packaging metadata.
+
+### `platforms`
+
+Supported Python platforms, can be 'any', py3, etc...
+
+### `pure-python-abi`
+
+An override of the pure python abi build target e.g. ``py3-none``.
+
+### `pyc_wheel`
+
+Table of options for pyc_wheel.
+
+
 ## Metadata table
 
 This table is called `[tool.ozi-build.metadata]` in the file.
@@ -194,42 +238,6 @@ A list of non-PyPI dependency packages. For example:
           "node",
       ]
 ```
-
-
-## OZI.build configuration
-
-This table is called `[tool.ozi-build]` in the file.
-
-### `meson-options`
-
-A list of default meson options to set, can be overridden and expanded through the `MESON_ARGS`
-environment variable at build time.
-
-### `meson-dist-options`
-
-A list of default ``meson dist`` options to set at build time.
-
-### `meson-python-option-name`
-
-The name of the meson options that is used in the meson build definition
-to set the python installation when using
-[`python.find_installation()`](http://mesonbuild.com/Python-module.html#find_installation).
-
-### `metadata`
-
-Table of additional, rarely used packaging metadata.
-
-### `platforms`
-
-Supported Python platforms, can be 'any', py3, etc...
-
-### `pure-python-abi`
-
-An override of the pure python abi build target e.g. ``py3-none``.
-
-### `pyc_wheel`
-
-Table of options for pyc_wheel.
 
 
 ## ``pyc_wheel`` configuration
