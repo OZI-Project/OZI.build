@@ -46,6 +46,7 @@ def sign_record_file(whl_file):
             'pyproject.toml:tool.ozi-build.sign-wheel-files set to True '
             'but WHEEL_SIGN_TOKEN environment variable was not set.'
         )
+        return
     dist_info = "-".join(whl_file.stem.split("-")[:-3])
     whl_dir = tempfile.mkdtemp()
     whl_path = Path(whl_dir)
