@@ -94,6 +94,7 @@ requires = [
     "setuptools_scm[toml]~=8.0",
     "pip-tools~=7.0",
     "pathvalidate~=3.2.1",
+    "cryptography",
 ]
 backend-path = [".", "ozi_build"]
 build-backend = "ozi_build.buildapi"
@@ -295,6 +296,7 @@ deps =
     invoke~=2.2
     pathvalidate~=3.2.1
     meson[ninja]~=1.2,<1.9
+    cryptography
     uv
 commands_pre =
      uv tool install --python={env_python} --force "meson[ninja]~=1.2,<1.9"
