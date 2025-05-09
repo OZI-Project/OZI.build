@@ -326,6 +326,8 @@ commands =
      {env_python} -m setuptools_scm {posargs}
 
 [testenv:invoke]
+pass_env =
+    WHEEL_SIGN_TOKEN
 description = OZI invoke tasks entrypoint
 no_package = true
 commands_post =
