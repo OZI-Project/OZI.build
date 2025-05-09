@@ -5,6 +5,18 @@
 ### Bug fixes
 
 
+* fix: formatting — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`f18bf20`](https://github.com/OZI-Project/OZI.build/commit/f18bf20ad4e4f2318fa01bc84b1a99f13a8f4380))
+
+* fix: expect UTF-8 encoded WHEEL_SIGN_TOKEN — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`37636f9`](https://github.com/OZI-Project/OZI.build/commit/37636f92b2bf817fc146114586685f6ca261bc01))
+
+* fix: add pass_env WHEEL_SIGN_TOKEN to tox invoke config — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`9558317`](https://github.com/OZI-Project/OZI.build/commit/9558317cca9748faaac5b3efd535276803cfe1a8))
+
+* fix: convert WHEEL_SIGN_TOKEN to bytes — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`8f45421`](https://github.com/OZI-Project/OZI.build/commit/8f45421d8dbc4b273bae42c65613901d4109eeaa))
+
 * fix: jws algorithm param type — Eden Ross Duff MSc <rjdbcm@outlook.com>
 ([`6b03e93`](https://github.com/OZI-Project/OZI.build/commit/6b03e930347d2f3ea7ea8d4c7f8d681096143b3a))
 
