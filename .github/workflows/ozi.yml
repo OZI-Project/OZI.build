@@ -37,6 +37,7 @@ jobs:
             fulcio.sigstore.dev:443
             rekor.sigstore.dev:443
             tuf-repo-cdn.sigstore.dev:443
+            dev-87evx9ru.auth0.com:443
 
       - uses: OZI-Project/checkpoint@ac9e45ece7eecacce1a9acb44ae4443985fe310b # 1.7.2
         with:
@@ -67,6 +68,7 @@ jobs:
             fulcio.sigstore.dev:443
             rekor.sigstore.dev:443
             tuf-repo-cdn.sigstore.dev:443
+            dev-87evx9ru.auth0.com:443
 
       - uses: OZI-Project/checkpoint@ac9e45ece7eecacce1a9acb44ae4443985fe310b # 1.7.2
         with:
@@ -97,6 +99,7 @@ jobs:
             fulcio.sigstore.dev:443
             rekor.sigstore.dev:443
             tuf-repo-cdn.sigstore.dev:443
+            dev-87evx9ru.auth0.com:443
 
       - uses: OZI-Project/checkpoint@ac9e45ece7eecacce1a9acb44ae4443985fe310b # 1.7.2
         with:

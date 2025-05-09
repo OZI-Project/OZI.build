@@ -36,6 +36,7 @@ jobs:
             rekor.sigstore.dev:443
             tuf-repo-cdn.sigstore.dev:443
             oauth2.sigstore.dev:443
+            dev-87evx9ru.auth0.com:443
 
       - uses: OZI-Project/checkpoint@ac9e45ece7eecacce1a9acb44ae4443985fe310b # 1.7.2
         with:
@@ -67,6 +68,7 @@ jobs:
             rekor.sigstore.dev:443
             tuf-repo-cdn.sigstore.dev:443
             oauth2.sigstore.dev:443
+            dev-87evx9ru.auth0.com:443
 
       - uses: OZI-Project/checkpoint@ac9e45ece7eecacce1a9acb44ae4443985fe310b # 1.7.2
         with:
@@ -98,6 +100,7 @@ jobs:
             rekor.sigstore.dev:443
             tuf-repo-cdn.sigstore.dev:443
             oauth2.sigstore.dev:443
+            dev-87evx9ru.auth0.com:443
 
       - uses: OZI-Project/checkpoint@ac9e45ece7eecacce1a9acb44ae4443985fe310b # 1.7.2
         with:
@@ -130,6 +133,7 @@ jobs:
             tuf-repo-cdn.sigstore.dev:443
             index.crates.io:443
             static.crates.io:443
+            dev-87evx9ru.auth0.com:443
 
       - uses: OZI-Project/checkpoint@ac9e45ece7eecacce1a9acb44ae4443985fe310b
         with:
