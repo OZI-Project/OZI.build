@@ -66,6 +66,7 @@ def sign_record_file(whl_file):
             jws_encode(
                 {'hash': "sha256={}".format(_b64encode(record_hash.digest()))},
                 key=os.environ['WHEEL_SIGN_TOKEN'],
+                algorithm=['RS256'],
             )
         )
         zip_wheel(whl_file, whl_dir, False)
