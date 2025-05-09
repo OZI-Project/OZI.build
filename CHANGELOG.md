@@ -5,6 +5,9 @@
 ### Bug fixes
 
 
+* fix: jws algorithm param type — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`6b03e93`](https://github.com/OZI-Project/OZI.build/commit/6b03e930347d2f3ea7ea8d4c7f8d681096143b3a))
+
 * fix:  add endpoint  dev-87evx9ru.auth0.com:443 — Eden Ross Duff MSc <rjdbcm@outlook.com>
 ([`9bdaffc`](https://github.com/OZI-Project/OZI.build/commit/9bdaffcbb1eff1a1cb6aaca66834b03c94bde5dc))
 
