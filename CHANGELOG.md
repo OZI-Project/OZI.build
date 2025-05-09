@@ -1,4 +1,91 @@
 # OZI.build CHANGELOG
+## 2.2.1 (2025-05-09)
+
+
+### Bug fixes
+
+
+* fix: formatting — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`f18bf20`](https://github.com/OZI-Project/OZI.build/commit/f18bf20ad4e4f2318fa01bc84b1a99f13a8f4380))
+
+* fix: expect UTF-8 encoded WHEEL_SIGN_TOKEN — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`37636f9`](https://github.com/OZI-Project/OZI.build/commit/37636f92b2bf817fc146114586685f6ca261bc01))
+
+* fix: add pass_env WHEEL_SIGN_TOKEN to tox invoke config — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`9558317`](https://github.com/OZI-Project/OZI.build/commit/9558317cca9748faaac5b3efd535276803cfe1a8))
+
+* fix: convert WHEEL_SIGN_TOKEN to bytes — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`8f45421`](https://github.com/OZI-Project/OZI.build/commit/8f45421d8dbc4b273bae42c65613901d4109eeaa))
+
+* fix: jws algorithm param type — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`6b03e93`](https://github.com/OZI-Project/OZI.build/commit/6b03e930347d2f3ea7ea8d4c7f8d681096143b3a))
+
+* fix:  add endpoint  dev-87evx9ru.auth0.com:443 — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`9bdaffc`](https://github.com/OZI-Project/OZI.build/commit/9bdaffcbb1eff1a1cb6aaca66834b03c94bde5dc))
+
+* fix: vendored import typo — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`ac5905a`](https://github.com/OZI-Project/OZI.build/commit/ac5905a57a1d6e2a4a41633e33e961a33e361725))
+
+* fix: use asymmetric (RS256) token for wheel signing — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`0e70551`](https://github.com/OZI-Project/OZI.build/commit/0e70551ee04280b61988ad2bcb5658362959d410))
+
+
+### Build system
+
+
+* build(deps): bump snowballstemmer from 2.2.0 to 3.0.0.1 in /doc
+
+Bumps [snowballstemmer](https://github.com/snowballstem/snowball) from 2.2.0 to 3.0.0.1.
+- [Changelog](https://github.com/snowballstem/snowball/blob/master/NEWS)
+- [Commits](https://github.com/snowballstem/snowball/commits)
+
+
+updated-dependencies:
+- dependency-name: snowballstemmer
+  dependency-version: 3.0.0.1
+  dependency-type: direct:production
+  update-type: version-update:semver-major
+... — dependabot[bot] <support@github.com>
+([`676bd96`](https://github.com/OZI-Project/OZI.build/commit/676bd9625c4676d1bc5838015c45be575d4f59fa))
+
+* build(deps): bump urllib3 from 2.2.3 to 2.4.0 in /doc
+
+Bumps [urllib3](https://github.com/urllib3/urllib3) from 2.2.3 to 2.4.0.
+- [Release notes](https://github.com/urllib3/urllib3/releases)
+- [Changelog](https://github.com/urllib3/urllib3/blob/main/CHANGES.rst)
+- [Commits](https://github.com/urllib3/urllib3/compare/2.2.3...2.4.0)
+
+
+updated-dependencies:
+- dependency-name: urllib3
+  dependency-version: 2.4.0
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`0a29314`](https://github.com/OZI-Project/OZI.build/commit/0a293142f6109a73631c6b2f6308cf2c28595c53))
+
+* build(deps): bump actions/dependency-review-action from 4.6.0 to 4.7.0
+
+Bumps [actions/dependency-review-action](https://github.com/actions/dependency-review-action) from 4.6.0 to 4.7.0.
+- [Release notes](https://github.com/actions/dependency-review-action/releases)
+- [Commits](https://github.com/actions/dependency-review-action/compare/ce3cf9537a52e8119d91fd484ab5b8a807627bf8...38ecb5b593bf0eb19e335c03f97670f792489a8b)
+
+
+updated-dependencies:
+- dependency-name: actions/dependency-review-action
+  dependency-version: 4.7.0
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`1d76e07`](https://github.com/OZI-Project/OZI.build/commit/1d76e07dddf6851a20deb59cde198edb7a1c3287))
+
+
+### Chores
+
+
+* chore: run isort — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`9f763ef`](https://github.com/OZI-Project/OZI.build/commit/9f763ef3f47adcf5f7df1673b03fc2926a2eaa98))
+
 ## 2.2.0 (2025-05-09)
 
 
