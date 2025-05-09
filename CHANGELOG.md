@@ -1,5 +1,28 @@
 # OZI.build CHANGELOG
+## 2.2.0 (2025-05-09)
+
+
+### Bug fixes
+
+
+* fix: skip wheel sign if WHEEL_SIGN_TOKEN is unset — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`b3b3f8b`](https://github.com/OZI-Project/OZI.build/commit/b3b3f8b2b903b4d89609da8ab2ed3632987fcae3))
+
+
+### Chores
+
+
+* chore: sign-wheel-files enabled — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`257ccab`](https://github.com/OZI-Project/OZI.build/commit/257ccabbcf9d56d9c4713d074c6513a47a17a45e))
+
 ## 2.1.1 (2025-05-08)
+
+
+### Bug fixes
+
+
+* fix: readme typo — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`dfd937b`](https://github.com/OZI-Project/OZI.build/commit/dfd937be4fc2f7184fcb59e924d6a946bb097432))
 
 
 ### Build system
@@ -57,32 +80,10 @@ updated-dependencies:
 * chore: update docs for 1.1 — Eden Ross Duff MSc <rjdbcm@outlook.com>
 ([`4464b5e`](https://github.com/OZI-Project/OZI.build/commit/4464b5e582ec85678ab952cce92146e6fb5cc112))
 
+* chore: update documentation for version 2.2 — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`25e78ba`](https://github.com/OZI-Project/OZI.build/commit/25e78bab88959e3abcf75a6db1f111fe068e6a89))
+
 ## 2.1.0 (2025-05-06)
-
-
-### Bug fixes
-
-
-* fix: maybe_add_key_to_project doesnt duplicate keys — Eden Ross Duff MSc <rjdbcm@outlook.com>
-([`74b14a8`](https://github.com/OZI-Project/OZI.build/commit/74b14a87198c597ec44a9090d9c4974e3f1f2fce))
-
-* fix: sre_parse module name typo — Eden Ross Duff MSc <rjdbcm@outlook.com>
-([`be54fc3`](https://github.com/OZI-Project/OZI.build/commit/be54fc3db4e769dc4d06fb417bc20802eeafe265))
-
-* fix: re internals version guard — Eden Ross Duff MSc <rjdbcm@outlook.com>
-([`63f7e00`](https://github.com/OZI-Project/OZI.build/commit/63f7e008920a2419eb3279b8ebb762f83e00c53f))
-
-* fix: handle re internals correctly in <3.11 — Eden Ross Duff MSc <rjdbcm@outlook.com>
-([`efef6e5`](https://github.com/OZI-Project/OZI.build/commit/efef6e5d59b7ad1170860589e6b4d96bb82e1193))
-
-* fix: force meson install to tox envs — Eden Ross Duff MSc <rjdbcm@outlook.com>
-([`d72c859`](https://github.com/OZI-Project/OZI.build/commit/d72c859978d604515f5a315dad2f7371716a5d13))
-
-* fix: remove distutils import — Eden Ross Duff MSc <rjdbcm@outlook.com>
-([`442f30a`](https://github.com/OZI-Project/OZI.build/commit/442f30af80a00569174af056b71bcefa9e8a5b38))
-
-* fix: _sre import of re internals — Eden Ross Duff MSc <rjdbcm@outlook.com>
-([`a442079`](https://github.com/OZI-Project/OZI.build/commit/a442079cef750dce7f2db9e9158ced1612ebeb7e))
 
 
 ### Build system
@@ -120,56 +121,7 @@ updated-dependencies:
 ... — dependabot[bot] <support@github.com>
 ([`5eaaf41`](https://github.com/OZI-Project/OZI.build/commit/5eaaf4119db16dee36ebb0c8d333d6ef5d5ef5b4))
 
-
-### Chores
-
-
-* chore: cleanup lint — Eden Ross Duff MSc <rjdbcm@outlook.com>
-([`da6f310`](https://github.com/OZI-Project/OZI.build/commit/da6f310f5c2e2b8a566aa6d8db966d13df191cde))
-
-* chore: clean up API — Eden Ross Duff MSc <rjdbcm@outlook.com>
-([`7791886`](https://github.com/OZI-Project/OZI.build/commit/7791886d9381988a6306f0761c46bcd9f824906a))
-
-* chore: remove dep install dist scripts — Eden Ross Duff MSc <rjdbcm@outlook.com>
-([`7afc48d`](https://github.com/OZI-Project/OZI.build/commit/7afc48dacc43915f0b95eb64952bd5d6a99b3703))
-
-* chore: update wrap-file to OZI-1.41.5 — Eden Ross Duff MSc <rjdbcm@outlook.com>
-([`cc4eb20`](https://github.com/OZI-Project/OZI.build/commit/cc4eb20e23fcd73f4e2f379eac231b1821c914c3))
-
-* chore: move metadata related constants to metadata module — Eden Ross Duff MSc <rjdbcm@outlook.com>
-([`da133ed`](https://github.com/OZI-Project/OZI.build/commit/da133ed29868c59c406efb1669ce38d45a1955de))
-
-
-### Features
-
-
-* feat: Wheel-Version 1.9 include Generator version — Eden Ross Duff MSc <rjdbcm@outlook.com>
-([`8ff9826`](https://github.com/OZI-Project/OZI.build/commit/8ff98262e019e22ce599b17f37a309b474343edf))
-
-
-### Performance improvements
-
-
-* perf: add several known reDOS pattern tests labelled by ``test_cve_...`` — Eden Ross Duff MSc <rjdbcm@outlook.com>
-([`185537c`](https://github.com/OZI-Project/OZI.build/commit/185537cb84e31b5eb90a9a325cb24a1a071e1941))
-
-* perf: copy regexploit tests to repo — Eden Ross Duff MSc <rjdbcm@outlook.com>
-([`828fb2d`](https://github.com/OZI-Project/OZI.build/commit/828fb2d0cf625ae734848e7f6ecd1999f5e35327))
-
-* perf: use uv for OZI backend — Eden Ross Duff MSc <rjdbcm@outlook.com>
-([`4e2180f`](https://github.com/OZI-Project/OZI.build/commit/4e2180f931ff968235d4d11c75a9255093914276))
-
-* perf: move regexploit entrypoint to new _regexploit module — Eden Ross Duff MSc <rjdbcm@outlook.com>
-([`fbfc5c6`](https://github.com/OZI-Project/OZI.build/commit/fbfc5c6ab4f114eaf8f0633b371fa5e2a16c6e29))
-
 ## 2.0.10 (2025-05-04)
-
-
-### Bug fixes
-
-
-* fix: get_requires_for_build_wheel/sdist no longer returns an empty list in all cases — Eden Ross Duff MSc <rjdbcm@outlook.com>
-([`aba9877`](https://github.com/OZI-Project/OZI.build/commit/aba987776be6d054ba8292e37421366bb510a8f9))
 
 
 ### Build system
@@ -231,9 +183,6 @@ updated-dependencies:
 perf: clean up build API
 ([`053b318`](https://github.com/OZI-Project/OZI.build/commit/053b318ab939f3f61110ed52d56f6113ceb795f4))
 
-* fix: filter empty config args — Eden Ross Duff MSc <rjdbcm@outlook.com>
-([`6c5171c`](https://github.com/OZI-Project/OZI.build/commit/6c5171ca75c9ab51d34839cd5359ab3f6af1598c))
-
 
 ### Build system
 
@@ -252,46 +201,9 @@ updated-dependencies:
 ... — dependabot[bot] <support@github.com>
 ([`fdf6a91`](https://github.com/OZI-Project/OZI.build/commit/fdf6a915ea7782e364b0bf95848d42901e20565a))
 
-
-### Performance improvements
-
-
-* perf: patch pyproject for OZI 1.39 — Eden Ross Duff MSc <rjdbcm@outlook.com>
-([`ee362ef`](https://github.com/OZI-Project/OZI.build/commit/ee362eff99cc039145a20dc153e160704f48c282))
-
-* perf: patch pyproject for OZI 1.39 — Eden Ross Duff MSc <rjdbcm@outlook.com>
-([`dbb85eb`](https://github.com/OZI-Project/OZI.build/commit/dbb85eb57cfff2018ee7f76ea0da2c58ecedb9a4))
-
-* perf: clean up build API — Eden Ross Duff MSc <rjdbcm@outlook.com>
-([`4bf1070`](https://github.com/OZI-Project/OZI.build/commit/4bf107079faf5f6eccc7e6d45e69cfc48db06dd1))
-
 ## 2.0.8 (2025-04-26)
 
-
-### Bug fixes
-
-
-* fix: use search instead of match — Eden Ross Duff MSc <rjdbcm@outlook.com>
-([`91db7a2`](https://github.com/OZI-Project/OZI.build/commit/91db7a2dac0fcd644a0cae00a87dc4aba75e985e))
-
-
-### Performance improvements
-
-
-* perf: replace version during sdist — Eden Ross Duff MSc <rjdbcm@outlook.com>
-([`bd72361`](https://github.com/OZI-Project/OZI.build/commit/bd72361b37160781ca8180d955b3fcc343ac38d2))
-
-* perf: replace version during sdist — Eden Ross Duff MSc <rjdbcm@outlook.com>
-([`82d016b`](https://github.com/OZI-Project/OZI.build/commit/82d016bc347b0978770fcfe7c6d0e8cd36bc4f82))
-
 ## 2.0.7 (2025-04-26)
-
-
-### Bug fixes
-
-
-* fix: return basename from build_wheel — Eden Ross Duff MSc <rjdbcm@outlook.com>
-([`1d495e5`](https://github.com/OZI-Project/OZI.build/commit/1d495e512c5729186ef9e45fac3eb5072cae4231))
 
 
 ### Build system
@@ -314,45 +226,11 @@ updated-dependencies:
 
 ## 2.0.6 (2025-04-24)
 
-
-### Bug fixes
-
-
-* fix: license-file guard without indexing — Eden Ross Duff MSc <rjdbcm@outlook.com>
-([`72ed911`](https://github.com/OZI-Project/OZI.build/commit/72ed9119823cd5c64b2bb7f34b34f2a26a1f36a8))
-
-* fix: remove legacy license table parsing — Eden Ross Duff MSc <rjdbcm@outlook.com>
-([`f585924`](https://github.com/OZI-Project/OZI.build/commit/f58592487fa837fcc0d51ea2d4984e474799b30f))
-
 ## 2.0.5 (2025-04-24)
-
-
-### Bug fixes
-
-
-* fix: correct dict get — Eden Ross Duff MSc <rjdbcm@outlook.com>
-([`7ba9665`](https://github.com/OZI-Project/OZI.build/commit/7ba96650f09b82087a290d3d41da4c132f9845d2))
-
-* fix: make the tool table optional — Eden Ross Duff MSc <rjdbcm@outlook.com>
-([`b100a83`](https://github.com/OZI-Project/OZI.build/commit/b100a833a13019ce768d7913e3ab6f65915a0934))
 
 ## 2.0.4 (2025-04-24)
 
-
-### Bug fixes
-
-
-* fix: tool.ozi-build should not be a required table — Eden Ross Duff MSc <rjdbcm@outlook.com>
-([`11b2009`](https://github.com/OZI-Project/OZI.build/commit/11b20096231871616d46ff398a6574c4bb915b4e))
-
 ## 2.0.3 (2025-04-24)
-
-
-### Bug fixes
-
-
-* fix: correctly parse authors and maintainers — Eden Ross Duff MSc <rjdbcm@outlook.com>
-([`0fa0356`](https://github.com/OZI-Project/OZI.build/commit/0fa035627fe778803e468cbcc3b7a48e0e7a81a4))
 
 
 ### Build system
@@ -390,21 +268,7 @@ updated-dependencies:
 ... — dependabot[bot] <support@github.com>
 ([`97e12ca`](https://github.com/OZI-Project/OZI.build/commit/97e12cac5476e008d0f080546821df70778aeac8))
 
-
-### Chores
-
-
-* chore: run black — Eden Ross Duff MSc <rjdbcm@outlook.com>
-([`0d8fe8d`](https://github.com/OZI-Project/OZI.build/commit/0d8fe8d4ad08f46a9873465ee49cc081227243fc))
-
 ## 2.0.2 (2025-04-23)
-
-
-### Bug fixes
-
-
-* fix: entry_points.txt values unquoted — Eden Ross Duff MSc <rjdbcm@outlook.com>
-([`11e0ef6`](https://github.com/OZI-Project/OZI.build/commit/11e0ef6579aa3199f9f73bdaf7391214432be30c))
 
 ## 2.0.1 (2025-04-23)
 
@@ -443,32 +307,7 @@ updated-dependencies:
 ... — dependabot[bot] <support@github.com>
 ([`86547bf`](https://github.com/OZI-Project/OZI.build/commit/86547bfe04c000b071e47b923381cb7d8c51d09d))
 
-
-### Performance improvements
-
-
-* perf: split ``pip`` extra from ``core`` extra — Eden Ross Duff MSc <rjdbcm@outlook.com>
-([`185bd6c`](https://github.com/OZI-Project/OZI.build/commit/185bd6c3996ebe04b56b460be027ac2e62f2e53f))
-
 ## 2.0.0 (2025-04-22)
-
-
-### Bug fixes
-
-
-* fix: clarify meson-python-option-name warning — Eden Ross Duff MSc <rjdbcm@outlook.com>
-([`ea68b41`](https://github.com/OZI-Project/OZI.build/commit/ea68b41a6700d53a3e7cfd47f59c2822ccb9af1c))
-
-* fix: cleanup pyc_wheel outputs — Eden Ross Duff MSc <rjdbcm@outlook.com>
-([`cf2d9f0`](https://github.com/OZI-Project/OZI.build/commit/cf2d9f0e1a186c613ae714bcfe55104763a6fcd9))
-
-* fix: properly handle required metadata name/version
-
-BREAKING CHANGE: Major change to how metadata is handled — Eden Ross Duff MSc <rjdbcm@outlook.com>
-([`fce28dc`](https://github.com/OZI-Project/OZI.build/commit/fce28dc65a1beb73ead2fc12b0019a4335fb6253))
-
-* fix: remove f-strings for compatibility — Eden Ross Duff MSc <rjdbcm@outlook.com>
-([`c8b0672`](https://github.com/OZI-Project/OZI.build/commit/c8b0672c27f291f868eae32a811248578f606cec))
 
 
 ### Build system
@@ -565,47 +404,6 @@ updated-dependencies:
 ... — dependabot[bot] <support@github.com>
 ([`c27a807`](https://github.com/OZI-Project/OZI.build/commit/c27a8078bbb56b714906b902b274b77514881fb6))
 
-* build: add Provides-Dist: pyc_wheel — Eden Ross Duff MSc <rjdbcm@outlook.com>
-([`b1dcb4e`](https://github.com/OZI-Project/OZI.build/commit/b1dcb4e78d4c85e15e5146c2fc517a66df4a12dd))
-
-
-### Chores
-
-
-* chore: update documentation for 2.0 — Eden Ross Duff MSc <rjdbcm@outlook.com>
-([`4c0dd3d`](https://github.com/OZI-Project/OZI.build/commit/4c0dd3d3163abd3b44591583f13869972163bdcc))
-
-* chore: clean up deprecated imports — Eden Ross Duff MSc <rjdbcm@outlook.com>
-([`99fc1c3`](https://github.com/OZI-Project/OZI.build/commit/99fc1c309da84a0b6a9ee4ee1b84faeaec9f5927))
-
-* chore: update config option validation — Eden Ross Duff MSc <rjdbcm@outlook.com>
-([`a317d86`](https://github.com/OZI-Project/OZI.build/commit/a317d86aaf244a0b987a4b40408ff5c81a2db080))
-
-* chore: update project metadata — Eden Ross Duff MSc <rjdbcm@outlook.com>
-([`8e50463`](https://github.com/OZI-Project/OZI.build/commit/8e504631a42421afb81876c7ac15345a8e4a8bde))
-
-
-### Features
-
-
-* feat: deprecate [tool.ozi-build.metadata] — Eden Ross Duff MSc <rjdbcm@outlook.com>
-([`c9acb3e`](https://github.com/OZI-Project/OZI.build/commit/c9acb3e2d4f021f347d6d555b8ed48fa3a603588))
-
-
-### Performance improvements
-
-
-* perf: deprecate pre-prepared PKG-INFO from setuptools_scm
-
-BREAKING_CHANGE: This fully removes ``check_pkg_info_file``. — Eden Ross Duff MSc <rjdbcm@outlook.com>
-([`0f823ce`](https://github.com/OZI-Project/OZI.build/commit/0f823ce9cd1209f0a397edf922f547291da3ece2))
-
-* perf: warn about deprecated metadata — Eden Ross Duff MSc <rjdbcm@outlook.com>
-([`6a67ed9`](https://github.com/OZI-Project/OZI.build/commit/6a67ed91c565b3bd68670dec0d2e3c66e865ea96))
-
-* perf: redos checker output now NO_COLOR friendly — Eden Ross Duff MSc <rjdbcm@outlook.com>
-([`0c17a5b`](https://github.com/OZI-Project/OZI.build/commit/0c17a5bcde73e91d21a4eb9ce469f541c7b300ff))
-
 
 ### Unknown
 
@@ -614,6 +412,78 @@ BREAKING_CHANGE: This fully removes ``check_pkg_info_file``. — Eden Ross Duff 
 ([`77a0244`](https://github.com/OZI-Project/OZI.build/commit/77a0244f975b963ca95ce91907e86bb2315cfae5))
 
 ## 1.14.0 (2025-04-19)
+
+
+### Bug fixes
+
+
+* fix: maybe_add_key_to_project doesnt duplicate keys — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`74b14a8`](https://github.com/OZI-Project/OZI.build/commit/74b14a87198c597ec44a9090d9c4974e3f1f2fce))
+
+* fix: sre_parse module name typo — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`be54fc3`](https://github.com/OZI-Project/OZI.build/commit/be54fc3db4e769dc4d06fb417bc20802eeafe265))
+
+* fix: re internals version guard — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`63f7e00`](https://github.com/OZI-Project/OZI.build/commit/63f7e008920a2419eb3279b8ebb762f83e00c53f))
+
+* fix: handle re internals correctly in <3.11 — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`efef6e5`](https://github.com/OZI-Project/OZI.build/commit/efef6e5d59b7ad1170860589e6b4d96bb82e1193))
+
+* fix: force meson install to tox envs — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`d72c859`](https://github.com/OZI-Project/OZI.build/commit/d72c859978d604515f5a315dad2f7371716a5d13))
+
+* fix: remove distutils import — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`442f30a`](https://github.com/OZI-Project/OZI.build/commit/442f30af80a00569174af056b71bcefa9e8a5b38))
+
+* fix: _sre import of re internals — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`a442079`](https://github.com/OZI-Project/OZI.build/commit/a442079cef750dce7f2db9e9158ced1612ebeb7e))
+
+* fix: get_requires_for_build_wheel/sdist no longer returns an empty list in all cases — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`aba9877`](https://github.com/OZI-Project/OZI.build/commit/aba987776be6d054ba8292e37421366bb510a8f9))
+
+* fix: filter empty config args — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`6c5171c`](https://github.com/OZI-Project/OZI.build/commit/6c5171ca75c9ab51d34839cd5359ab3f6af1598c))
+
+* fix: use search instead of match — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`91db7a2`](https://github.com/OZI-Project/OZI.build/commit/91db7a2dac0fcd644a0cae00a87dc4aba75e985e))
+
+* fix: return basename from build_wheel — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`1d495e5`](https://github.com/OZI-Project/OZI.build/commit/1d495e512c5729186ef9e45fac3eb5072cae4231))
+
+* fix: license-file guard without indexing — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`72ed911`](https://github.com/OZI-Project/OZI.build/commit/72ed9119823cd5c64b2bb7f34b34f2a26a1f36a8))
+
+* fix: remove legacy license table parsing — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`f585924`](https://github.com/OZI-Project/OZI.build/commit/f58592487fa837fcc0d51ea2d4984e474799b30f))
+
+* fix: correct dict get — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`7ba9665`](https://github.com/OZI-Project/OZI.build/commit/7ba96650f09b82087a290d3d41da4c132f9845d2))
+
+* fix: make the tool table optional — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`b100a83`](https://github.com/OZI-Project/OZI.build/commit/b100a833a13019ce768d7913e3ab6f65915a0934))
+
+* fix: tool.ozi-build should not be a required table — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`11b2009`](https://github.com/OZI-Project/OZI.build/commit/11b20096231871616d46ff398a6574c4bb915b4e))
+
+* fix: correctly parse authors and maintainers — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`0fa0356`](https://github.com/OZI-Project/OZI.build/commit/0fa035627fe778803e468cbcc3b7a48e0e7a81a4))
+
+* fix: entry_points.txt values unquoted — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`11e0ef6`](https://github.com/OZI-Project/OZI.build/commit/11e0ef6579aa3199f9f73bdaf7391214432be30c))
+
+* fix: clarify meson-python-option-name warning — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`ea68b41`](https://github.com/OZI-Project/OZI.build/commit/ea68b41a6700d53a3e7cfd47f59c2822ccb9af1c))
+
+* fix: cleanup pyc_wheel outputs — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`cf2d9f0`](https://github.com/OZI-Project/OZI.build/commit/cf2d9f0e1a186c613ae714bcfe55104763a6fcd9))
+
+* fix: properly handle required metadata name/version
+
+BREAKING CHANGE: Major change to how metadata is handled — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`fce28dc`](https://github.com/OZI-Project/OZI.build/commit/fce28dc65a1beb73ead2fc12b0019a4335fb6253))
+
+* fix: remove f-strings for compatibility — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`c8b0672`](https://github.com/OZI-Project/OZI.build/commit/c8b0672c27f291f868eae32a811248578f606cec))
 
 
 ### Build system
@@ -648,9 +518,48 @@ updated-dependencies:
 ... — dependabot[bot] <support@github.com>
 ([`39c104c`](https://github.com/OZI-Project/OZI.build/commit/39c104c29b6aba86b6727dcd14d5c4c232e0a431))
 
+* build: add Provides-Dist: pyc_wheel — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`b1dcb4e`](https://github.com/OZI-Project/OZI.build/commit/b1dcb4e78d4c85e15e5146c2fc517a66df4a12dd))
+
 
 ### Chores
 
+
+* chore: update readme with PyJWT license info — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`a73b6f2`](https://github.com/OZI-Project/OZI.build/commit/a73b6f2ba0cedb89e94ed317fc4b95aea83be109))
+
+* chore: exclude vendored PyJWT from flake8 — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`c5b0e17`](https://github.com/OZI-Project/OZI.build/commit/c5b0e172c278c8da9e80fcdcd0e06476f3d66a49))
+
+* chore: cleanup lint — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`da6f310`](https://github.com/OZI-Project/OZI.build/commit/da6f310f5c2e2b8a566aa6d8db966d13df191cde))
+
+* chore: clean up API — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`7791886`](https://github.com/OZI-Project/OZI.build/commit/7791886d9381988a6306f0761c46bcd9f824906a))
+
+* chore: remove dep install dist scripts — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`7afc48d`](https://github.com/OZI-Project/OZI.build/commit/7afc48dacc43915f0b95eb64952bd5d6a99b3703))
+
+* chore: update wrap-file to OZI-1.41.5 — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`cc4eb20`](https://github.com/OZI-Project/OZI.build/commit/cc4eb20e23fcd73f4e2f379eac231b1821c914c3))
+
+* chore: move metadata related constants to metadata module — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`da133ed`](https://github.com/OZI-Project/OZI.build/commit/da133ed29868c59c406efb1669ce38d45a1955de))
+
+* chore: run black — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`0d8fe8d`](https://github.com/OZI-Project/OZI.build/commit/0d8fe8d4ad08f46a9873465ee49cc081227243fc))
+
+* chore: update documentation for 2.0 — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`4c0dd3d`](https://github.com/OZI-Project/OZI.build/commit/4c0dd3d3163abd3b44591583f13869972163bdcc))
+
+* chore: clean up deprecated imports — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`99fc1c3`](https://github.com/OZI-Project/OZI.build/commit/99fc1c309da84a0b6a9ee4ee1b84faeaec9f5927))
+
+* chore: update config option validation — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`a317d86`](https://github.com/OZI-Project/OZI.build/commit/a317d86aaf244a0b987a4b40408ff5c81a2db080))
+
+* chore: update project metadata — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`8e50463`](https://github.com/OZI-Project/OZI.build/commit/8e504631a42421afb81876c7ac15345a8e4a8bde))
 
 * chore: remove deprecated download-url — Eden Ross Duff MSc <rjdbcm@outlook.com>
 ([`2ae9711`](https://github.com/OZI-Project/OZI.build/commit/2ae9711272b1e20fb497192103398f7fcf6c8d0d))
@@ -659,12 +568,68 @@ updated-dependencies:
 ### Features
 
 
+* feat: add jws RECORD signing and ``sign-wheel-files`` config setting — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`4e1e97c`](https://github.com/OZI-Project/OZI.build/commit/4e1e97c79291644bfae6f0fa1fabac110b9847b7))
+
+* feat: vendor PyJWT 2.10.1 — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`c86e710`](https://github.com/OZI-Project/OZI.build/commit/c86e7107305cc9915617bd3b66adab31d6ab0450))
+
+* feat: Wheel-Version 1.9 include Generator version — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`8ff9826`](https://github.com/OZI-Project/OZI.build/commit/8ff98262e019e22ce599b17f37a309b474343edf))
+
+* feat: deprecate [tool.ozi-build.metadata] — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`c9acb3e`](https://github.com/OZI-Project/OZI.build/commit/c9acb3e2d4f021f347d6d555b8ed48fa3a603588))
+
 * feat: rewrite pyproject.toml to include name and version during sdist — Eden Ross Duff MSc <rjdbcm@outlook.com>
 ([`5e8acf7`](https://github.com/OZI-Project/OZI.build/commit/5e8acf7e53654b0ee2fce324afb8934d413fc924))
 
 
 ### Performance improvements
 
+
+* perf: warn if ``sign-wheel-files`` is true but ``WHEEL_SIGN_TOKEN`` env var isn't set — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`610cf8b`](https://github.com/OZI-Project/OZI.build/commit/610cf8b289efa3af8ea9959c70394fe845b75759))
+
+* perf: add several known reDOS pattern tests labelled by ``test_cve_...`` — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`185537c`](https://github.com/OZI-Project/OZI.build/commit/185537cb84e31b5eb90a9a325cb24a1a071e1941))
+
+* perf: copy regexploit tests to repo — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`828fb2d`](https://github.com/OZI-Project/OZI.build/commit/828fb2d0cf625ae734848e7f6ecd1999f5e35327))
+
+* perf: use uv for OZI backend — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`4e2180f`](https://github.com/OZI-Project/OZI.build/commit/4e2180f931ff968235d4d11c75a9255093914276))
+
+* perf: move regexploit entrypoint to new _regexploit module — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`fbfc5c6`](https://github.com/OZI-Project/OZI.build/commit/fbfc5c6ab4f114eaf8f0633b371fa5e2a16c6e29))
+
+* perf: patch pyproject for OZI 1.39 — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`ee362ef`](https://github.com/OZI-Project/OZI.build/commit/ee362eff99cc039145a20dc153e160704f48c282))
+
+* perf: patch pyproject for OZI 1.39 — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`dbb85eb`](https://github.com/OZI-Project/OZI.build/commit/dbb85eb57cfff2018ee7f76ea0da2c58ecedb9a4))
+
+* perf: clean up build API — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`4bf1070`](https://github.com/OZI-Project/OZI.build/commit/4bf107079faf5f6eccc7e6d45e69cfc48db06dd1))
+
+* perf: replace version during sdist — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`bd72361`](https://github.com/OZI-Project/OZI.build/commit/bd72361b37160781ca8180d955b3fcc343ac38d2))
+
+* perf: replace version during sdist — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`82d016b`](https://github.com/OZI-Project/OZI.build/commit/82d016bc347b0978770fcfe7c6d0e8cd36bc4f82))
+
+* perf: split ``pip`` extra from ``core`` extra — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`185bd6c`](https://github.com/OZI-Project/OZI.build/commit/185bd6c3996ebe04b56b460be027ac2e62f2e53f))
+
+* perf: deprecate pre-prepared PKG-INFO from setuptools_scm
+
+BREAKING_CHANGE: This fully removes ``check_pkg_info_file``. — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`0f823ce`](https://github.com/OZI-Project/OZI.build/commit/0f823ce9cd1209f0a397edf922f547291da3ece2))
+
+* perf: warn about deprecated metadata — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`6a67ed9`](https://github.com/OZI-Project/OZI.build/commit/6a67ed91c565b3bd68670dec0d2e3c66e865ea96))
+
+* perf: redos checker output now NO_COLOR friendly — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`0c17a5b`](https://github.com/OZI-Project/OZI.build/commit/0c17a5bcde73e91d21a4eb9ce469f541c7b300ff))
 
 * perf: add warning that name and version will be overwritten by sdist — Eden Ross Duff MSc <rjdbcm@outlook.com>
 ([`1fdce1b`](https://github.com/OZI-Project/OZI.build/commit/1fdce1b25c2ae8ef22c041decdebe8f65388c3af))
