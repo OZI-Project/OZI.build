@@ -65,7 +65,7 @@ def sign_record_file(whl_file):
         record_path.with_suffix('.jws').write_text(
             jws_encode(
                 {'hash': "sha256={}".format(_b64encode(record_hash.digest()))},
-                key=os.environ['WHEEL_SIGN_TOKEN'],
+                key=os.environ['WHEEL_SIGN_TOKEN'].encode(),
                 algorithm='RS256',
             )
         )
