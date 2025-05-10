@@ -262,6 +262,9 @@ jobs:
       uses: pypa/gh-action-pypi-publish@76f52bc884231f62b9a034ebfe128415bbaabdfc
 
     - name: Create pull request
-      run: gh pr create -B master -H ${{ github.head_ref || github.ref_name }} --title 'Merge ${{ github.head_ref || github.ref_name }} into master' --body 'Created automatically'
+      run: gh pr create -B $HEAD_BRANCH -H $REF_NAME --title 'Merge $REF_NAME into $HEAD_BRANCH' --body '$PR_BODY'
       env:
+          HEAD_BRANCH: master
+          REF_NAME: ${{ github.head_ref || github.ref_name }}
+          PR_BODY: Created automatically, close and reopen to enable checks.
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
