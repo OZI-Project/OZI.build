@@ -212,7 +212,7 @@ jobs:
             git update-index --skip-worktree doc/assets/brand
 
       - name: Publish release
-        uses: OZI-Project/secure-release@1.0.2
+        uses: OZI-Project/secure-release@1.0.3
         with:
           sdist: true
           wheel-sign-token: ${{ secrets.WHEEL_SIGN_TOKEN }}
