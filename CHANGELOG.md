@@ -5,6 +5,24 @@
 ### Build system
 
 
+* build: ozi.wrap 1.41.8 — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`0654211`](https://github.com/OZI-Project/OZI.build/commit/0654211b969fd418d4bdbb85aa14d78aee8ebc2a))
+
+* build(deps): bump OZI-Project/secure-release from 1.0.4 to 1.0.5
+
+Bumps [OZI-Project/secure-release](https://github.com/ozi-project/secure-release) from 1.0.4 to 1.0.5.
+- [Release notes](https://github.com/ozi-project/secure-release/releases)
+- [Commits](https://github.com/ozi-project/secure-release/compare/1.0.4...1.0.5)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/secure-release
+  dependency-version: 1.0.5
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`ce6cd12`](https://github.com/OZI-Project/OZI.build/commit/ce6cd12eec47a1492ab73033a0217ac23fed00f1))
+
 * build: ozi.wrap 1.41.7 — Eden Ross Duff MSc <rjdbcm@outlook.com>
 ([`29e814d`](https://github.com/OZI-Project/OZI.build/commit/29e814da78b5d92f4a8a44ed420cecd4fa7053af))
 
