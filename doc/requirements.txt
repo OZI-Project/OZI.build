@@ -64,7 +64,7 @@ pip-tools==7.4.1
     # via ozi
 pipx
 
-OZI.build~=2.1
+OZI.build~=2.2
     # via ozi
 prompt-toolkit==3.0.51
     # via ozi
@@ -93,7 +93,7 @@ setuptools-scm[toml]==8.3.1
     #   ozi-spec
 smmap==5.0.2
     # via gitdb
-snowballstemmer==3.0.0.1
+snowballstemmer==3.0.1
     # via
     #   pydocstyle
     #   sphinx

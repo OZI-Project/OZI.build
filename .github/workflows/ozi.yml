@@ -39,7 +39,7 @@ jobs:
             tuf-repo-cdn.sigstore.dev:443
             dev-87evx9ru.auth0.com:443
 
-      - uses: OZI-Project/checkpoint@ac9e45ece7eecacce1a9acb44ae4443985fe310b # 1.7.2
+      - uses: OZI-Project/checkpoint@1b0b165711dca7c852f4c30fbebea96de3747617 # 1.7.3
         with:
           python-version: "3.10"
 
@@ -70,7 +70,7 @@ jobs:
             tuf-repo-cdn.sigstore.dev:443
             dev-87evx9ru.auth0.com:443
 
-      - uses: OZI-Project/checkpoint@ac9e45ece7eecacce1a9acb44ae4443985fe310b # 1.7.2
+      - uses: OZI-Project/checkpoint@1b0b165711dca7c852f4c30fbebea96de3747617 # 1.7.3
         with:
           python-version: "3.11"
 
@@ -101,7 +101,7 @@ jobs:
             tuf-repo-cdn.sigstore.dev:443
             dev-87evx9ru.auth0.com:443
 
-      - uses: OZI-Project/checkpoint@ac9e45ece7eecacce1a9acb44ae4443985fe310b # 1.7.2
+      - uses: OZI-Project/checkpoint@1b0b165711dca7c852f4c30fbebea96de3747617 # 1.7.3
         with:
           python-version: "3.12"
 
@@ -139,7 +139,7 @@ jobs:
             api.github.com:443
             github.com:443
 
-      - uses: OZI-Project/draft@68b9a0082a1e1fafa581b7cb6488254df5f47a39 # 1.13.3
+      - uses: OZI-Project/draft@84f054f0398fe815ac68f4243f6aafb9f5b85e4a # 1.13.4
         id: draft
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -212,11 +212,10 @@ jobs:
             git update-index --skip-worktree doc/assets/brand
 
       - name: Publish release
-        run: |
-            git diff
-            python -m build .
-        env:
-          WHEEL_SIGN_TOKEN: ${{ secrets.WHEEL_SIGN_TOKEN }}
+        uses: OZI-Project/secure-release@1.0.0
+        with:
+          sdist: true
+          wheel-sign-token: ${{ secrets.WHEEL_SIGN_TOKEN }}
 
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
@@ -254,7 +253,7 @@ jobs:
           ghcr.io:443
           pkg-containers.githubusercontent.com:443
 
-    - uses: OZI-Project/publish@2db0b4c8cd2073e42b9aa5f399020b78cfee31e0 # 1.13.5
+    - uses: OZI-Project/publish@621f1f7d2691300b8a66b0aaa62a4853359daa89 # 1.13.7
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
 
@@ -262,6 +261,9 @@ jobs:
       uses: pypa/gh-action-pypi-publish@76f52bc884231f62b9a034ebfe128415bbaabdfc
 
     - name: Create pull request
-      run: gh pr create -B master -H ${{ github.head_ref || github.ref_name }} --title 'Merge ${{ github.head_ref || github.ref_name }} into master' --body 'Created automatically'
+      run: gh pr create -B $HEAD_BRANCH -H $REF_NAME --title 'Merge $REF_NAME into $HEAD_BRANCH' --body '$PR_BODY'
       env:
+          HEAD_BRANCH: master
+          REF_NAME: ${{ github.head_ref || github.ref_name }}
+          PR_BODY: Created automatically, close and reopen to enable checks.
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
