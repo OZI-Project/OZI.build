@@ -5,6 +5,21 @@
 ### Build system
 
 
+* build(deps): bump OZI-Project/secure-release from 1.0.5 to 1.0.6
+
+Bumps [OZI-Project/secure-release](https://github.com/ozi-project/secure-release) from 1.0.5 to 1.0.6.
+- [Release notes](https://github.com/ozi-project/secure-release/releases)
+- [Commits](https://github.com/ozi-project/secure-release/compare/1.0.5...1.0.6)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/secure-release
+  dependency-version: 1.0.6
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`a7f58a4`](https://github.com/OZI-Project/OZI.build/commit/a7f58a4ce98c3abb9f08879e6aae904e7b2ed961))
+
 * build: ozi.wrap 1.41.8 — Eden Ross Duff MSc <rjdbcm@outlook.com>
 ([`0654211`](https://github.com/OZI-Project/OZI.build/commit/0654211b969fd418d4bdbb85aa14d78aee8ebc2a))
 
