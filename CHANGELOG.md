@@ -5,6 +5,9 @@
 ### Build system
 
 
+* build: ozi.wrap 1.41.7 — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`29e814d`](https://github.com/OZI-Project/OZI.build/commit/29e814da78b5d92f4a8a44ed420cecd4fa7053af))
+
 * build: update ozi.wrap to 1.41.6 — Eden Ross Duff MSc <rjdbcm@outlook.com>
 ([`d4f9845`](https://github.com/OZI-Project/OZI.build/commit/d4f9845a4a0453e2e55c8d2b12ac6b09ce797e68))
 
