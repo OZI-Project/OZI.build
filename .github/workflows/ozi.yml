@@ -212,11 +212,10 @@ jobs:
             git update-index --skip-worktree doc/assets/brand
 
       - name: Publish release
-        run: |
-            git diff
-            python -m build .
-        env:
-          WHEEL_SIGN_TOKEN: ${{ secrets.WHEEL_SIGN_TOKEN }}
+        uses: OZI-Project/secure-release@1.0.0
+        with:
+          sdist: true
+          wheel-sign-token: ${{ secrets.WHEEL_SIGN_TOKEN }}
 
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
