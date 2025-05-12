@@ -5,6 +5,9 @@
 ### Build system
 
 
+* build: update ozi.wrap to 1.41.6 — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`d4f9845`](https://github.com/OZI-Project/OZI.build/commit/d4f9845a4a0453e2e55c8d2b12ac6b09ce797e68))
+
 * build(deps): bump OZI-Project/secure-release from 1.0.3 to 1.0.4
 
 Bumps [OZI-Project/secure-release](https://github.com/ozi-project/secure-release) from 1.0.3 to 1.0.4.
