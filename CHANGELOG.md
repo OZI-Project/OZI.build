@@ -5,6 +5,9 @@
 ### Build system
 
 
+* build: init invoke tox env before release publish — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
+([`d949493`](https://github.com/OZI-Project/OZI.build/commit/d9494937461eb0c9aead5b058488c2c073e3b9d5))
+
 * build(deps): bump OZI-Project/secure-release from 1.0.2 to 1.0.3
 
 Bumps [OZI-Project/secure-release](https://github.com/ozi-project/secure-release) from 1.0.2 to 1.0.3.
