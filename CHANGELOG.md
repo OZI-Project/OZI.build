@@ -5,6 +5,21 @@
 ### Build system
 
 
+* build(deps): bump OZI-Project/secure-release from 1.0.3 to 1.0.4
+
+Bumps [OZI-Project/secure-release](https://github.com/ozi-project/secure-release) from 1.0.3 to 1.0.4.
+- [Release notes](https://github.com/ozi-project/secure-release/releases)
+- [Commits](https://github.com/ozi-project/secure-release/compare/1.0.3...1.0.4)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/secure-release
+  dependency-version: 1.0.4
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`121bf21`](https://github.com/OZI-Project/OZI.build/commit/121bf21650cc3d1e9a4d4b97a27b8ceea96ccb79))
+
 * build: init invoke tox env before release publish — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
 ([`d949493`](https://github.com/OZI-Project/OZI.build/commit/d9494937461eb0c9aead5b058488c2c073e3b9d5))
 
