@@ -211,6 +211,9 @@ jobs:
         run: |
             git update-index --skip-worktree doc/assets/brand
 
+      - name: Initialize invoke environment
+        run: tox -e invoke -- --list
+
       - name: Publish release
         uses: OZI-Project/secure-release@1.0.3
         with:
