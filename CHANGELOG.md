@@ -1,9 +1,27 @@
 # OZI.build CHANGELOG
-## 2.2.2 (2025-05-12)
+## 2.2.2 (2025-05-13)
 
 
 ### Build system
 
+
+* build: ozi.wrap 1.41.9 — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`fe89f5c`](https://github.com/OZI-Project/OZI.build/commit/fe89f5ca751453f5927af51ec0ae9cf3737cbc89))
+
+* build(deps): bump OZI-Project/secure-release from 1.0.6 to 1.0.7
+
+Bumps [OZI-Project/secure-release](https://github.com/ozi-project/secure-release) from 1.0.6 to 1.0.7.
+- [Release notes](https://github.com/ozi-project/secure-release/releases)
+- [Commits](https://github.com/ozi-project/secure-release/compare/1.0.6...1.0.7)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/secure-release
+  dependency-version: 1.0.7
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`14c2a24`](https://github.com/OZI-Project/OZI.build/commit/14c2a2437afe42440b01a9a7a3e2fd29b718f928))
 
 * build(deps): bump OZI-Project/secure-release from 1.0.5 to 1.0.6
 
