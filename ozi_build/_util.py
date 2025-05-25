@@ -179,7 +179,11 @@ class WheelBuilder:
 
     def build(self, wheel_directory, config_settings, metadata_dir):
         config = Config()
-        argv_meson_options = config_settings.get('meson-options', '').split(' ') if config_settings is not None else ''
+        argv_meson_options = (
+            config_settings.get('meson-options', '').split(' ')
+            if config_settings is not None
+            else ''
+        )
         meson_options = (
             argv_meson_options if not config.meson_options else config.meson_options
         )
