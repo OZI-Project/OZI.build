@@ -1,4 +1,107 @@
 # OZI.build CHANGELOG
+## 2.2.3 (2025-05-25)
+
+
+### Bug fixes
+
+
+* fix: config_settings = None caused error in build_wheel — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`21dd9d0`](https://github.com/OZI-Project/OZI.build/commit/21dd9d0d93fb9afb8157f6af2843b22d43fcf68a))
+
+* fix: create pull request job (#350) — Eden Ross Duff, MSc, DDiv <ozi.project@outlook.com>
+([`6a53bd9`](https://github.com/OZI-Project/OZI.build/commit/6a53bd93c8657ab357b558b4389d2a6c042ac20f))
+
+
+### Build system
+
+
+* build(deps): bump setuptools in the pip group across 1 directory
+
+Bumps the pip group with 1 update in the / directory: [setuptools](https://github.com/pypa/setuptools).
+
+
+Updates `setuptools` from 75.6.0 to 78.1.1
+- [Release notes](https://github.com/pypa/setuptools/releases)
+- [Changelog](https://github.com/pypa/setuptools/blob/main/NEWS.rst)
+- [Commits](https://github.com/pypa/setuptools/compare/v75.6.0...v78.1.1)
+
+
+updated-dependencies:
+- dependency-name: setuptools
+  dependency-version: 78.1.1
+  dependency-type: direct:production
+  dependency-group: pip
+... — dependabot[bot] <support@github.com>
+([`0aa9063`](https://github.com/OZI-Project/OZI.build/commit/0aa90632e4136a096b0efe04b70cde9a83534c68))
+
+* build(deps): bump OZI-Project/secure-release from 1.1.0 to 1.1.1
+
+Bumps [OZI-Project/secure-release](https://github.com/ozi-project/secure-release) from 1.1.0 to 1.1.1.
+- [Release notes](https://github.com/ozi-project/secure-release/releases)
+- [Commits](https://github.com/ozi-project/secure-release/compare/1.1.0...1.1.1)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/secure-release
+  dependency-version: 1.1.1
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`911a080`](https://github.com/OZI-Project/OZI.build/commit/911a08000603dc30567af3fb397440fa379f3bf7))
+
+* build(deps): bump github/codeql-action from 3.28.17 to 3.28.18
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.28.17 to 3.28.18.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/60168efe1c415ce0f5521ea06d5c2062adbeed1b...ff0a06e83cb2de871e5a09832bc6a81e7276941f)
+
+
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-version: 3.28.18
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`9596cd4`](https://github.com/OZI-Project/OZI.build/commit/9596cd4ebc57005b94b5f612071b42c8255295f9))
+
+* build(deps): bump actions/dependency-review-action from 4.7.0 to 4.7.1
+
+Bumps [actions/dependency-review-action](https://github.com/actions/dependency-review-action) from 4.7.0 to 4.7.1.
+- [Release notes](https://github.com/actions/dependency-review-action/releases)
+- [Commits](https://github.com/actions/dependency-review-action/compare/38ecb5b593bf0eb19e335c03f97670f792489a8b...da24556b548a50705dd671f47852072ea4c105d9)
+
+
+updated-dependencies:
+- dependency-name: actions/dependency-review-action
+  dependency-version: 4.7.1
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`e21ea0b`](https://github.com/OZI-Project/OZI.build/commit/e21ea0bca24f6b75e47b35391b88fc868660efc3))
+
+* build(deps): bump OZI-Project/secure-release from 1.0.7 to 1.1.0
+
+Bumps [OZI-Project/secure-release](https://github.com/ozi-project/secure-release) from 1.0.7 to 1.1.0.
+- [Release notes](https://github.com/ozi-project/secure-release/releases)
+- [Commits](https://github.com/ozi-project/secure-release/compare/1.0.7...1.1.0)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/secure-release
+  dependency-version: 1.1.0
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`c3f8639`](https://github.com/OZI-Project/OZI.build/commit/c3f8639e67e330ba1bad0a66d25fad4d08a3fcf9))
+
+
+### Chores
+
+
+* chore: run black — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`1ebe66c`](https://github.com/OZI-Project/OZI.build/commit/1ebe66cf7e498f118dd042d84e73160c9c9b9c1e))
+
 ## 2.2.2 (2025-05-13)
 
 
