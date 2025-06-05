@@ -17,14 +17,14 @@ from typing import Optional
 from .config import Config
 from .config import get_python_bin
 from .jwt import encode as jws_encode
-from .wheel.pep425tags import get_abbr_impl
-from .wheel.pep425tags import get_abi_tag
-from .wheel.pep425tags import get_impl_ver
-from .wheel.pep425tags import get_platform_tag
 from .pyc_wheel import _b64encode
 from .pyc_wheel import convert_wheel
 from .pyc_wheel import extract_wheel
 from .pyc_wheel import zip_wheel
+from .wheel.pep425tags import get_abbr_impl
+from .wheel.pep425tags import get_abi_tag
+from .wheel.pep425tags import get_impl_ver
+from .wheel.pep425tags import get_platform_tag
 from .wheel.wheelfile import WheelFile
 
 log = logging.getLogger(__name__)
