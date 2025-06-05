@@ -4,7 +4,6 @@ import os
 import re
 import sys
 
-from ._regexploit import check_pyproject_regexes
 from .metadata import auto_python_version
 from .metadata import check_requires_python
 from .metadata import get_description_headers
@@ -12,6 +11,7 @@ from .metadata import get_optional_dependencies
 from .metadata import get_python_bin
 from .metadata import get_requirements_headers
 from .metadata import get_simple_headers
+from .regexploit import check_pyproject_regexes
 from .schema import VALID_BUILD_OPTIONS
 from .schema import VALID_EXTRA_METADATA
 from .schema import VALID_PROJECT

@@ -17,7 +17,6 @@ dependencies = [
     'meson[ninja]~=1.2',
     'packaging',
     'tomli~=2.0;python_version<"3.11"',
-    'wheel~=0.34',
 ]
 description = "Create pep517 compliant packages from the meson build system, OZI-maintained fork."
 readme = "README.rst"
@@ -77,7 +76,7 @@ test = [
 ]
 
 [project.scripts]
-pyc_wheel = "ozi_build._pyc_wheel:main"
+pyc_wheel = "ozi_build.pyc_wheel._pyc_wheel:main"
 
 [project.urls]
 "Bug Tracker" = "https://github.com/OZI-Project/OZI.build/issues"
@@ -86,7 +85,6 @@ Homepage = "https://oziproject.dev/"
 
 [build-system]
 requires = [
-    "wheel~=0.34",
     "meson[ninja]~=1.2,<1.9",
     'packaging',
     'tomli~=2.0;python_version<"3.11"',

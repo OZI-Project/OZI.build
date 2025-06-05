@@ -14,19 +14,18 @@ from hashlib import sha256
 from pathlib import Path
 from typing import Optional
 
-from wheel.wheelfile import WheelFile
-
-from ._pyc_wheel import _b64encode
-from ._pyc_wheel import convert_wheel
-from ._pyc_wheel import extract_wheel
-from ._pyc_wheel import zip_wheel
 from .config import Config
 from .config import get_python_bin
 from .jwt import encode as jws_encode
-from .pep425tags import get_abbr_impl
-from .pep425tags import get_abi_tag
-from .pep425tags import get_impl_ver
-from .pep425tags import get_platform_tag
+from .wheel.pep425tags import get_abbr_impl
+from .wheel.pep425tags import get_abi_tag
+from .wheel.pep425tags import get_impl_ver
+from .wheel.pep425tags import get_platform_tag
+from .pyc_wheel import _b64encode
+from .pyc_wheel import convert_wheel
+from .pyc_wheel import extract_wheel
+from .pyc_wheel import zip_wheel
+from .wheel.wheelfile import WheelFile
 
 log = logging.getLogger(__name__)
 
@@ -176,6 +175,7 @@ class WheelBuilder:
         self.wheel_zip = None  # type: ignore
         self.builddir = tempfile.TemporaryDirectory()
         self.installdir = tempfile.TemporaryDirectory()
+        self.metadata_dir = None
 
     def build(self, wheel_directory, config_settings, metadata_dir):
         config = Config()
@@ -196,7 +196,7 @@ class WheelBuilder:
         config.builddir = self.builddir.name
         if config['version'] == '%OZIBUILDVERSION%':
             config['version'] = Path(os.getcwd()).name.split('-')[1]
-        metadata_dir = create_dist_info(
+        self.metadata_dir = create_dist_info(
             wheel_directory, builddir=self.builddir.name, config=config
         )
 
@@ -215,12 +215,12 @@ class WheelBuilder:
         )
 
         self.wheel_zip: WheelFile = WheelFile(str(target_fp), 'w')
-        for f in os.listdir(str(wheel_directory / metadata_dir)):
+        for f in os.listdir(str(wheel_directory / self.metadata_dir)):
             self.wheel_zip.write(
-                str(wheel_directory / metadata_dir / f),
-                arcname=str(Path(metadata_dir) / f),
+                str(wheel_directory / self.metadata_dir / f),
+                arcname=str(Path(self.metadata_dir) / f),
             )
-        shutil.rmtree(Path(wheel_directory) / metadata_dir)
+        shutil.rmtree(Path(wheel_directory) / self.metadata_dir)
 
         # Make sure everything is built
         meson('install', '-C', self.builddir.name)

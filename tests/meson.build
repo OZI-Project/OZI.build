@@ -3,12 +3,7 @@
 # See LICENSE.txt in the project root for details.
 # DO NOT EDIT BY HAND - This file was generated for use with OZI tools.
 # ozi-fix -> meson rewrite is the standard editing pipeline.
-test_files = [
-    'test_at.py',
-    'test_character.py',
-    'test_redos.py',
-    'test_repeat.py',
-]
+test_files = []
 foreach file: test_files
     if file != 'ozi.phony'
         fs.copyfile(file)
@@ -18,6 +13,7 @@ foreach file: test_files
     endif
 endforeach
 subdir('pyjwt_tests')
+subdir('regexploit_tests')
 test_children = ['ozi.phony']
 foreach child: test_children
     if child != 'ozi.phony'

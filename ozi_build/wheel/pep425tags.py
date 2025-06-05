@@ -1,6 +1,6 @@
 #
 # The pep425tag modules includes (slightly altered) code from the
-# 'wheel.pep452tags' module of the 'wheel' project
+# 'wheel.pep425tags' module of the 'wheel' project
 # <https://pypi.org/project/wheel>, released under the MIT license.
 #
 # The original license text from the wheel project is reproduced below:
