@@ -1,4 +1,13 @@
 # OZI.build CHANGELOG
+## 2.3.0 (2025-06-05)
+
+
+### Chores
+
+
+* chore: run isort — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`6063923`](https://github.com/OZI-Project/OZI.build/commit/6063923630956c3aa401dc6fc8bdd5197b63c5a1))
+
 ## 2.2.3 (2025-05-25)
 
 
@@ -14,6 +23,98 @@
 
 ### Build system
 
+
+* build(deps): bump meson[ninja] from 1.7.2 to 1.8.1 in /doc
+
+Bumps [meson[ninja]](https://github.com/mesonbuild/meson) from 1.7.2 to 1.8.1.
+- [Release notes](https://github.com/mesonbuild/meson/releases)
+- [Commits](https://github.com/mesonbuild/meson/compare/1.7.2...1.8.1)
+
+
+updated-dependencies:
+- dependency-name: meson[ninja]
+  dependency-version: 1.8.1
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`4992b60`](https://github.com/OZI-Project/OZI.build/commit/4992b604af6d9c3f00935a656d099b07c2d9f41f))
+
+* build(deps): bump ossf/scorecard-action from 2.4.1 to 2.4.2
+
+Bumps [ossf/scorecard-action](https://github.com/ossf/scorecard-action) from 2.4.1 to 2.4.2.
+- [Release notes](https://github.com/ossf/scorecard-action/releases)
+- [Changelog](https://github.com/ossf/scorecard-action/blob/main/RELEASE.md)
+- [Commits](https://github.com/ossf/scorecard-action/compare/f49aabe0b5af0936a0987cfb85d86b75731b0186...05b42c624433fc40578a4040d5cf5e36ddca8cde)
+
+
+updated-dependencies:
+- dependency-name: ossf/scorecard-action
+  dependency-version: 2.4.2
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`046a062`](https://github.com/OZI-Project/OZI.build/commit/046a062887c50b25ba8611e23cd4e0a26340c116))
+
+* build(deps): bump OZI-Project/checkpoint from 1.7.3 to 1.7.5
+
+Bumps [OZI-Project/checkpoint](https://github.com/ozi-project/checkpoint) from 1.7.3 to 1.7.5.
+- [Release notes](https://github.com/ozi-project/checkpoint/releases)
+- [Commits](https://github.com/ozi-project/checkpoint/compare/1b0b165711dca7c852f4c30fbebea96de3747617...301753e6853d6a65055c8df69dafe7df74bd7963)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/checkpoint
+  dependency-version: 1.7.5
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`0a1ba69`](https://github.com/OZI-Project/OZI.build/commit/0a1ba69a99b667d5b71a03fa964df38f1226878f))
+
+* build(deps): bump OZI-Project/draft from 1.13.4 to 1.14.2
+
+Bumps [OZI-Project/draft](https://github.com/ozi-project/draft) from 1.13.4 to 1.14.2.
+- [Release notes](https://github.com/ozi-project/draft/releases)
+- [Commits](https://github.com/ozi-project/draft/compare/84f054f0398fe815ac68f4243f6aafb9f5b85e4a...d870c506fefd49de075e21217885c8670cd9b883)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/draft
+  dependency-version: 1.14.2
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`9ee5d28`](https://github.com/OZI-Project/OZI.build/commit/9ee5d2848ba55266cd67fc2ecb1ccf75d2f23e96))
+
+* build(deps): bump github/codeql-action from 3.28.18 to 3.28.19
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.28.18 to 3.28.19.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/ff0a06e83cb2de871e5a09832bc6a81e7276941f...fca7ace96b7d713c7035871441bd52efbe39e27e)
+
+
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-version: 3.28.19
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`e828229`](https://github.com/OZI-Project/OZI.build/commit/e828229811cb543adbeb3a1a0d6cca5eeb759c5d))
+
+* build(deps): bump OZI-Project/publish from 1.13.7 to 1.14.3
+
+Bumps [OZI-Project/publish](https://github.com/ozi-project/publish) from 1.13.7 to 1.14.3.
+- [Release notes](https://github.com/ozi-project/publish/releases)
+- [Commits](https://github.com/ozi-project/publish/compare/621f1f7d2691300b8a66b0aaa62a4853359daa89...d2deb87a158a3555d67cb9dbabde2fe3e271fa6a)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/publish
+  dependency-version: 1.14.3
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`04a7283`](https://github.com/OZI-Project/OZI.build/commit/04a72833415cffec9e78db285595a9c4f7fde456))
 
 * build(deps): bump setuptools in the pip group across 1 directory
 
@@ -101,6 +202,13 @@ updated-dependencies:
 
 * chore: run black — Eden Ross Duff MSc <rjdbcm@outlook.com>
 ([`1ebe66c`](https://github.com/OZI-Project/OZI.build/commit/1ebe66cf7e498f118dd042d84e73160c9c9b9c1e))
+
+
+### Features
+
+
+* feat: improved module structure for vendored tools — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`7a032f9`](https://github.com/OZI-Project/OZI.build/commit/7a032f95f288852962c1cbb46ef78707e956746a))
 
 ## 2.2.2 (2025-05-13)
 
