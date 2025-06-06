@@ -1,4 +1,26 @@
 # OZI.build CHANGELOG
+## 2.3.1 (2025-06-06)
+
+
+### Bug fixes
+
+
+* fix: correct major.minor version in pyproject.toml — Eden Ross Duff, MSc <ozi.project@outlook.com>
+([`c13e4d6`](https://github.com/OZI-Project/OZI.build/commit/c13e4d63510a0aab23600b63a699520a834b8985))
+
+* fix: missing wheel module meson.build — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`aaccaa8`](https://github.com/OZI-Project/OZI.build/commit/aaccaa8168290d87c3caeb3eb79936a4a45ce287))
+
+* fix: wheel submodule was missing — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`5446b84`](https://github.com/OZI-Project/OZI.build/commit/5446b8480d909cd1c8e91ecf86ca9d287d1962a9))
+
+
+### Chores
+
+
+* chore: noqa vendored wheelfile — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`c9248cc`](https://github.com/OZI-Project/OZI.build/commit/c9248cc21fcef38e41ff75cc77889ce3c955c145))
+
 ## 2.3.0 (2025-06-05)
 
 
