@@ -24,3 +24,4 @@ endforeach
 subdir('jwt')
 subdir('pyc_wheel')
 subdir('regexploit')
+subdir('wheel')

@@ -68,7 +68,7 @@ class WheelFile(ZipFile):
 
     _default_algorithm = hashlib.sha256
 
-    def __init__(
+    def __init__(  # noqa: C901
         self,
         file: StrPath,
         mode: Literal["r", "w", "x", "a"] = "r",
