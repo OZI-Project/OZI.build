@@ -30,7 +30,7 @@ from .wheel.wheelfile import WheelFile
 log = logging.getLogger(__name__)
 
 GET_CHECK = """
-from ozi_build import pep425tags
+from ozi_build.wheel import pep425tags
 tag = pep425tags.get_abbr_impl() + pep425tags.get_impl_ver()
 if tag != pep425tags.get_abi_tag():
     print("{0}-{1}".format(tag, pep425tags.get_abi_tag()))

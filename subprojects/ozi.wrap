@@ -1,9 +1,9 @@
 [wrap-file]
-directory = OZI-1.41.9
-source_url = https://github.com/OZI-Project/OZI/archive/refs/tags/1.41.9.tar.gz
-source_hash = 7a3987ab6367b77e1f543b02e4ba77bd03924c0084cdaae495659fecb7fcd787
-source_filename = OZI-1.41.9.tar.gz
+directory = OZI-2.0.18
+source_url = https://github.com/OZI-Project/OZI/archive/refs/tags/2.0.18.tar.gz
+source_hash = f3685cea6719e523591d5ecf69fa901318962d905081bba0df2e31a2807e38cf
+source_filename = OZI-2.0.18.tar.gz
 
 [provide]
-dependency_names = ozi, ozi-1.41.9
+dependency_names = ozi, ozi-2.0.18
 
