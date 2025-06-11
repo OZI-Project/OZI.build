@@ -1,4 +1,88 @@
 # OZI.build CHANGELOG
+## 2.3.2 (2025-06-10)
+
+
+### Bug fixes
+
+
+* fix: broken pep425tags import in _util.GET_CHECK — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`d13d140`](https://github.com/OZI-Project/OZI.build/commit/d13d1407e24c9090d8d6c5b1e31ffc56cb8fc42a))
+
+
+### Build system
+
+
+* build(deps): update ozi-build requirement from ~=2.2 to ~=2.3 in /doc
+
+Updates the requirements on [ozi-build](https://github.com/OZI-Project/OZI.build) to permit the latest version.
+- [Release notes](https://github.com/OZI-Project/OZI.build/releases)
+- [Changelog](https://github.com/OZI-Project/OZI.build/blob/master/CHANGELOG.md)
+- [Commits](https://github.com/OZI-Project/OZI.build/compare/2.2.0...2.3.0)
+
+
+updated-dependencies:
+- dependency-name: ozi-build
+  dependency-version: 2.3.0
+  dependency-type: direct:production
+... — dependabot[bot] <support@github.com>
+([`641aaf5`](https://github.com/OZI-Project/OZI.build/commit/641aaf5d5f4a99bacad5814e8034d5f3f2f00e4b))
+
+* build(deps): bump OZI-Project/checkpoint from 1.7.5 to 1.8.3
+
+Bumps [OZI-Project/checkpoint](https://github.com/ozi-project/checkpoint) from 1.7.5 to 1.8.3.
+- [Release notes](https://github.com/ozi-project/checkpoint/releases)
+- [Commits](https://github.com/ozi-project/checkpoint/compare/301753e6853d6a65055c8df69dafe7df74bd7963...34c59f4977fed722934fae2caadc29e3f0f8bf0d)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/checkpoint
+  dependency-version: 1.8.3
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`8fba79b`](https://github.com/OZI-Project/OZI.build/commit/8fba79b1ff6ba5ffe0ca2a2246d1dd78ee4539e2))
+
+* build(deps): bump requests from 2.32.3 to 2.32.4 in /doc
+
+Bumps [requests](https://github.com/psf/requests) from 2.32.3 to 2.32.4.
+- [Release notes](https://github.com/psf/requests/releases)
+- [Changelog](https://github.com/psf/requests/blob/main/HISTORY.md)
+- [Commits](https://github.com/psf/requests/compare/v2.32.3...v2.32.4)
+
+
+updated-dependencies:
+- dependency-name: requests
+  dependency-version: 2.32.4
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`e5b9285`](https://github.com/OZI-Project/OZI.build/commit/e5b9285579ed2c0cf784c395f57cf35fa9b408be))
+
+* build(deps): bump meson[ninja] from 1.8.1 to 1.8.2 in /doc
+
+Bumps [meson[ninja]](https://github.com/mesonbuild/meson) from 1.8.1 to 1.8.2.
+- [Release notes](https://github.com/mesonbuild/meson/releases)
+- [Commits](https://github.com/mesonbuild/meson/compare/1.8.1...1.8.2)
+
+
+updated-dependencies:
+- dependency-name: meson[ninja]
+  dependency-version: 1.8.2
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`151ad07`](https://github.com/OZI-Project/OZI.build/commit/151ad07d3a940c552e4330f7c16a080f80dac544))
+
+
+### Chores
+
+
+* chore: ozi patches — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`709b8ae`](https://github.com/OZI-Project/OZI.build/commit/709b8aeba1436515f38adb75db34bcecd9f2c7a8))
+
+* chore: update ozi.wrap — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`9118a77`](https://github.com/OZI-Project/OZI.build/commit/9118a7768a1dc29bde7af29e9b84873c975dd3f0))
+
 ## 2.3.1 (2025-06-06)
 
 
