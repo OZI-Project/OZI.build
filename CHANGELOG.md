@@ -1,4 +1,120 @@
 # OZI.build CHANGELOG
+## 2.3.3 (2025-06-15)
+
+
+### Bug fixes
+
+
+* fix: get_platform_tag() uses sysconfig — Eden Ross Duff MSc <rjdbcm@outlook.com>
+([`b2ee480`](https://github.com/OZI-Project/OZI.build/commit/b2ee48036f5b2125b990b2ce91a7685a04d99f43))
+
+
+### Build system
+
+
+* build(deps): bump github/codeql-action from 3.28.19 to 3.29.0
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.28.19 to 3.29.0.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/fca7ace96b7d713c7035871441bd52efbe39e27e...ce28f5bb42b7a9f2c824e633a3f6ee835bab6858)
+
+
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-version: 3.29.0
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`541ae73`](https://github.com/OZI-Project/OZI.build/commit/541ae73488e2caaefaad00cfcfb10d131a352eed))
+
+* build(deps): bump OZI-Project/draft from 1.14.2 to 1.15.0
+
+Bumps [OZI-Project/draft](https://github.com/ozi-project/draft) from 1.14.2 to 1.15.0.
+- [Release notes](https://github.com/ozi-project/draft/releases)
+- [Commits](https://github.com/ozi-project/draft/compare/d870c506fefd49de075e21217885c8670cd9b883...4f9117750cd22709a929ed3f36578f172a94bd41)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/draft
+  dependency-version: 1.15.0
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`f09dfe6`](https://github.com/OZI-Project/OZI.build/commit/f09dfe6665a5c5134faa4bc6d004427beaef2db3))
+
+* build(deps): bump OZI-Project/publish from 1.14.3 to 1.15.0
+
+Bumps [OZI-Project/publish](https://github.com/ozi-project/publish) from 1.14.3 to 1.15.0.
+- [Release notes](https://github.com/ozi-project/publish/releases)
+- [Commits](https://github.com/ozi-project/publish/compare/d2deb87a158a3555d67cb9dbabde2fe3e271fa6a...c448915d89a76028ab54f2b539ad159e3a612003)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/publish
+  dependency-version: 1.15.0
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`532c220`](https://github.com/OZI-Project/OZI.build/commit/532c220be4c8b067948a6a536244d98cebd2f4d6))
+
+* build(deps): bump step-security/harden-runner from 2.12.0 to 2.12.1
+
+Bumps [step-security/harden-runner](https://github.com/step-security/harden-runner) from 2.12.0 to 2.12.1.
+- [Release notes](https://github.com/step-security/harden-runner/releases)
+- [Commits](https://github.com/step-security/harden-runner/compare/0634a2670c59f64b4a01f0f96f84700a4088b9f0...002fdce3c6a235733a90a27c80493a3241e56863)
+
+
+updated-dependencies:
+- dependency-name: step-security/harden-runner
+  dependency-version: 2.12.1
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`9e5d3b1`](https://github.com/OZI-Project/OZI.build/commit/9e5d3b134dfbe88647bf5e467aedb522b9c47850))
+
+* build(deps): bump certifi from 2025.4.26 to 2025.6.15 in /doc
+
+Bumps [certifi](https://github.com/certifi/python-certifi) from 2025.4.26 to 2025.6.15.
+- [Commits](https://github.com/certifi/python-certifi/compare/2025.04.26...2025.06.15)
+
+
+updated-dependencies:
+- dependency-name: certifi
+  dependency-version: 2025.6.15
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`2c71e5e`](https://github.com/OZI-Project/OZI.build/commit/2c71e5ef5c87f95a981b37569bbd36a853ca7d75))
+
+* build(deps): bump OZI-Project/checkpoint from 1.8.3 to 1.9.1
+
+Bumps [OZI-Project/checkpoint](https://github.com/ozi-project/checkpoint) from 1.8.3 to 1.9.1.
+- [Release notes](https://github.com/ozi-project/checkpoint/releases)
+- [Commits](https://github.com/ozi-project/checkpoint/compare/34c59f4977fed722934fae2caadc29e3f0f8bf0d...b7afe55ac890df008deb75191e53f83823117f92)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/checkpoint
+  dependency-version: 1.9.1
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`df025a4`](https://github.com/OZI-Project/OZI.build/commit/df025a4fc60e8a51bc10f58c13673551e2f3110e))
+
+
+### Chores
+
+
+* chore: delete requirements.txt — Eden Ross Duff, MSc <ozi.project@outlook.com>
+([`4a55e71`](https://github.com/OZI-Project/OZI.build/commit/4a55e711bf644c70260be532e5ebfac5ff4d91f0))
+
+* chore: delete .gitlab-ci.yml — Eden Ross Duff, MSc <ozi.project@outlook.com>
+([`cd6ba37`](https://github.com/OZI-Project/OZI.build/commit/cd6ba3724023305aba3fcfaa1439d2e9fa3c05d0))
+
+* chore: delete .codeclimate.yml — Eden Ross Duff, MSc <ozi.project@outlook.com>
+([`27c9b0d`](https://github.com/OZI-Project/OZI.build/commit/27c9b0dd080551891f0bb760adcb2658f3f774a8))
+
 ## 2.3.2 (2025-06-10)
 
 
