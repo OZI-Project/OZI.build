@@ -126,4 +126,4 @@ def get_impl_ver():
 
 def get_platform_tag():
     """Return the PEP-425 compatible platform tag."""
-    return platform.get_platform().replace("-", "_").replace(".", "_")
+    return sysconfig.get_platform().replace("-", "_").replace(".", "_")
