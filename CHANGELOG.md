@@ -1,4 +1,25 @@
 # OZI.build CHANGELOG
+## 2.3.6 (2025-06-17)
+
+
+### Build system
+
+
+* build(deps): bump OZI-Project/provenance from 0.0.4 to 0.0.5
+
+Bumps [OZI-Project/provenance](https://github.com/ozi-project/provenance) from 0.0.4 to 0.0.5.
+- [Release notes](https://github.com/ozi-project/provenance/releases)
+- [Commits](https://github.com/ozi-project/provenance/compare/bcce6236bdc65a70f3c1973c9945c96545fba46f...34d637e8613f1e6abafe0f7586174d26e048ed44)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/provenance
+  dependency-version: 0.0.5
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`f0573a5`](https://github.com/OZI-Project/OZI.build/commit/f0573a5e9063da0c2fc7c696be401bd74b060851))
+
 ## 2.3.5 (2025-06-17)
 
 
