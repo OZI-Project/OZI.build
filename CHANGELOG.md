@@ -1,4 +1,13 @@
 # OZI.build CHANGELOG
+## 2.3.4 (2025-06-17)
+
+
+### Build system
+
+
+* build: use the new provenance workflow — Eden Ross Duff, MSc <ozi.project@outlook.com>
+([`a8eb042`](https://github.com/OZI-Project/OZI.build/commit/a8eb04221279366310c9d8f31d32b1a9f483a3b0))
+
 ## 2.3.3 (2025-06-15)
 
 
