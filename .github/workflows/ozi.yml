@@ -215,7 +215,7 @@ jobs:
         run: tox -e invoke -- --list
 
       - name: Publish release
-        uses: OZI-Project/secure-release@1.1.1
+        uses: OZI-Project/secure-release@f3b39775daaaf4190e0ee655a7bbd0aa55b8b166 # 1.1.1
         with:
           sdist: true
           wheel-sign-token: ${{ secrets.WHEEL_SIGN_TOKEN }}
