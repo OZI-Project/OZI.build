@@ -1,4 +1,28 @@
 # OZI.build CHANGELOG
+## 2.3.8 (2025-06-18)
+
+
+### Build system
+
+
+* build: add tag input to provenance step — Eden Ross Duff, MSc <ozi.project@outlook.com>
+([`c59f929`](https://github.com/OZI-Project/OZI.build/commit/c59f9295268dae163fdc7dd3351481bacfbd566f))
+
+* build(deps): bump OZI-Project/provenance from 0.0.6 to 0.1.0
+
+Bumps [OZI-Project/provenance](https://github.com/ozi-project/provenance) from 0.0.6 to 0.1.0.
+- [Release notes](https://github.com/ozi-project/provenance/releases)
+- [Commits](https://github.com/ozi-project/provenance/compare/807f918ec5362a827c4230d041bb9847b25ce7cd...a7369a6ef4a56f442b97615539b8de23dcb1e94e)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/provenance
+  dependency-version: 0.1.0
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`c89dfa2`](https://github.com/OZI-Project/OZI.build/commit/c89dfa20d3042e9462befc518fe9ba5ccb34e73c))
+
 ## 2.3.7 (2025-06-17)
 
 
