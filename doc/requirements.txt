@@ -12,7 +12,7 @@ beautifulsoup4==4.13.4
     # via sphinxawesome-theme
 build==1.2.2.post1
     # via pip-tools
-certifi==2025.6.15
+certifi==2025.8.3
     # via requests
 charset-normalizer==3.4.2
     # via requests
@@ -29,7 +29,7 @@ docutils==0.21.2
     #   sphinx
 gitdb==4.0.12
     # via gitpython
-gitpython==3.1.44
+gitpython==3.1.45
     # via ozi
 idna==3.10
     # via
@@ -70,7 +70,7 @@ prompt-toolkit==3.0.51
     # via ozi
 pydocstyle[toml]==6.3.0
     # via -r requirements.in
-pygments==2.19.1
+pygments==2.19.2
     # via
     #   doc8
     #   sphinx
@@ -113,7 +113,7 @@ sphinx-design==0.6.1
     # via -r requirements.in
 sphinx-last-updated-by-git==0.3.8
     # via -r requirements.in
-sphinx-sitemap==2.6.0
+sphinx-sitemap==2.7.2
     # via -r requirements.in
 sphinxawesome-codelinter==3.0.0
     # via -r requirements.in
@@ -137,7 +137,7 @@ sphinxemoji
     # via sphinx
 stevedore==5.4.1
     # via doc8
-urllib3==2.4.0
+urllib3==2.5.0
     # via
     #   requests
     #   types-requests
