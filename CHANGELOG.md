@@ -1,4 +1,214 @@
 # OZI.build CHANGELOG
+## 2.3.9 (2025-08-08)
+
+
+### Build system
+
+
+* build(deps): bump pygments from 2.19.1 to 2.19.2 in /doc
+
+Bumps [pygments](https://github.com/pygments/pygments) from 2.19.1 to 2.19.2.
+- [Release notes](https://github.com/pygments/pygments/releases)
+- [Changelog](https://github.com/pygments/pygments/blob/master/CHANGES)
+- [Commits](https://github.com/pygments/pygments/compare/2.19.1...2.19.2)
+
+
+updated-dependencies:
+- dependency-name: pygments
+  dependency-version: 2.19.2
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`505735d`](https://github.com/OZI-Project/OZI.build/commit/505735d67fcf717b8381b13da77da72968cff502))
+
+* build(deps): bump urllib3 from 2.4.0 to 2.5.0 in /doc
+
+Bumps [urllib3](https://github.com/urllib3/urllib3) from 2.4.0 to 2.5.0.
+- [Release notes](https://github.com/urllib3/urllib3/releases)
+- [Changelog](https://github.com/urllib3/urllib3/blob/main/CHANGES.rst)
+- [Commits](https://github.com/urllib3/urllib3/compare/2.4.0...2.5.0)
+
+
+updated-dependencies:
+- dependency-name: urllib3
+  dependency-version: 2.5.0
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`a35ac2f`](https://github.com/OZI-Project/OZI.build/commit/a35ac2f2d503eb0e2d17fe898cf4ab6263b6984f))
+
+* build(deps): bump gitpython from 3.1.44 to 3.1.45 in /doc
+
+Bumps [gitpython](https://github.com/gitpython-developers/GitPython) from 3.1.44 to 3.1.45.
+- [Release notes](https://github.com/gitpython-developers/GitPython/releases)
+- [Changelog](https://github.com/gitpython-developers/GitPython/blob/main/CHANGES)
+- [Commits](https://github.com/gitpython-developers/GitPython/compare/3.1.44...3.1.45)
+
+
+updated-dependencies:
+- dependency-name: gitpython
+  dependency-version: 3.1.45
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`b7ed5fb`](https://github.com/OZI-Project/OZI.build/commit/b7ed5fb0cc518404102d420d7c35c358e99e079b))
+
+* build(deps): bump certifi from 2025.6.15 to 2025.8.3 in /doc
+
+Bumps [certifi](https://github.com/certifi/python-certifi) from 2025.6.15 to 2025.8.3.
+- [Commits](https://github.com/certifi/python-certifi/compare/2025.06.15...2025.08.03)
+
+
+updated-dependencies:
+- dependency-name: certifi
+  dependency-version: 2025.8.3
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`934a1d2`](https://github.com/OZI-Project/OZI.build/commit/934a1d255f1f32cfffc439b7213e205524401022))
+
+* build(deps): bump step-security/harden-runner from 2.12.2 to 2.13.0
+
+Bumps [step-security/harden-runner](https://github.com/step-security/harden-runner) from 2.12.2 to 2.13.0.
+- [Release notes](https://github.com/step-security/harden-runner/releases)
+- [Commits](https://github.com/step-security/harden-runner/compare/6c439dc8bdf85cadbbce9ed30d1c7b959517bc49...ec9f2d5744a09debf3a187a3f4f675c53b671911)
+
+
+updated-dependencies:
+- dependency-name: step-security/harden-runner
+  dependency-version: 2.13.0
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`b63e8d0`](https://github.com/OZI-Project/OZI.build/commit/b63e8d0c01ee7bb0fd1326a5663e77ad23b90334))
+
+* build(deps): bump OZI-Project/checkpoint from 1.9.1 to 1.9.5
+
+Bumps [OZI-Project/checkpoint](https://github.com/ozi-project/checkpoint) from 1.9.1 to 1.9.5.
+- [Release notes](https://github.com/ozi-project/checkpoint/releases)
+- [Commits](https://github.com/ozi-project/checkpoint/compare/b7afe55ac890df008deb75191e53f83823117f92...f475dbf6078211f784f6e7b3bb7c1b00ce0d05b9)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/checkpoint
+  dependency-version: 1.9.5
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`7093b76`](https://github.com/OZI-Project/OZI.build/commit/7093b7631fc71f7514fa0278e36a0dfee39c7629))
+
+* build(deps): bump OZI-Project/publish from 1.15.0 to 1.17.0
+
+Bumps [OZI-Project/publish](https://github.com/ozi-project/publish) from 1.15.0 to 1.17.0.
+- [Release notes](https://github.com/ozi-project/publish/releases)
+- [Commits](https://github.com/ozi-project/publish/compare/c448915d89a76028ab54f2b539ad159e3a612003...ed9bff22f51f8b70c47a326e1e73a48174a8c6d2)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/publish
+  dependency-version: 1.17.0
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`418590e`](https://github.com/OZI-Project/OZI.build/commit/418590ed77a6e12c0b118a8f8124434c99063ebd))
+
+* build(deps): bump OZI-Project/draft from 1.15.0 to 1.17.0
+
+Bumps [OZI-Project/draft](https://github.com/ozi-project/draft) from 1.15.0 to 1.17.0.
+- [Release notes](https://github.com/ozi-project/draft/releases)
+- [Commits](https://github.com/ozi-project/draft/compare/4f9117750cd22709a929ed3f36578f172a94bd41...cabcb89f38f90863aa0217f0b4b2dba02262b004)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/draft
+  dependency-version: 1.17.0
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`a1e37bd`](https://github.com/OZI-Project/OZI.build/commit/a1e37bd1842988d6a8b850bdb6f0e03d2173c3dc))
+
+* build(deps-dev): bump uv in the pip group across 1 directory
+
+Bumps the pip group with 1 update in the / directory: [uv](https://github.com/astral-sh/uv).
+
+
+Updates `uv` from 0.5.14 to 0.8.6
+- [Release notes](https://github.com/astral-sh/uv/releases)
+- [Changelog](https://github.com/astral-sh/uv/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/astral-sh/uv/compare/0.5.14...0.8.6)
+
+
+updated-dependencies:
+- dependency-name: uv
+  dependency-version: 0.8.6
+  dependency-type: direct:development
+  dependency-group: pip
+... — dependabot[bot] <support@github.com>
+([`1e49dbf`](https://github.com/OZI-Project/OZI.build/commit/1e49dbfc432960d80d751b8a0a9fd2481044025a))
+
+* build(deps): bump github/codeql-action from 3.29.2 to 3.29.7
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.29.2 to 3.29.7.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/181d5eefc20863364f96762470ba6f862bdef56b...51f77329afa6477de8c49fc9c7046c15b9a4e79d)
+
+
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-version: 3.29.7
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`9acd7e8`](https://github.com/OZI-Project/OZI.build/commit/9acd7e80670213a52d69eb8381384156963cf4cc))
+
+* build(deps): bump sphinx-sitemap from 2.6.0 to 2.7.2 in /doc
+
+Bumps [sphinx-sitemap](https://github.com/jdillard/sphinx-sitemap) from 2.6.0 to 2.7.2.
+- [Release notes](https://github.com/jdillard/sphinx-sitemap/releases)
+- [Changelog](https://github.com/jdillard/sphinx-sitemap/blob/master/CHANGELOG.rst)
+- [Commits](https://github.com/jdillard/sphinx-sitemap/compare/v2.6.0...v2.7.2)
+
+
+updated-dependencies:
+- dependency-name: sphinx-sitemap
+  dependency-version: 2.7.2
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`da57d30`](https://github.com/OZI-Project/OZI.build/commit/da57d306190c7b3eaa10d765e2567937a369e5e6))
+
+* build(deps): bump github/codeql-action from 3.29.0 to 3.29.2
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.29.0 to 3.29.2.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/ce28f5bb42b7a9f2c824e633a3f6ee835bab6858...181d5eefc20863364f96762470ba6f862bdef56b)
+
+
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-version: 3.29.2
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`0f5653a`](https://github.com/OZI-Project/OZI.build/commit/0f5653ac2051a092e7ef742a1841e572f2e82bd8))
+
+* build(deps): bump step-security/harden-runner from 2.12.1 to 2.12.2
+
+Bumps [step-security/harden-runner](https://github.com/step-security/harden-runner) from 2.12.1 to 2.12.2.
+- [Release notes](https://github.com/step-security/harden-runner/releases)
+- [Commits](https://github.com/step-security/harden-runner/compare/002fdce3c6a235733a90a27c80493a3241e56863...6c439dc8bdf85cadbbce9ed30d1c7b959517bc49)
+
+
+updated-dependencies:
+- dependency-name: step-security/harden-runner
+  dependency-version: 2.12.2
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`c1d5791`](https://github.com/OZI-Project/OZI.build/commit/c1d57911c7f7a73fa30f303231b1de436e65fb1f))
+
 ## 2.3.8 (2025-06-18)
 
 
