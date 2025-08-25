@@ -1,4 +1,141 @@
 # OZI.build CHANGELOG
+## 2.3.10 (2025-08-25)
+
+
+### Bug fixes
+
+
+* fix: specify meson version <1.9 — Eden Ross Duff, MSc <ozi.project@outlook.com>
+([`f122c1a`](https://github.com/OZI-Project/OZI.build/commit/f122c1a6404af1100faa42ebd29b22aa432dc284))
+
+
+### Build system
+
+
+* build(deps): bump OZI-Project/draft from 1.17.0 to 1.17.2
+
+Bumps [OZI-Project/draft](https://github.com/ozi-project/draft) from 1.17.0 to 1.17.2.
+- [Release notes](https://github.com/ozi-project/draft/releases)
+- [Commits](https://github.com/ozi-project/draft/compare/cabcb89f38f90863aa0217f0b4b2dba02262b004...4f3dcb71f8251f1e8238eb011aa12dd6a9020d23)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/draft
+  dependency-version: 1.17.2
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`007d2fd`](https://github.com/OZI-Project/OZI.build/commit/007d2fd3167b1b00e613a1cb4b5877bb9dd813d4))
+
+* build(deps): bump OZI-Project/publish from 1.17.0 to 1.17.2
+
+Bumps [OZI-Project/publish](https://github.com/ozi-project/publish) from 1.17.0 to 1.17.2.
+- [Release notes](https://github.com/ozi-project/publish/releases)
+- [Commits](https://github.com/ozi-project/publish/compare/ed9bff22f51f8b70c47a326e1e73a48174a8c6d2...4f60b808859fd63bd4be3bb9cc3e34d7a14c3bf7)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/publish
+  dependency-version: 1.17.2
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`6f1c0b9`](https://github.com/OZI-Project/OZI.build/commit/6f1c0b9c3133330e346b0dfe4ad01e48740322f6))
+
+* build(deps): bump OZI-Project/secure-release from 1.1.1 to 1.2.0
+
+Bumps [OZI-Project/secure-release](https://github.com/ozi-project/secure-release) from 1.1.1 to 1.2.0.
+- [Release notes](https://github.com/ozi-project/secure-release/releases)
+- [Commits](https://github.com/ozi-project/secure-release/compare/f3b39775daaaf4190e0ee655a7bbd0aa55b8b166...2ef1b3f4b10f3fee22ba26444a6324203d6e2ea4)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/secure-release
+  dependency-version: 1.2.0
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`930c8bb`](https://github.com/OZI-Project/OZI.build/commit/930c8bb5b2aa51eca7ea928e566ae6664da35bda))
+
+* build(deps): bump actions/download-artifact from 4.3.0 to 5.0.0
+
+Bumps [actions/download-artifact](https://github.com/actions/download-artifact) from 4.3.0 to 5.0.0.
+- [Release notes](https://github.com/actions/download-artifact/releases)
+- [Commits](https://github.com/actions/download-artifact/compare/d3f86a106a0bac45b974a628896c90dbdf5c8093...634f93cb2916e3fdff6788551b99b062d0335ce0)
+
+
+updated-dependencies:
+- dependency-name: actions/download-artifact
+  dependency-version: 5.0.0
+  dependency-type: direct:production
+  update-type: version-update:semver-major
+... — dependabot[bot] <support@github.com>
+([`aa557f6`](https://github.com/OZI-Project/OZI.build/commit/aa557f6f08d17c4599e29cc138490f516c7fa3f0))
+
+* build(deps): bump build from 1.2.2.post1 to 1.3.0 in /doc
+
+Bumps [build](https://github.com/pypa/build) from 1.2.2.post1 to 1.3.0.
+- [Release notes](https://github.com/pypa/build/releases)
+- [Changelog](https://github.com/pypa/build/blob/main/CHANGELOG.rst)
+- [Commits](https://github.com/pypa/build/compare/1.2.2.post1...1.3.0)
+
+
+updated-dependencies:
+- dependency-name: build
+  dependency-version: 1.3.0
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`05261ee`](https://github.com/OZI-Project/OZI.build/commit/05261ee203524e2841edc74d10af04dd40a458dc))
+
+* build(deps): bump pip-tools from 7.4.1 to 7.5.0 in /doc
+
+Bumps [pip-tools](https://github.com/jazzband/pip-tools) from 7.4.1 to 7.5.0.
+- [Release notes](https://github.com/jazzband/pip-tools/releases)
+- [Changelog](https://github.com/jazzband/pip-tools/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/jazzband/pip-tools/compare/7.4.1...v7.5.0)
+
+
+updated-dependencies:
+- dependency-name: pip-tools
+  dependency-version: 7.5.0
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`a7a140b`](https://github.com/OZI-Project/OZI.build/commit/a7a140bf98b67bea983ba93e11d6dc748c8ee7df))
+
+* build(deps): bump github/codeql-action from 3.29.7 to 3.29.11
+
+Bumps [github/codeql-action](https://github.com/github/codeql-action) from 3.29.7 to 3.29.11.
+- [Release notes](https://github.com/github/codeql-action/releases)
+- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/github/codeql-action/compare/51f77329afa6477de8c49fc9c7046c15b9a4e79d...3c3833e0f8c1c83d449a7478aa59c036a9165498)
+
+
+updated-dependencies:
+- dependency-name: github/codeql-action
+  dependency-version: 3.29.11
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`8d0ebee`](https://github.com/OZI-Project/OZI.build/commit/8d0ebee9dcb8102bf0209a366c8abdacd276ea52))
+
+* build(deps): bump charset-normalizer from 3.4.2 to 3.4.3 in /doc
+
+Bumps [charset-normalizer](https://github.com/jawah/charset_normalizer) from 3.4.2 to 3.4.3.
+- [Release notes](https://github.com/jawah/charset_normalizer/releases)
+- [Changelog](https://github.com/jawah/charset_normalizer/blob/master/CHANGELOG.md)
+- [Commits](https://github.com/jawah/charset_normalizer/compare/3.4.2...3.4.3)
+
+
+updated-dependencies:
+- dependency-name: charset-normalizer
+  dependency-version: 3.4.3
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`254bec6`](https://github.com/OZI-Project/OZI.build/commit/254bec6ec32c09fdc4a20804a7898d7342567a7a))
+
 ## 2.3.9 (2025-08-08)
 
 
