@@ -1,4 +1,20 @@
 # OZI.build CHANGELOG
+## 2.3.11 (2025-08-27)
+
+
+### Build system
+
+
+* build: update setuptools_scm pin to allow 9.x — Eden Ross Duff, MSc <ozi.project@outlook.com>
+([`00e7c42`](https://github.com/OZI-Project/OZI.build/commit/00e7c4241308e447f706378b092ad12b6bd6eb9a))
+
+
+### Unknown
+
+
+* :hammer: update dependabot — Eden Ross Duff, MSc <ozi.project@outlook.com>
+([`a21b83f`](https://github.com/OZI-Project/OZI.build/commit/a21b83f059594f77b81a4d72e421b08f3ba37e8f))
+
 ## 2.3.10 (2025-08-25)
 
 
