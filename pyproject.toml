@@ -28,7 +28,7 @@ maintainers = [{name="Eden Ross Duff MSc", email = "help@oziproject.dev"}]
 # continuous integration
 core = [
     "invoke~=2.2",
-    "setuptools_scm[toml]~=8.0",
+    "setuptools_scm[toml]>=8.0,<10.0",
     "pathvalidate~=3.2",
 ]
 pip = ["pip-tools~=7.0", "pipx~=1.5"]
