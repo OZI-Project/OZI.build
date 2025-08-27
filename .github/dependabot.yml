@@ -6,18 +6,11 @@
 version: 2
 updates:
   - package-ecosystem: "pip" # See documentation for possible values
-    directories: 
-      - "/"
-      - "!/doc"
-    schedule:
-      interval: "weekly"
-
-  - package-ecosystem: github-actions
-    directory: /
+    directory: / 
     schedule:
       interval: daily
 
-  - package-ecosystem: pip
-    directory: /doc
+  - package-ecosystem: github-actions
+    directory: /
     schedule:
       interval: daily
