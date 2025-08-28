@@ -1,4 +1,13 @@
 # OZI.build CHANGELOG
+## 2.3.12 (2025-08-28)
+
+
+### Bug fixes
+
+
+* fix: revert setuptools_scm 9.x inclusive pin — Eden Ross Duff, MSc <ozi.project@outlook.com>
+([`5a5f5f7`](https://github.com/OZI-Project/OZI.build/commit/5a5f5f7fb5dbea17e1a939312c97c0c5666a4044))
+
 ## 2.3.11 (2025-08-27)
 
 
