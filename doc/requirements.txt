@@ -58,7 +58,7 @@ packaging==25.0
     #   setuptools-scm
     #   sphinx
 invocations
-pbr==6.1.1
+pbr==7.0.1
     # via stevedore
 pip-tools==7.5.0
     # via ozi
@@ -80,7 +80,7 @@ pyproject-hooks==1.2.0
     # via
     #   build
     #   pip-tools
-requests==2.32.4
+requests==2.32.5
     # via
     #   ozi
     #   ozi-templates
