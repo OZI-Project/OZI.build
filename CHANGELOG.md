@@ -1,4 +1,171 @@
 # OZI.build CHANGELOG
+## 2.3.13 (2025-08-31)
+
+
+### Build system
+
+
+* build(deps): bump pbr from 6.1.1 to 7.0.1 in /doc
+
+Bumps [pbr](https://docs.openstack.org/pbr/latest/) from 6.1.1 to 7.0.1.
+
+
+updated-dependencies:
+- dependency-name: pbr
+  dependency-version: 7.0.1
+  dependency-type: direct:production
+  update-type: version-update:semver-major
+... — dependabot[bot] <support@github.com>
+([`c166c5c`](https://github.com/OZI-Project/OZI.build/commit/c166c5c3c9ef06f21c21471102078213dc8df45f))
+
+* build(deps-dev): bump pip from 24.3.1 to 25.2
+
+Bumps [pip](https://github.com/pypa/pip) from 24.3.1 to 25.2.
+- [Changelog](https://github.com/pypa/pip/blob/main/NEWS.rst)
+- [Commits](https://github.com/pypa/pip/compare/24.3.1...25.2)
+
+
+updated-dependencies:
+- dependency-name: pip
+  dependency-version: '25.2'
+  dependency-type: direct:development
+  update-type: version-update:semver-major
+... — dependabot[bot] <support@github.com>
+([`22d2c8c`](https://github.com/OZI-Project/OZI.build/commit/22d2c8cf698c5db23d7ba5f69eb3957f8c02c538))
+
+* build(deps-dev): bump tox-gh from 1.4.4 to 1.5.0
+
+Bumps [tox-gh](https://github.com/tox-dev/tox-gh) from 1.4.4 to 1.5.0.
+- [Release notes](https://github.com/tox-dev/tox-gh/releases)
+- [Commits](https://github.com/tox-dev/tox-gh/compare/1.4.4...1.5.0)
+
+
+updated-dependencies:
+- dependency-name: tox-gh
+  dependency-version: 1.5.0
+  dependency-type: direct:development
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`2589940`](https://github.com/OZI-Project/OZI.build/commit/2589940a01933353a5c04a5b83c2395fc2b0b0f6))
+
+* build(deps-dev): bump virtualenv from 20.28.1 to 20.34.0
+
+Bumps [virtualenv](https://github.com/pypa/virtualenv) from 20.28.1 to 20.34.0.
+- [Release notes](https://github.com/pypa/virtualenv/releases)
+- [Changelog](https://github.com/pypa/virtualenv/blob/main/docs/changelog.rst)
+- [Commits](https://github.com/pypa/virtualenv/compare/20.28.1...20.34.0)
+
+
+updated-dependencies:
+- dependency-name: virtualenv
+  dependency-version: 20.34.0
+  dependency-type: direct:development
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`a37d317`](https://github.com/OZI-Project/OZI.build/commit/a37d3175e7494d734f81eca24e62e45a6f305ec0))
+
+* build(deps): bump requests from 2.32.4 to 2.32.5 in /doc
+
+Bumps [requests](https://github.com/psf/requests) from 2.32.4 to 2.32.5.
+- [Release notes](https://github.com/psf/requests/releases)
+- [Changelog](https://github.com/psf/requests/blob/main/HISTORY.md)
+- [Commits](https://github.com/psf/requests/compare/v2.32.4...v2.32.5)
+
+
+updated-dependencies:
+- dependency-name: requests
+  dependency-version: 2.32.5
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`8169665`](https://github.com/OZI-Project/OZI.build/commit/81696653fca1525207c1a7aaba49fd187aae922a))
+
+* build(deps): bump docutils from 0.21.2 to 0.22
+
+Bumps [docutils](https://github.com/rtfd/recommonmark) from 0.21.2 to 0.22.
+- [Changelog](https://github.com/readthedocs/recommonmark/blob/master/CHANGELOG.md)
+- [Commits](https://github.com/rtfd/recommonmark/commits)
+
+
+updated-dependencies:
+- dependency-name: docutils
+  dependency-version: '0.22'
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`21f4062`](https://github.com/OZI-Project/OZI.build/commit/21f40621d7acecc47ec66d536e91eddeab94b639))
+
+* build(deps): bump actions/checkout from 4.2.2 to 5.0.0
+
+Bumps [actions/checkout](https://github.com/actions/checkout) from 4.2.2 to 5.0.0.
+- [Release notes](https://github.com/actions/checkout/releases)
+- [Changelog](https://github.com/actions/checkout/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/actions/checkout/compare/11bd71901bbe5b1630ceea73d27597364c9af683...08c6903cd8c0fde910a37f88322edcfb5dd907a8)
+
+
+updated-dependencies:
+- dependency-name: actions/checkout
+  dependency-version: 5.0.0
+  dependency-type: direct:production
+  update-type: version-update:semver-major
+... — dependabot[bot] <support@github.com>
+([`a04641e`](https://github.com/OZI-Project/OZI.build/commit/a04641e865e49b17ab46289120eebe72232cfbae))
+
+* build(deps): bump actions/dependency-review-action from 4.7.1 to 4.7.3
+
+Bumps [actions/dependency-review-action](https://github.com/actions/dependency-review-action) from 4.7.1 to 4.7.3.
+- [Release notes](https://github.com/actions/dependency-review-action/releases)
+- [Commits](https://github.com/actions/dependency-review-action/compare/da24556b548a50705dd671f47852072ea4c105d9...595b5aeba73380359d98a5e087f648dbb0edce1b)
+
+
+updated-dependencies:
+- dependency-name: actions/dependency-review-action
+  dependency-version: 4.7.3
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`c3b8ac8`](https://github.com/OZI-Project/OZI.build/commit/c3b8ac8dd4d3c654e6752ee06aa10aeda48a1634))
+
+* build(deps): bump pip-tools from 7.4.1 to 7.5.0
+
+Bumps [pip-tools](https://github.com/jazzband/pip-tools) from 7.4.1 to 7.5.0.
+- [Release notes](https://github.com/jazzband/pip-tools/releases)
+- [Changelog](https://github.com/jazzband/pip-tools/blob/main/CHANGELOG.md)
+- [Commits](https://github.com/jazzband/pip-tools/compare/7.4.1...v7.5.0)
+
+
+updated-dependencies:
+- dependency-name: pip-tools
+  dependency-version: 7.5.0
+  dependency-type: direct:production
+  update-type: version-update:semver-minor
+... — dependabot[bot] <support@github.com>
+([`82a5226`](https://github.com/OZI-Project/OZI.build/commit/82a52268a2aeef2bfe99b355556ecf23409d6006))
+
+* build(deps): bump OZI-Project/checkpoint from 1.9.5 to 1.9.9
+
+Bumps [OZI-Project/checkpoint](https://github.com/ozi-project/checkpoint) from 1.9.5 to 1.9.9.
+- [Release notes](https://github.com/ozi-project/checkpoint/releases)
+- [Commits](https://github.com/ozi-project/checkpoint/compare/f475dbf6078211f784f6e7b3bb7c1b00ce0d05b9...bc80bd040b1b6705a270fc6b111b08dfe6cde16b)
+
+
+updated-dependencies:
+- dependency-name: OZI-Project/checkpoint
+  dependency-version: 1.9.9
+  dependency-type: direct:production
+  update-type: version-update:semver-patch
+... — dependabot[bot] <support@github.com>
+([`354db3d`](https://github.com/OZI-Project/OZI.build/commit/354db3dfe00e5acc98d29a83dba7a44ed5221620))
+
+
+### Unknown
+
+
+* Revert "build(deps): bump docutils from 0.21.2 to 0.22"
+
+This reverts commit 21f40621d7acecc47ec66d536e91eddeab94b639.
+([`fa30565`](https://github.com/OZI-Project/OZI.build/commit/fa305659fd30950edc2fdad73c808ebca89c249e))
+
 ## 2.3.12 (2025-08-28)
 
 
