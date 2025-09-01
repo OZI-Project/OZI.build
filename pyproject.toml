@@ -28,7 +28,7 @@ maintainers = [{name="Eden Ross Duff MSc", email = "help@oziproject.dev"}]
 # continuous integration
 core = [
     "invoke~=2.2",
-    "setuptools_scm[toml]~=8.0",
+    "setuptools_scm[toml]>=8,<10",
     "pathvalidate~=3.2",
 ]
 pip = ["pip-tools~=7.0", "pipx~=1.5"]
@@ -89,7 +89,7 @@ requires = [
     'packaging',
     'tomli~=2.0;python_version<"3.11"',
     "setuptools>=64",
-    "setuptools_scm[toml]~=8.0",
+    "setuptools_scm[toml]>=8,<10",
     "pip-tools~=7.0",
     "pathvalidate>=3.2.1,<3.4.0",
     "cryptography",
@@ -290,7 +290,7 @@ allowlist_externals =
      rm
 package = wheel
 deps =
-    setuptools_scm[toml]~=8.0
+    setuptools_scm[toml]>=8,<10
     invoke~=2.2
     pathvalidate>=3.2.1,<3.4.0
     meson[ninja]~=1.2,<1.9
