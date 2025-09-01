@@ -85,7 +85,7 @@ Homepage = "https://oziproject.dev/"
 
 [build-system]
 requires = [
-    "meson[ninja]~=1.2,<1.9",
+    "meson[ninja]>=1.2,<2.0",
     'packaging',
     'tomli~=2.0;python_version<"3.11"',
     "setuptools>=64",
@@ -293,7 +293,7 @@ deps =
     setuptools_scm[toml]~=8.0
     invoke~=2.2
     pathvalidate~=3.2.1
-    meson[ninja]~=1.2,<1.9
+    meson[ninja]>=1.2,<2.0
     cryptography
     uv
 commands_pre =
