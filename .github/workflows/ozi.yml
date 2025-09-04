@@ -289,7 +289,7 @@ jobs:
         github-token: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Publish package distributions to PyPI
-      uses: pypa/gh-action-pypi-publish@76f52bc884231f62b9a034ebfe128415bbaabdfc
+      uses: pypa/gh-action-pypi-publish@ed0c53931b1dc9bd32cbe73a98c7f6766f8a527e
 
     - name: Create pull request
       run: gh pr create -B $HEAD_BRANCH -H $REF_NAME --title "Merge $REF_NAME into $HEAD_BRANCH" --body "$PR_BODY"
