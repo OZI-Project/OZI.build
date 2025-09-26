@@ -5,10 +5,16 @@
 
 version: 2
 updates:
-  - package-ecosystem: "pip" # See documentation for possible values
+  - package-ecosystem: "pip"
     directories:
       - '/'
-      - '!/docs'
+    schedule:
+      interval: daily
+    open-pull-requests-limit: 12
+
+  - package-ecosystem: "pip"
+    directories:
+      - '/doc/assets'
     schedule:
       interval: daily
     open-pull-requests-limit: 12
