@@ -134,6 +134,7 @@ jobs:
             index.crates.io:443
             static.crates.io:443
             dev-87evx9ru.auth0.com:443
+            release-assets.githubusercontent.com:443
 
       - uses: OZI-Project/checkpoint@9ac956be703d5eac867c022a9d2d19b5aa8c1b2b
         with:
