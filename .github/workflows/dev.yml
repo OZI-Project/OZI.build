@@ -38,7 +38,7 @@ jobs:
             oauth2.sigstore.dev:443
             dev-87evx9ru.auth0.com:443
 
-      - uses: OZI-Project/checkpoint@079b21e04671e29e3f42b18c6dbd6fe9d18ee162 # 1.9.9
+      - uses: OZI-Project/checkpoint@55d6e52dd5c4c251711d25127282eda5bf239e78 # 1.9.9
         with:
           python-version: "3.10"
 
@@ -70,7 +70,7 @@ jobs:
             oauth2.sigstore.dev:443
             dev-87evx9ru.auth0.com:443
 
-      - uses: OZI-Project/checkpoint@079b21e04671e29e3f42b18c6dbd6fe9d18ee162 # 1.9.9
+      - uses: OZI-Project/checkpoint@55d6e52dd5c4c251711d25127282eda5bf239e78 # 1.9.9
         with:
           python-version: "3.11"
 
@@ -102,7 +102,7 @@ jobs:
             oauth2.sigstore.dev:443
             dev-87evx9ru.auth0.com:443
 
-      - uses: OZI-Project/checkpoint@079b21e04671e29e3f42b18c6dbd6fe9d18ee162 # 1.9.9
+      - uses: OZI-Project/checkpoint@55d6e52dd5c4c251711d25127282eda5bf239e78 # 1.9.9
         with:
           python-version: "3.12"
 
@@ -135,6 +135,6 @@ jobs:
             static.crates.io:443
             dev-87evx9ru.auth0.com:443
 
-      - uses: OZI-Project/checkpoint@079b21e04671e29e3f42b18c6dbd6fe9d18ee162
+      - uses: OZI-Project/checkpoint@55d6e52dd5c4c251711d25127282eda5bf239e78
         with:
           python-version: "3.13"
