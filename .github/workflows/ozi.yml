@@ -38,6 +38,7 @@ jobs:
             rekor.sigstore.dev:443
             tuf-repo-cdn.sigstore.dev:443
             dev-87evx9ru.auth0.com:443
+            release-assets.githubusercontent.com:443
 
       - uses: OZI-Project/checkpoint@5c04e23edea0edcd1eb731ad465d3fb7fe5ad0d7 # 1.11.0
         with:
@@ -69,6 +70,7 @@ jobs:
             rekor.sigstore.dev:443
             tuf-repo-cdn.sigstore.dev:443
             dev-87evx9ru.auth0.com:443
+            release-assets.githubusercontent.com:443
 
       - uses: OZI-Project/checkpoint@5c04e23edea0edcd1eb731ad465d3fb7fe5ad0d7 # 1.11.0
         with:
@@ -100,6 +102,7 @@ jobs:
             rekor.sigstore.dev:443
             tuf-repo-cdn.sigstore.dev:443
             dev-87evx9ru.auth0.com:443
+            release-assets.githubusercontent.com:443
 
       - uses: OZI-Project/checkpoint@5c04e23edea0edcd1eb731ad465d3fb7fe5ad0d7 # 1.11.0
         with:
