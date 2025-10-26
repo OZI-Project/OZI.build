@@ -14,7 +14,7 @@ classifiers = [
     "Development Status :: 4 - Beta",
 ]
 dependencies = [
-    'meson[ninja]>=1.2,<1.9',
+    'meson[ninja]>=1.2,<2.0',
     'packaging',
     'tomli~=2.0;python_version<"3.11"',
 ]
@@ -297,7 +297,7 @@ deps =
     cryptography
     uv
 commands_pre =
-     uv tool install --python={env_python} --force "meson[ninja]~=1.2,<1.9"
+     uv tool install --python={env_python} --force "meson[ninja]>=1.2,<2.0"
 commands =
      meson setup {env_tmp_dir} -Dozi:{env_name}=enabled -Dozi:tox-env-dir={env_dir}
      meson compile -C {env_tmp_dir}
