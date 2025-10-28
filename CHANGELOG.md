@@ -12,6 +12,11 @@
 ### Build system
 
 
+* build(release): Remove build dependencies installation step
+
+Removed installation of build dependencies using pip. — Eden Ross Duff, MSc <ozi.project@outlook.com>
+([`6d96af9`](https://github.com/OZI-Project/OZI.build/commit/6d96af95e9a8323362cca70c8d2310d0a769099c))
+
 * build(deps): bump wcwidth from 0.2.13 to 0.2.14 in /doc/assets
 
 Bumps [wcwidth](https://github.com/jquast/wcwidth) from 0.2.13 to 0.2.14.
