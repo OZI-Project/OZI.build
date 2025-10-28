@@ -21,7 +21,7 @@ jobs:
         id-token: write
     steps:
       - name: Harden Runner
-        uses: step-security/harden-runner@ec9f2d5744a09debf3a187a3f4f675c53b671911 # v2.13.0
+        uses: step-security/harden-runner@f4a75cfd619ee5ce8d5b864b0d183aff3c69b55a # v2.13.1
         with:
           disable-sudo: true
           egress-policy: block
@@ -38,8 +38,9 @@ jobs:
             rekor.sigstore.dev:443
             tuf-repo-cdn.sigstore.dev:443
             dev-87evx9ru.auth0.com:443
+            release-assets.githubusercontent.com:443
 
-      - uses: OZI-Project/checkpoint@bc80bd040b1b6705a270fc6b111b08dfe6cde16b # 1.9.9
+      - uses: OZI-Project/checkpoint@5c04e23edea0edcd1eb731ad465d3fb7fe5ad0d7 # 1.11.0
         with:
           python-version: "3.10"
 
@@ -52,7 +53,7 @@ jobs:
         id-token: write
     steps:
       - name: Harden Runner
-        uses: step-security/harden-runner@ec9f2d5744a09debf3a187a3f4f675c53b671911 # v2.13.0
+        uses: step-security/harden-runner@f4a75cfd619ee5ce8d5b864b0d183aff3c69b55a # v2.13.1
         with:
           disable-sudo: true
           egress-policy: block
@@ -69,8 +70,9 @@ jobs:
             rekor.sigstore.dev:443
             tuf-repo-cdn.sigstore.dev:443
             dev-87evx9ru.auth0.com:443
+            release-assets.githubusercontent.com:443
 
-      - uses: OZI-Project/checkpoint@bc80bd040b1b6705a270fc6b111b08dfe6cde16b # 1.9.9
+      - uses: OZI-Project/checkpoint@5c04e23edea0edcd1eb731ad465d3fb7fe5ad0d7 # 1.11.0
         with:
           python-version: "3.11"
 
@@ -83,7 +85,7 @@ jobs:
         id-token: write
     steps:
       - name: Harden Runner
-        uses: step-security/harden-runner@ec9f2d5744a09debf3a187a3f4f675c53b671911 # v2.13.0
+        uses: step-security/harden-runner@f4a75cfd619ee5ce8d5b864b0d183aff3c69b55a # v2.13.1
         with:
           disable-sudo: true
           egress-policy: block
@@ -100,8 +102,9 @@ jobs:
             rekor.sigstore.dev:443
             tuf-repo-cdn.sigstore.dev:443
             dev-87evx9ru.auth0.com:443
+            release-assets.githubusercontent.com:443
 
-      - uses: OZI-Project/checkpoint@bc80bd040b1b6705a270fc6b111b08dfe6cde16b # 1.9.9
+      - uses: OZI-Project/checkpoint@5c04e23edea0edcd1eb731ad465d3fb7fe5ad0d7 # 1.11.0
         with:
           python-version: "3.12"
 
@@ -111,7 +114,7 @@ jobs:
     needs: [checkpoint-cp310-ubuntu-latest,checkpoint-cp311-ubuntu-latest,checkpoint-cp312-ubuntu-latest,]
     steps:
       - name: Harden Runner
-        uses: step-security/harden-runner@ec9f2d5744a09debf3a187a3f4f675c53b671911 # v2.13.0
+        uses: step-security/harden-runner@f4a75cfd619ee5ce8d5b864b0d183aff3c69b55a # v2.13.1
         with:
           disable-sudo: true
           egress-policy: block
@@ -131,7 +134,7 @@ jobs:
       tag: ${{ steps.draft.outputs.tag }}
     steps:
       - name: Harden Runner
-        uses: step-security/harden-runner@ec9f2d5744a09debf3a187a3f4f675c53b671911 # v2.13.0
+        uses: step-security/harden-runner@f4a75cfd619ee5ce8d5b864b0d183aff3c69b55a # v2.13.1
         with:
           disable-sudo: true
           egress-policy: block
@@ -139,7 +142,7 @@ jobs:
             api.github.com:443
             github.com:443
 
-      - uses: OZI-Project/draft@4f3dcb71f8251f1e8238eb011aa12dd6a9020d23 # 1.17.2
+      - uses: OZI-Project/draft@d1cca28d3fa7f004b7b21abcb945e6760246bae7 # 1.17.4
         id: draft
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -157,7 +160,7 @@ jobs:
       id-token: write
     steps:
       - name: Harden Runner
-        uses: step-security/harden-runner@ec9f2d5744a09debf3a187a3f4f675c53b671911 # v2.13.0
+        uses: step-security/harden-runner@f4a75cfd619ee5ce8d5b864b0d183aff3c69b55a # v2.13.1
         with:
           disable-sudo: true
           egress-policy: block
@@ -176,7 +179,7 @@ jobs:
             cdn03.quay.io:443
             downloads.python.org:443
 
-      - uses: actions/download-artifact@634f93cb2916e3fdff6788551b99b062d0335ce0 # v5.0.0
+      - uses: actions/download-artifact@018cc2cf5baa6db3ef3c5f8a56943fffe632ef53 # v6.0.0
         with:
           name: security2
 
@@ -220,7 +223,7 @@ jobs:
           sdist: true
           wheel-sign-token: ${{ secrets.WHEEL_SIGN_TOKEN }}
 
-      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+      - uses: actions/upload-artifact@330a01c490aca151604b8cf639adc76d48f6c5d4 # v5.0.0
         with:
           include-hidden-files: true
           path: |
@@ -240,7 +243,7 @@ jobs:
       id-token: write
       attestations: write
     steps:
-    - uses: step-security/harden-runner@ec9f2d5744a09debf3a187a3f4f675c53b671911 # v2.13.0
+    - uses: step-security/harden-runner@f4a75cfd619ee5ce8d5b864b0d183aff3c69b55a # v2.13.1
       with:
         disable-sudo: true
         egress-policy: block
@@ -255,7 +258,7 @@ jobs:
           ghcr.io:443
           pkg-containers.githubusercontent.com:443
 
-    - uses: OZI-Project/provenance@a7369a6ef4a56f442b97615539b8de23dcb1e94e
+    - uses: OZI-Project/provenance@96f6b35116d8140aaa0415fe31dddc4a4a84af2d
       with:
         release-tag: ${{ needs.draft.outputs.tag }}
 
@@ -269,7 +272,7 @@ jobs:
       id-token: write
     steps:
     - name: Harden Runner
-      uses: step-security/harden-runner@ec9f2d5744a09debf3a187a3f4f675c53b671911 # v2.13.0
+      uses: step-security/harden-runner@f4a75cfd619ee5ce8d5b864b0d183aff3c69b55a # v2.13.1
       with:
         disable-sudo: true
         egress-policy: block
@@ -284,12 +287,12 @@ jobs:
           ghcr.io:443
           pkg-containers.githubusercontent.com:443
 
-    - uses: OZI-Project/publish@4f60b808859fd63bd4be3bb9cc3e34d7a14c3bf7 # 1.17.2
+    - uses: OZI-Project/publish@4ec8a034b233d85270e2b80ab567b1691f708b02 # 1.17.4
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Publish package distributions to PyPI
-      uses: pypa/gh-action-pypi-publish@76f52bc884231f62b9a034ebfe128415bbaabdfc
+      uses: pypa/gh-action-pypi-publish@ed0c53931b1dc9bd32cbe73a98c7f6766f8a527e
 
     - name: Create pull request
       run: gh pr create -B $HEAD_BRANCH -H $REF_NAME --title "Merge $REF_NAME into $HEAD_BRANCH" --body "$PR_BODY"
