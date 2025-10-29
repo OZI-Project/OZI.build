@@ -184,6 +184,7 @@ jobs:
           name: security2
 
       - run: |
+            pip install -r .github/workflows/dev-requirements.txt
             pipx ensurepath --force
             pipx install meson --force
 
