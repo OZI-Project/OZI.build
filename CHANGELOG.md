@@ -1,5 +1,5 @@
 # OZI.build CHANGELOG
-## 2.3.14 (2025-10-28)
+## 2.3.14 (2025-10-29)
 
 
 ### Bug fixes
@@ -11,6 +11,9 @@
 
 ### Build system
 
+
+* build(release): fix requirements install path — Eden Ross Duff, MSc <ozi.project@outlook.com>
+([`4b15ad6`](https://github.com/OZI-Project/OZI.build/commit/4b15ad685a59e763411eed17341419225dbfa280))
 
 * build(release): Remove build dependencies installation step
 
