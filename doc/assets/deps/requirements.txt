@@ -99,7 +99,7 @@ snowballstemmer==3.0.1
     #   sphinx
 soupsieve==2.7
     # via beautifulsoup4
-sphinx==7.4.7
+sphinx==8.2.3
     # via
     #   -r requirements.in
     #   sphinx-design
