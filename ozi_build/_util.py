@@ -194,7 +194,7 @@ class WheelBuilder:
         ] + list(filter(None, meson_options))
         meson_configure(*args)
         config.builddir = self.builddir.name
-        if config['version'] == '%OZIBUILDVERSION%':
+        if config['version'] == '%OZIBUILDVERSION%' or config['version'] == '0.0.0':
             config['version'] = Path(os.getcwd()).name.split('-')[1]
         self.metadata_dir = create_dist_info(
             wheel_directory, builddir=self.builddir.name, config=config
