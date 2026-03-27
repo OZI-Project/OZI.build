@@ -257,7 +257,7 @@ jobs:
           ghcr.io:443
           pkg-containers.githubusercontent.com:443
 
-    - uses: OZI-Project/provenance@96f6b35116d8140aaa0415fe31dddc4a4a84af2d
+    - uses: OZI-Project/provenance@0c9501b316d7b2311e07e6c349c6465df3eed63e
       with:
         release-tag: ${{ needs.draft.outputs.tag }}
 
