@@ -117,7 +117,7 @@ sphinx-sitemap==2.9.0
     # via -r requirements.in
 sphinxawesome-codelinter==3.0.1
     # via -r requirements.in
-sphinxawesome-theme==5.3.2
+sphinxawesome-theme==6.0.0
     # via -r requirements.in
 sphinxcontrib-applehelp==2.0.0
     # via sphinx
