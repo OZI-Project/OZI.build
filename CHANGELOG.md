@@ -1,4 +1,15 @@
 # OZI.build CHANGELOG
+## 2.4.0 (2026-03-27)
+
+
+### Features
+
+
+* feat: update config for setuptools-scm >9,<11
+
+this change is not backwards compatible with previous releases due to the requirement that fallback_version be a semantic version.
+([`5ae0015`](https://github.com/OZI-Project/OZI.build/commit/5ae0015db41658df681491037c61cfd6dfc336ed))
+
 ## 2.3.15 (2026-03-27)
 
 
