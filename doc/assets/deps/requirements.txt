@@ -109,7 +109,7 @@ sphinx==9.1.0
     #   sphinxawesome-theme
     #   sphinxcontrib-programoutput
 myst-parser
-sphinx-design==0.6.1
+sphinx-design==0.7.0
     # via -r requirements.in
 sphinx-last-updated-by-git==0.3.8
     # via -r requirements.in
