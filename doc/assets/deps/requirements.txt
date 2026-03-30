@@ -70,7 +70,7 @@ prompt-toolkit==3.0.52
     # via ozi
 pydocstyle[toml]==6.3.0
     # via -r requirements.in
-pygments==2.19.2
+pygments==2.20.0
     # via
     #   doc8
     #   sphinx
