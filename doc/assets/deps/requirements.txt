@@ -80,7 +80,7 @@ pyproject-hooks==1.2.0
     # via
     #   build
     #   pip-tools
-requests==2.33.0
+requests==2.33.1
     # via
     #   ozi
     #   ozi-templates
