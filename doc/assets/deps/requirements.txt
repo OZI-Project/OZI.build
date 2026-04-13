@@ -10,7 +10,7 @@ babel==2.18.0
     # via sphinx
 beautifulsoup4==4.14.3
     # via sphinxawesome-theme
-build==1.4.2
+build==1.4.3
     # via pip-tools
 certifi==2026.2.25
     # via requests
